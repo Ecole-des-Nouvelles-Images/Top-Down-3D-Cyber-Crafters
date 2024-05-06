@@ -6,7 +6,10 @@ using UnityEngine.InputSystem;
 
 public class Trap : MonoBehaviour
 {
+    public bool isActivable = false;
     public bool isActivated = false;
+
+    public GameObject DangerZone;
 
     public float cooldownTime;
     private float _timer;
@@ -18,8 +21,9 @@ public class Trap : MonoBehaviour
     // private PlayerInput _playerInput;
 
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
+        DangerZone.SetActive(false);
     }
 
     // Update is called once per frame
@@ -40,7 +44,15 @@ public class Trap : MonoBehaviour
 
     public virtual void TriggerTrap()
     {
-        
+        if (!isActivated && isActivable)
+        {
+            DangerZone.SetActive(true);
+            isActivated = true;
+        }
+        else
+        {
+            Debug.Log("Trap in CoolDown");
+        }
     }
 
     // Active l'actionMap du piège quand le joueur prend son contrôle

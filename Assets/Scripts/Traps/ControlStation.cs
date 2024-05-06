@@ -18,6 +18,7 @@ public class ControlStation : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             uiGameObject.SetActive(true);
+            trap.isActivable = true;
         }
     }
 
@@ -26,6 +27,7 @@ public class ControlStation : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             uiGameObject.SetActive(false);
+            trap.isActivable = false;
         }
     }
 
