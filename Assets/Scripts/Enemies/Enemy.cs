@@ -1,38 +1,74 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
+using Train.Wagon;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : MonoBehaviour
+namespace Enemies
 {
-    //private EnemyManager = _parentManager;
-
-    public NavMeshAgent navMeshAgent;
-
-    public Animator animator;
-
-    public int healthPoints;
-    // Start is called before the first frame update
-    void Start()
+    public class Enemy : MonoBehaviour
     {
-        
-    }
+        [Header("Variables Globales")] [SerializeField]
+        private EnemiesManager parentManager; // Manager
+        public SteamPipe targetedSteamPipe; // SteamPipe visé Par L'Ennemi
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        [Header("Variables Locales")] 
+        public NavMeshAgent navMeshAgent;
+        public bool inTrain; // Pour vérifier si l'Ennemi est présent à bord du Train (Pour des Manipulations Physiques en rapport avec le Spawn)
+        public int healthPoints;
 
-    public void SlowDown()
-    {
-        navMeshAgent.isStopped = true;
-        animator.SetBool("isSlowed", true);
-    }
+        private void Awake()
+        {
+            throw new NotImplementedException();
+        }
 
-    public void ResetSpeed()
-    {
-        navMeshAgent.isStopped = false;
-        animator.SetBool("isSlowed", false);
+        private void Start()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Update()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void OnDestroy()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddSteamPipe(SteamPipe steamPipe) {
+            targetedSteamPipe = steamPipe;
+            navMeshAgent.destination = targetedSteamPipe.gameObject.transform.position;
+        }
+
+        private void OnTriggerStay(Collider other)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void TakeDamage(int damage) {
+            healthPoints -= damage;
+            if (healthPoints <= 0) { Destroy(gameObject); }
+        }
+
+        public void SlowDown()
+        {
+            
+        }
+
+        public void ResetSpeed()
+        {
+            
+        }
     }
 }
