@@ -1,10 +1,8 @@
-using System;
 using Enemies;
 using Player;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 namespace Train.Wagon
 {
