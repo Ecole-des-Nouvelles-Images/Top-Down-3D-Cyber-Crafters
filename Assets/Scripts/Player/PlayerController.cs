@@ -121,15 +121,18 @@ namespace Player
         }
 
         private void OnTriggerStay(Collider other) {
+            // Activation pièges 
             if (other.CompareTag("Trap")) {
                 if (_buttonAPressed) {
-                    // ACTIVATION DU PIEGE
+                    other.GetComponentInParent<ControlStation>().TriggerTrap();
                     _buttonAPressed = false;
                 }
             }
+            // Activation Station de contrôle de la tourelle 
             if (other.CompareTag("ControlStation")) {
                 if (_buttonAPressed) {
-                    // ON CONTROL STATION
+                    //Activer TourelleTrap et changer InputActionMap
+                    other.GetComponentInParent<TourelleTrap>().OnControlStation(this);
                     _buttonAPressed = false;
                 }
             }
