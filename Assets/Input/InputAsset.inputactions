@@ -2,7 +2,7 @@
     "name": "InputAsset",
     "maps": [
         {
-            "name": "Player Interractions Move",
+            "name": "Gameplay",
             "id": "f5714ab9-7059-452a-9785-13dc5ae46959",
             "actions": [
                 {
@@ -154,7 +154,7 @@
             ]
         },
         {
-            "name": "Tourelle",
+            "name": "Turret",
             "id": "8686dd0f-d4b2-4466-bb68-ee1ead41646b",
             "actions": [
                 {

@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class TourelleTrap : MonoBehaviour
 {
+    public Animator animator;
     public float turnSpeed = 10f;
     private PlayerInput _playerInput;
     bool _isActivated = false;
@@ -35,11 +36,12 @@ public class TourelleTrap : MonoBehaviour
         {
             //Rotation de le tourelle
             Vector2 input = _playerInput.currentActionMap.FindAction("Aim").ReadValue<Vector2>();
-            foreach (MeshRenderer childMr in childsMeshRenderers)
-            {
-                childMr.material.color = _playerInput.GetComponent<PlayerController>().playerMesh
-                    .GetComponent<SkinnedMeshRenderer>().material.color;
-            }
+            // Qu est ce ???
+            // foreach (MeshRenderer childMr in childsMeshRenderers)
+            // {
+            //     childMr.material.color = _playerInput.GetComponent<PlayerController>().playerMesh
+            //         .GetComponent<SkinnedMeshRenderer>().material.color;
+            // }
 
             //Calculs par rapport à la camera
             Vector3 cameraForward = mainCamera.transform.forward;
@@ -53,6 +55,7 @@ public class TourelleTrap : MonoBehaviour
             // Vérifiez si l'entrée du joystick est égale à zéro
             if (input.magnitude > 0)
             {
+                animator.SetBool("isAiming", true);
                 // Calculez l'angle cible en utilisant Mathf.Atan2 pour obtenir l'angle en radians, puis convertissez-le en degrés
                 float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
 
@@ -66,6 +69,7 @@ public class TourelleTrap : MonoBehaviour
                 Tourelle.transform.rotation = Quaternion.RotateTowards(Tourelle.transform.rotation, targetRotation,
                     turnSpeed * Time.deltaTime);
             }
+            else animator.SetBool("isAiming", false);
 
             //Gérer le tir ( shoot in the actionMap )
             if (_playerInput.actions["Shoot"].WasPressedThisFrame() && Time.time > nextFireTime)
