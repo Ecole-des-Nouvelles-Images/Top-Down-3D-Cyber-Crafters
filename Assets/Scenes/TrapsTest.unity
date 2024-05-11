@@ -852,6 +852,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RessortTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 4253344603463556444, guid: d43db5ff8d9ae304e80fbcc111bc132e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5300788140470453644, guid: d43db5ff8d9ae304e80fbcc111bc132e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -979,11 +984,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 'TrappeTrap '
-      objectReference: {fileID: 0}
-    - target: {fileID: 5151040044684096297, guid: 771ae398cc878f04c88194b950b4456e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -7,12 +7,14 @@ using UnityEngine.InputSystem;
 public class ControlStation : MonoBehaviour
 {
     public MeshRenderer buttonMeshRenderer;
+    public Animator animator;
     public GameObject dangerZone;
     public bool alreadyPressed;
     private float _cooldownTime = 5f;
     private float _timer;
 
     public Trap trap;
+    
 
     private void Awake()
     {
@@ -29,6 +31,7 @@ public class ControlStation : MonoBehaviour
         // Verifie que le piege n'est plus actif. 
         if (_timer >= _cooldownTime && !trap.isActivated)
         {
+            animator.SetBool("isActivated", false);
             buttonMeshRenderer.material.color = Color.red;
             alreadyPressed = false;
            // dangerZone.SetActive(false);
@@ -43,6 +46,7 @@ public class ControlStation : MonoBehaviour
         {
             trap.ActivateTrap();
             buttonMeshRenderer.material.color = Color.green;
+            animator.SetBool("isActivated", true);
             alreadyPressed = true;
             _timer = 0;
         }
