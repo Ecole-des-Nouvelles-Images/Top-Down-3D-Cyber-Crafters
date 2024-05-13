@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Train.Wagon;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -17,13 +18,16 @@ namespace Enemies
         public int currentWave; // Numéro de la Vague Actuelle
         public int lastWave; // Permet de Vérifier si il faut incrémenter le nombre d'ennemis
         public int enemiesNumber; // Nombre d'ennemis pour la vague actuelle (S'incrémente toutes les Vagues à voir dans la logique)
+        public int tankNumber;
+        public int fastNumber;
+        public int neutralNumber;
         public bool spawnEnemies; // Booléen permettant de lancer le spawn des Ennemis
         private float _spawnDelay; // Timer de spawn des Ennemis;
         private bool _spawnTimerOn; // Booléen d'activation du Timer
         private bool _firstWave; // Booléen pour vérifier si il s'agit de la première vague
         private float _firstWaveTimer; // Timer du Spawn de la Première Vague
         private bool _maxEnemiesSpawned; // Permet de stopper le spawn des Ennemis lorsque enemiesNumber est atteint
-        public GameObject finishedWaveIndicator; // Objet d'UI pour montrer qu'une Vague est finie
+        //public GameObject finishedWaveIndicator; // Objet d'UI pour montrer qu'une Vague est finie
         
         [Header("Objets Locaux")] 
         public List<Enemy> enemies = new List<Enemy>(); // Ennemis Enfants en Vie
@@ -36,17 +40,25 @@ namespace Enemies
             _spawnDelay = 0;
             currentSteamPipeManager = FindObjectOfType<SteamPipeManager>();
             _firstWave = true;
-            finishedWaveIndicator.SetActive(false);
+            //finishedWaveIndicator.SetActive(false);
         }
 
         [ContextMenu("Star next Wave")] // Méthode d'initialisation d'une Wave (Avec l'incrément)
         public void StartWave() {
-            finishedWaveIndicator.SetActive(false);
+            //finishedWaveIndicator.SetActive(false);
             _teleportedEnemies.Clear();
             _maxEnemiesSpawned = false;
             currentWave += 1;
-            if (lastWave > currentWave) { enemiesNumber += 10; lastWave += 1; } // Incrémentation de la vague et du Nombre d'Ennemis à Spawner
+            if (lastWave > currentWave) { //enemiesNumber += 10;
+                lastWave += 1; } // Incrémentation de la vague et du Nombre d'Ennemis à Spawner
             spawnEnemies = true;
+        }
+        
+        public void CreateEnemy(Enemy.EnemyType enemyType, Vector3 position, Quaternion rotation)
+        {
+            GameObject enemy = Instantiate(enemyPrefab, position, rotation, transform);
+            enemy.GetComponent<Enemy>().enemyType = enemyType;
+            enemy.GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
 
         private void Update() {
@@ -61,11 +73,9 @@ namespace Enemies
                 spawnEnemies = false;
                 _spawnTimerOn = true;
             }
-            if (!_maxEnemiesSpawned && spawnEnemies) { EnemySpawn(); } // Spawner les Ennemis
-            if (_maxEnemiesSpawned) { // Lancement de la Téléportation
-                if (_spawnTimerOn) { _spawnDelay += Time.deltaTime; }
-                if (_spawnDelay >= 1) { TeleportEnemiesToTrain(); _spawnDelay = 0; }
-            }
+            if (!_maxEnemiesSpawned && spawnEnemies) { EnemySpawn();
+                _maxEnemiesSpawned = true;
+            } // Spawner les Ennemis
         }
 
         public void AddChild(Enemy child) { // Méthode appellée par les Ennemis pour s'ajouter à la liste du Manager une fois Spawn
@@ -73,29 +83,12 @@ namespace Enemies
         }
 
         private void EnemySpawn() { // Instantiation des Ennemis au point de Spawn
-            GameObject newEnemy = Instantiate(enemyPrefab, enemiesSpawnAnchor.position, enemiesSpawnAnchor.rotation, transform);
-            newEnemy.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            StartCoroutine(SpawnTankEnemies(tankNumber));
+            StartCoroutine(SpawnFastEnemies(fastNumber));
+            StartCoroutine(SpawnNeutralEnemies(neutralNumber));
             SortEnemies();
-        }
-
-        private void TeleportEnemiesToTrain() { // Méthode de Téléportation des Ennemis un par un au Train
-            foreach (Enemy enemy in enemies) {
-                if (!enemy.inTrain) {
-                    enemy.GetComponent<NavMeshAgent>().enabled = false;
-                    enemy.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                    enemy.transform.position = transform.position; // Le Transform.Position correspond aux coordonnées ->
-                    // de l'Enemy Spawner qui contient le script à un Endroit Fixe à l'entrée d'un Wagon
-                    enemy.inTrain = true;
-                    enemy.GetComponent<NavMeshAgent>().enabled = true;
-                    enemy.GetComponent<NavMeshAgent>().SetDestination(enemy.targetedSteamPipe.transform.position);
-                    _teleportedEnemies.Add(enemy);
-                    break;
-                }
-            }
-            if (_teleportedEnemies.Count >= enemiesNumber) {
-                _spawnTimerOn = false;
-                _teleportedEnemies.Clear();
-            }
+            StartCoroutine(TeleportEnemiesToTrain());
+            _maxEnemiesSpawned = false;
         }
 
         public void SortEnemies() { // Tri des Ennemis selon les SteamPipes actifs
@@ -131,6 +124,50 @@ namespace Enemies
                 enemy.GetComponent<NavMeshAgent>().enabled = true;
                 SortEnemies();
                 yield return new WaitForSeconds(1);
+            }
+        } 
+        
+        private IEnumerator TeleportEnemiesToTrain() 
+        {
+            foreach (Enemy enemy in enemies)
+            {
+                if (enemy.inTrain) { continue; }
+                Rigidbody rb = enemy.GetComponent<Rigidbody>();
+                rb.velocity = Vector3.zero;
+                enemy.GetComponent<NavMeshAgent>().enabled = false;
+                enemy.transform.position = new Vector3(transform.position.x, 1, transform.position.z + 1);
+                enemy.GetComponent<NavMeshAgent>().enabled = true;
+                enemy.inTrain = true;
+                SortEnemies();
+                yield return new WaitForSeconds(1);
+            }
+        }
+        
+        
+        private IEnumerator SpawnTankEnemies(int number)
+        {
+            for (int i = 0; i < number; i++)
+            {
+                CreateEnemy(Enemy.EnemyType.Tank, enemiesSpawnAnchor.position, enemiesSpawnAnchor.rotation);
+                yield return new WaitForSeconds(0.01f); // Ajuster le délai entre chaque spawn
+            }
+        }
+
+        private IEnumerator SpawnFastEnemies(int number)
+        {
+            for (int i = 0; i < number; i++)
+            {
+                CreateEnemy(Enemy.EnemyType.Fast, enemiesSpawnAnchor.position, enemiesSpawnAnchor.rotation);
+                yield return new WaitForSeconds(0.01f); // Ajuster le délai entre chaque spawn
+            }
+        }
+
+        private IEnumerator SpawnNeutralEnemies(int number)
+        {
+            for (int i = 0; i < number; i++)
+            {
+                CreateEnemy(Enemy.EnemyType.Neutral, enemiesSpawnAnchor.position, enemiesSpawnAnchor.rotation);
+                yield return new WaitForSeconds(0.01f); // Ajuster le délai entre chaque spawn
             }
         }
     }

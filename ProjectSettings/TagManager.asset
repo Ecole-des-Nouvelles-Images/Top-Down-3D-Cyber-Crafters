@@ -9,6 +9,7 @@ TagManager:
   - Visual
   - Trap
   - ControlStation
+  - Enemy
   layers:
   - Default
   - TransparentFX
