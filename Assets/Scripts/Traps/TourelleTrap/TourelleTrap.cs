@@ -68,6 +68,8 @@ public class TourelleTrap : MonoBehaviour
                 // Utilisez Quaternion.RotateTowards pour faire pivoter la tourelle vers la rotation cible à une vitesse constante
                 Tourelle.transform.rotation = Quaternion.RotateTowards(Tourelle.transform.rotation, targetRotation,
                     turnSpeed * Time.deltaTime);
+                //Changez la vitesse de l'animation de la tourelle en fonction de la vitesse de rotation
+                animator.SetFloat("rotation", input.x);
             }
             else animator.SetBool("isAiming", false);
 
