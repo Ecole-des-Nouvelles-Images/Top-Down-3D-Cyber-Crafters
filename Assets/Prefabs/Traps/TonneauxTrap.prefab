@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6787113264958618716
 Transform:
   m_ObjectHideFlags: 0
@@ -50,7 +50,7 @@ MonoBehaviour:
   animator: {fileID: 4056687550261425045}
   dangerZone: {fileID: 5117967100124498979}
   alreadyPressed: 0
-  trap: {fileID: 2330208883616141810}
+  trap: {fileID: 4188384266515455277}
 --- !u!1 &768097095089725111
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,14 +245,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4134877118954352458}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2054989741306864296}
   m_Father: {fileID: 6787113264958618716}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5117967100124498979
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,9 +262,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2054989741306864296}
-  - component: {fileID: 6449617767795873207}
   - component: {fileID: 606032278403552034}
-  - component: {fileID: 2330208883616141810}
+  - component: {fileID: 4188384266515455277}
   m_Layer: 0
   m_Name: DangerZone
   m_TagString: Untagged
@@ -288,27 +287,6 @@ Transform:
   - {fileID: 5216864355559487298}
   m_Father: {fileID: 6659693853421544002}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &6449617767795873207
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5117967100124498979}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2, y: 2, z: 4}
-  m_Center: {x: 0, y: 0, z: -4}
 --- !u!95 &606032278403552034
 Animator:
   serializedVersion: 5
@@ -330,7 +308,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2330208883616141810
+--- !u!114 &4188384266515455277
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -339,12 +317,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5117967100124498979}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ccdea6f7a34cd448a94297226baa2e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 630ac7415c565644fac847aec7481d99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isActivated: 0
-  enclume: {fileID: 3395804874062410291, guid: d69d91dead50dd74b93233c6509225b5, type: 3}
-  enclumeSpawnPoint: {fileID: 5216864355559487298}
+  tonneaux: {fileID: 7804098785456055434, guid: 404d7af81f34ab446a0ae10c0ecfc8ba,
+    type: 3}
+  tonneauxSpawnPoint: {fileID: 5216864355559487298}
   animator: {fileID: 606032278403552034}
 --- !u!1 &5211871505806585628
 GameObject:
@@ -567,7 +546,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5216864355559487298}
   m_Layer: 0
-  m_Name: EnclumeSpawn
+  m_Name: TonneauxSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -582,7 +561,7 @@ Transform:
   m_GameObject: {fileID: 8662218669799071451}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4, z: -4}
+  m_LocalPosition: {x: 4, y: 2.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

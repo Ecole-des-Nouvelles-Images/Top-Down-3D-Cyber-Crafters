@@ -942,12 +942,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!95 &2949005209265156562 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 606032278403552034, guid: 9709378938e9f344b9441c52f2c9921c,
-    type: 3}
-  m_PrefabInstance: {fileID: 3573445498853073373}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3573445498853073373
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -964,48 +958,13 @@ PrefabInstance:
     - target: {fileID: 169668159693970988, guid: 9709378938e9f344b9441c52f2c9921c,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3291620337237557483, guid: 9709378938e9f344b9441c52f2c9921c,
         type: 3}
       propertyPath: uiGameObject
       value: 
       objectReference: {fileID: 7738527}
-    - target: {fileID: 5216864355559487298, guid: 9709378938e9f344b9441c52f2c9921c,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5216864355559487298, guid: 9709378938e9f344b9441c52f2c9921c,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.21
-      objectReference: {fileID: 0}
-    - target: {fileID: 5216864355559487298, guid: 9709378938e9f344b9441c52f2c9921c,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6659693853421544002, guid: 9709378938e9f344b9441c52f2c9921c,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6659693853421544002, guid: 9709378938e9f344b9441c52f2c9921c,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6659693853421544002, guid: 9709378938e9f344b9441c52f2c9921c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6701283162608937349, guid: 9709378938e9f344b9441c52f2c9921c,
-        type: 3}
-      propertyPath: trap
-      value: 
-      objectReference: {fileID: 4451104258990951810}
     - target: {fileID: 6787113264958618716, guid: 9709378938e9f344b9441c52f2c9921c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1056,21 +1015,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8662218669799071451, guid: 9709378938e9f344b9441c52f2c9921c,
-        type: 3}
-      propertyPath: m_Name
-      value: TonneauxSpawn
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6449617767795873207, guid: 9709378938e9f344b9441c52f2c9921c, type: 3}
-    - {fileID: 2330208883616141810, guid: 9709378938e9f344b9441c52f2c9921c, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5117967100124498979, guid: 9709378938e9f344b9441c52f2c9921c,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4451104258990951810}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9709378938e9f344b9441c52f2c9921c, type: 3}
 --- !u!4 &3669415644826404184
 Transform:
@@ -1182,35 +1130,6 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 597dff097805c734a876879e375fc2b1, type: 2}
   m_BuildHeightMesh: 0
---- !u!1 &4451104258990951809 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5117967100124498979, guid: 9709378938e9f344b9441c52f2c9921c,
-    type: 3}
-  m_PrefabInstance: {fileID: 3573445498853073373}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4451104258990951810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4451104258990951809}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 630ac7415c565644fac847aec7481d99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isActivated: 0
-  tonneaux: {fileID: 7804098785456055434, guid: 404d7af81f34ab446a0ae10c0ecfc8ba,
-    type: 3}
-  tonneauxSpawnPoint: {fileID: 5606007670024445563}
-  animator: {fileID: 2949005209265156562}
---- !u!4 &5606007670024445563 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5216864355559487298, guid: 9709378938e9f344b9441c52f2c9921c,
-    type: 3}
-  m_PrefabInstance: {fileID: 3573445498853073373}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5800127194071829097
 PrefabInstance:
   m_ObjectHideFlags: 0

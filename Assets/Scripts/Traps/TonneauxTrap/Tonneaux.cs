@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Tonneaux : MonoBehaviour
 {
-    public float force = 10f;
+    public float force = 5f;
 
     private Rigidbody rb;
 
