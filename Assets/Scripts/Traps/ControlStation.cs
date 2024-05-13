@@ -6,49 +6,38 @@ using UnityEngine.InputSystem;
 
 public class ControlStation : MonoBehaviour
 {
-    public MeshRenderer buttonMeshRenderer;
-    public Animator animator;
-    public GameObject dangerZone;
-    public bool alreadyPressed;
-    private float _cooldownTime = 5f;
-    private float _timer;
-
+    public GameObject uiGameObject;
     public Trap trap;
-    
-
     private void Awake()
     {
-        // dangerZone.SetActive(false);
+        uiGameObject.SetActive(false);
     }
-
-    private void Update()
+    
+    private void OnTriggerEnter(Collider other)
     {
-        if (alreadyPressed)
+        if (other.CompareTag("Player"))
         {
-            _timer += Time.deltaTime;
-        }
-
-        // Verifie que le piege n'est plus actif. 
-        if (_timer >= _cooldownTime && !trap.isActivated)
-        {
-            animator.SetBool("isActivated", false);
-            buttonMeshRenderer.material.color = Color.red;
-            alreadyPressed = false;
-           // dangerZone.SetActive(false);
-            
-           _timer = 0;
+            uiGameObject.SetActive(true);
+            trap.isActivable = true;
         }
     }
 
-    public void TriggerTrap()
+    private void OnTriggerExit(Collider other)
     {
-        if (!alreadyPressed)
+        if (other.CompareTag("Player"))
         {
-            trap.ActivateTrap();
-            buttonMeshRenderer.material.color = Color.green;
-            animator.SetBool("isActivated", true);
-            alreadyPressed = true;
-            _timer = 0;
+            uiGameObject.SetActive(false);
+            trap.isActivable = false;
         }
     }
+
+    public void ActivateTrap()
+    {
+        if (trap.isActivated == false)
+        {
+            trap.isActivated = true;
+        }
+        else Debug.Log("Trap in Cooldown");
+    }
+
 }
