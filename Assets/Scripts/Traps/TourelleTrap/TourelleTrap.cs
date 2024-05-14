@@ -18,10 +18,14 @@ public class TourelleTrap : MonoBehaviour
     public List<MeshRenderer> childsMeshRenderers = new List<MeshRenderer>();
     private Color _baseColor;
 
+    [Header("SFX")] public AudioClip shotClip;
+    public AudioClip aimingClip;
+    public AudioSource audioSource;
+
     public GameObject Tourelle;
 
     private Quaternion _initialRotation;
-
+    private bool isAiming;
 
     private void Awake()
     {
@@ -55,6 +59,15 @@ public class TourelleTrap : MonoBehaviour
             // Vérifiez si l'entrée du joystick est égale à zéro
             if (input.magnitude > 0)
             {
+                //SFX
+                if (!isAiming)
+                {
+                    audioSource.clip = aimingClip;
+                    audioSource.loop = true;
+                    audioSource.Play();
+                    isAiming = true;
+                }
+                //Animation Vanne
                 animator.SetBool("isAiming", true);
                 // Calculez l'angle cible en utilisant Mathf.Atan2 pour obtenir l'angle en radians, puis convertissez-le en degrés
                 float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
@@ -68,14 +81,22 @@ public class TourelleTrap : MonoBehaviour
                 // Utilisez Quaternion.RotateTowards pour faire pivoter la tourelle vers la rotation cible à une vitesse constante
                 Tourelle.transform.rotation = Quaternion.RotateTowards(Tourelle.transform.rotation, targetRotation,
                     turnSpeed * Time.deltaTime);
-                //Changez la vitesse de l'animation de la tourelle en fonction de la vitesse de rotation
+                //Changez le sens de rotation de la vanne en fonction de la visée du joueur
                 animator.SetFloat("rotation", input.x);
             }
-            else animator.SetBool("isAiming", false);
+            else
+            {
+                animator.SetBool("isAiming", false);
+                isAiming = false;
+                audioSource.clip = null;
+            }
 
             //Gérer le tir ( shoot in the actionMap )
             if (_playerInput.actions["Shoot"].WasPressedThisFrame() && Time.time > nextFireTime)
             {
+                //SFX
+                audioSource.PlayOneShot(shotClip);
+                //Instancie la balle
                 GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
                 Rigidbody rb = bullet.GetComponent<Rigidbody>();
                 // Utilisez la rotation de la tourelle pour définir la direction initiale de la balle
