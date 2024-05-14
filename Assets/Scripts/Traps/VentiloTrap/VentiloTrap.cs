@@ -7,6 +7,13 @@ public class VentiloTrap : Trap
     public ParticleSystem ventiloParticleSystem;
     public Animator animator;
 
+    [HeaderAttribute("SFX")]
+    public AudioClip ventiloStartSound;
+
+    public AudioClip ventiloRunningSound;
+    public AudioClip ventiloStopSound;
+    public AudioSource audioSource;
+    
     public float trapDuration;
     private float timer;
 
@@ -22,6 +29,8 @@ public class VentiloTrap : Trap
                 //Lancement de l'animation d'arrêt du piège. 
                 animator.SetTrigger("stopTrap");
                 isActivated = false;
+                audioSource.Stop();
+                audioSource.PlayOneShot(ventiloStopSound);
             }
         }
     }
@@ -29,6 +38,7 @@ public class VentiloTrap : Trap
     {
         // Animation de mise en place du piège.
         animator.SetTrigger("activateTrap");
+        audioSource.PlayOneShot(ventiloStartSound);
     }
 
     // Appelé par l'Event de l'animator à la fin de la mise en route du piège. 
@@ -37,6 +47,9 @@ public class VentiloTrap : Trap
         isActivated = true;
         timer = 0;
         ventiloParticleSystem.Play();
+        audioSource.clip = ventiloRunningSound;
+        audioSource.loop = true;
+        audioSource.Play();
     }
 
     // Appelé par l'Event de l'animator à la fin de l'arrêt du piège.
