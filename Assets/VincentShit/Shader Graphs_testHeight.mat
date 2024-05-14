@@ -44,9 +44,9 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _displacementAmount: 14.11
+    - _displacementAmount: 4.41
     - _moveSpeed: 0.1
-    - _noiseScale: 18
+    - _noiseScale: 65.15
     m_Colors:
     - _Color: {r: 0.18449974, g: 0.4716981, b: 0.14907439, a: 0}
   m_BuildTextureStacks: []
