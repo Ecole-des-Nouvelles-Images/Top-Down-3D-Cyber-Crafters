@@ -19,6 +19,8 @@ namespace Enemies {
         public NavMeshAgent navMeshAgent;
         public bool inTrain; // Pour vérifier si l'Ennemi est présent à bord du Train (Pour des Manipulations Physiques en rapport avec le Spawn)
         public int healthPoints;
+        public int attackPoints;
+        public int speed;
         public List<GameObject> Models = new List<GameObject>();
         public enum EnemyType {
             Tank,
@@ -42,18 +44,30 @@ namespace Enemies {
                     Vector3 position = new Vector3(transform.position.x, transform.position.y + 1.25f, transform.position.z);
                     GameObject model = Instantiate(Models[0], position, transform.rotation, transform);
                     _animator = model.GetComponent<Animator>();
+                    healthPoints = 30;
+                    attackPoints = 15;
+                    speed = 2;
+                    model.GetComponent<MeshRenderer>().material.color = Color.red;
                     break;
                 }
                 case EnemyType.Fast: {
                     Vector3 position = new Vector3(transform.position.x, transform.position.y + 0.75f, transform.position.z);
                     GameObject model = Instantiate(Models[1], position, transform.rotation, transform);
                     _animator = model.GetComponent<Animator>();
+                    healthPoints = 10;
+                    attackPoints = 5;
+                    speed = 6;
+                    model.GetComponent<MeshRenderer>().material.color = Color.yellow;
                     break;
                 }
                 case EnemyType.Neutral: {
                     Vector3 position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
                     GameObject model = Instantiate(Models[2], position, transform.rotation, transform);
                     _animator = model.GetComponent<Animator>();
+                    healthPoints = 25;
+                    attackPoints = 10;
+                    speed = 4;
+                    model.GetComponent<MeshRenderer>().material.color = Color.green;
                     break;
                 }
             }
