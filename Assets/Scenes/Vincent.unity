@@ -306,7 +306,7 @@ MonoBehaviour:
   enemiesSpawnAnchor: {fileID: 500586035}
   currentWave: 0
   lastWave: 0
-  enemiesNumber: 8
+  enemiesNumber: 6
   tankNumber: 2
   fastNumber: 2
   neutralNumber: 2
