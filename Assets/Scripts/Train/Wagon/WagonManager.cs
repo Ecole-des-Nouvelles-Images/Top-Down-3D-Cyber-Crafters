@@ -31,7 +31,7 @@ namespace Train.Wagon
             localSteamPipeManager = GetComponentInChildren<SteamPipeManager>();
             playerManager = FindObjectOfType<PlayerManager>();
             enemyManager = FindObjectOfType<EnemiesManager>();
-            train = transform.parent.gameObject;
+            //train = transform.parent.gameObject;
 
             // Initialisation du Wagon
             // Désactiver la porte de sortie et TOUTES ses variables pour ne pas provoquer de transition sans l'avoir trigger
