@@ -23,6 +23,7 @@ namespace Enemies
         public int neutralNumber;
         public bool spawnEnemies; // Booléen permettant de lancer le spawn des Ennemis
         private float _spawnDelay; // Timer de spawn des Ennemis;
+        private bool _areEnemiesTeleported;
         private bool _spawnTimerOn; // Booléen d'activation du Timer
         private bool _firstWave; // Booléen pour vérifier si il s'agit de la première vague
         private float _firstWaveTimer; // Timer du Spawn de la Première Vague
@@ -44,7 +45,9 @@ namespace Enemies
         }
 
         [ContextMenu("Star next Wave")] // Méthode d'initialisation d'une Wave (Avec l'incrément)
-        public void StartWave() {
+        public void StartWave()
+        {
+            _areEnemiesTeleported = false;
             //finishedWaveIndicator.SetActive(false);
             _teleportedEnemies.Clear();
             _maxEnemiesSpawned = false;
@@ -73,7 +76,8 @@ namespace Enemies
                 spawnEnemies = false;
                 _spawnTimerOn = true;
             }
-            if (!_maxEnemiesSpawned && spawnEnemies) { EnemySpawn();
+            if (!_maxEnemiesSpawned && spawnEnemies) { 
+                EnemySpawn();
                 _maxEnemiesSpawned = true;
             } // Spawner les Ennemis
         }
@@ -87,7 +91,6 @@ namespace Enemies
             StartCoroutine(SpawnFastEnemies(fastNumber));
             StartCoroutine(SpawnNeutralEnemies(neutralNumber));
             SortEnemies();
-            StartCoroutine(TeleportEnemiesToTrain());
             _maxEnemiesSpawned = false;
         }
 
@@ -110,6 +113,11 @@ namespace Enemies
         
         private void FixedUpdate() {
             foreach (Enemy enemy in enemies) { if (enemy.enabled == false) { enemy.enabled = true; } }
+
+            if (_maxEnemiesSpawned && !_areEnemiesTeleported && _spawnTimerOn)
+            {
+                StartCoroutine(TeleportEnemiesToTrain());
+            }
         } // Il arrive que les script d'enemis se désactivent je sais pas pourquoi, donc il faut les spam pour qu'ils restent activés
 
         private IEnumerator GoToNextWagon() // GLOBALEMENT LA MÊME CHOSE QUE TeleportEnemiesToTrain MAIS UN PEU DIFFÉRENT
@@ -127,8 +135,9 @@ namespace Enemies
             }
         } 
         
-        private IEnumerator TeleportEnemiesToTrain() 
+        private IEnumerator TeleportEnemiesToTrain()
         {
+            _areEnemiesTeleported = true;
             foreach (Enemy enemy in enemies)
             {
                 if (enemy.inTrain) { continue; }
