@@ -44,6 +44,7 @@ public class VentiloTrap : Trap
     // Appelé par l'Event de l'animator à la fin de la mise en route du piège. 
     private void playTrap()
     {
+        Debug.Log("VentiloTrap is activated.");
         isActivated = true;
         timer = 0;
         ventiloParticleSystem.Play();
