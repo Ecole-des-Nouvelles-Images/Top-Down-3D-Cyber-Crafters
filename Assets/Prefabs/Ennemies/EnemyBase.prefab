@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5764670643668260633}
   - component: {fileID: 1219742240149575980}
   - component: {fileID: 917943266812866264}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyBase
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -148,6 +148,8 @@ MonoBehaviour:
   navMeshAgent: {fileID: 0}
   inTrain: 0
   healthPoints: 15
+  attackPoints: 0
+  speed: 0
   Models:
   - {fileID: 6429452140686623801, guid: 3987dc0b98dabac4aa935493b03a7a1f, type: 3}
   - {fileID: 6429452140686623801, guid: f0530ebd45340fe408b048873cd7f28c, type: 3}

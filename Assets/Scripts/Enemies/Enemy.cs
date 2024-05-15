@@ -89,6 +89,11 @@ namespace Enemies {
             navMeshAgent.destination = targetedSteamPipe.gameObject.transform.position;
         }
 
+        //DEBUG COLLISIONS
+        private void OnCollisionEnter(Collision collision)
+        {
+            Debug.Log("Enemy collided with: " + collision.gameObject.name);
+        }
         private void OnTriggerStay(Collider other)
         {
             //throw new NotImplementedException();

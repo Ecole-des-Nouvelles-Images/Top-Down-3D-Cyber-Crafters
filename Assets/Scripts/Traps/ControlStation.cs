@@ -10,7 +10,7 @@ public class ControlStation : MonoBehaviour
     public Animator animator;
     public GameObject dangerZone;
     public bool alreadyPressed;
-    private float _cooldownTime = 5f;
+    public float cooldownTime = 5f;
     private float _timer;
 
     public Trap trap;
@@ -29,7 +29,7 @@ public class ControlStation : MonoBehaviour
         }
 
         // Verifie que le piege n'est plus actif. 
-        if (_timer >= _cooldownTime && !trap.isActivated)
+        if (_timer >= cooldownTime && !trap.isActivated)
         {
             animator.SetBool("isActivated", false);
             buttonMeshRenderer.material.color = Color.red;
