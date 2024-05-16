@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6787113264958618716
 Transform:
   m_ObjectHideFlags: 0
@@ -50,6 +50,7 @@ MonoBehaviour:
   animator: {fileID: 4056687550261425045}
   dangerZone: {fileID: 5117967100124498979}
   alreadyPressed: 0
+  cooldownTime: 5
   trap: {fileID: 4188384266515455277}
 --- !u!1 &768097095089725111
 GameObject:
@@ -231,7 +232,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6659693853421544002}
   m_Layer: 0
-  m_Name: EnclumeDrop
+  m_Name: TonneauxDrop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -321,7 +322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActivated: 0
-  tonneaux: {fileID: 7804098785456055434, guid: 404d7af81f34ab446a0ae10c0ecfc8ba,
+  tonneaux: {fileID: 5672735297474917147, guid: 3b8e5318b282e6f4c9d9976a5324de7a,
     type: 3}
   tonneauxSpawnPoint: {fileID: 5216864355559487298}
   animator: {fileID: 606032278403552034}

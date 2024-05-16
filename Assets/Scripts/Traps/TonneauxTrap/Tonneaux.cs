@@ -12,7 +12,7 @@ public class Tonneaux : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.AddForce(-transform.forward * force, ForceMode.VelocityChange);
+        rb.AddForce(transform.right * force, ForceMode.VelocityChange);
     }
 
     private void OnTriggerEnter(Collider other)
