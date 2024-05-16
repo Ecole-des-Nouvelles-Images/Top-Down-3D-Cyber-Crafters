@@ -420,8 +420,8 @@ MonoBehaviour:
   isActivated: 0
   animator: {fileID: 2856078872042501345}
   trapDuration: 5
-  trapStartSound: {fileID: 8300000, guid: efa180f2ccafa1146a63a6bfe1f4d0b0, type: 3}
-  trapStopSound: {fileID: 8300000, guid: e3c2202b1a74de542a454d3bc7a3af8a, type: 3}
+  trapStartSound: {fileID: 8300000, guid: 46fb27030880ea54198199fde01b762c, type: 3}
+  trapStopSound: {fileID: 8300000, guid: a5bedb082894a8748b57b1043cfc808c, type: 3}
   audioSource: {fileID: 1833007495154356582}
 --- !u!95 &2856078872042501345
 Animator:
