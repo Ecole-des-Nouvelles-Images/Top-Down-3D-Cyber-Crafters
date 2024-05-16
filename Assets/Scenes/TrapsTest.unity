@@ -485,6 +485,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TourelleTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 1479897277652245224, guid: 4807ad9ba63c3eb4d97c2898c6feff72,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1522308820436549998, guid: 4807ad9ba63c3eb4d97c2898c6feff72,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -832,6 +837,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RessortTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 1016945907646736461, guid: b1dcdf3ef52493d40ba5cadc6c52ef8d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1788408162750080661, guid: b1dcdf3ef52493d40ba5cadc6c52ef8d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -953,7 +963,7 @@ PrefabInstance:
     - target: {fileID: 169668159693970988, guid: 9709378938e9f344b9441c52f2c9921c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3291620337237557483, guid: 9709378938e9f344b9441c52f2c9921c,
         type: 3}
