@@ -23,6 +23,8 @@ public class RessortTrap : Trap
 
     public override void ActivateTrap()
     {
+        //Lancer l'animation de lancement du piège.
+        animator.SetTrigger("launchTrap");
         Collider[] hitColliders = Physics.OverlapBox(trapZone.bounds.center, trapZone.bounds.extents, trapZone.transform.rotation, LayerMask.GetMask("Enemy"));
        Debug.Log(hitColliders.Length);
         foreach (var hitCollider in hitColliders)
@@ -39,8 +41,6 @@ public class RessortTrap : Trap
     {
         //Informer la control Station du déclenchement du piège.
         isActivated = true;
-        //Lancer l'animation de lancement du piège.
-        animator.SetTrigger("launchTrap");
         //Propulser l'ennemi via translation et lerp.
         Vector3 targetPos = enemy.transform.position + Vector3.up * jumpHeight - enemy.transform.forward * maxJumpDistance;
         StartCoroutine(LerpEnemy(enemy, targetPos, jumpDuration));
