@@ -12,6 +12,10 @@ public class RessortTrap : Trap
     public float jumpDuration = 1f;
     public float maxJumpDistance = 25f;
     
+    [Header("SFX")]
+    public AudioClip ressortStartSound;
+    public AudioSource audioSource;
+    
     private float timer;
 
     public Collider trapZone;
@@ -25,6 +29,7 @@ public class RessortTrap : Trap
     {
         //Lancer l'animation de lancement du piège.
         animator.SetTrigger("launchTrap");
+        audioSource.PlayOneShot(ressortStartSound);
         Collider[] hitColliders = Physics.OverlapBox(trapZone.bounds.center, trapZone.bounds.extents, trapZone.transform.rotation, LayerMask.GetMask("Enemy"));
        Debug.Log(hitColliders.Length);
         foreach (var hitCollider in hitColliders)
