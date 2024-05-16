@@ -18,6 +18,7 @@ namespace Train.Wagon
         public ExitDoor wagonExitDoor; // Porte de Sortie pour le changement de Wagon
         public GameObject wagonEnableable; // Objets à activer lorsque le wagon est actif
         public Transform playerAnchor; // Point de TP des joueurs
+        public Transform enemyAnchor;
 
         [Header("Variables Locales")] public Vector3 originalPosition; // Position du Wagon lorsqu'il est instancié
         public bool steamPipesTaken; // Booléen activé lorsque tout les SteamPipes sont Down
@@ -25,6 +26,7 @@ namespace Train.Wagon
         private bool _allPlayersInDoor; // Booléen à activer lorsque tout les joueurs sont dans la Porte de sortie
         public bool changeWagon; // Booléen controlant le fait que le Wagon change et passe au suivant
         public bool wagonChanged; // Booléen activé lorsque le Wagon est passé au suivant
+        private bool enemyPseudoFreeze;
 
         private void Awake() {
             // Récupération des Objets Importants
@@ -44,6 +46,7 @@ namespace Train.Wagon
         
         private void Start() {
             originalPosition = transform.position; // Récupération de la position de base pour éffectuer la transition au prochain Wagon.
+            train = transform.parent.GetComponent<TrainManager>().gameObject;
         }
 
         private void FixedUpdate() {
@@ -59,6 +62,7 @@ namespace Train.Wagon
                     if (!changeWagon && !wagonChanged) {
                         originalPosition = train.transform.position;
                         changeWagon = true;
+                        enemyPseudoFreeze = true;
                     }
                 }
                 if (wagonChanged) { enabled = false; }
@@ -71,8 +75,10 @@ namespace Train.Wagon
                 Vector3 newPosition = new Vector3(0, 0, originalPosition.z - 30);
                 train.transform.Translate(newPosition * 0.25f * Time.deltaTime);
                 Debug.Log("Wagon Changing");
-                if (transform.transform.position.z <= originalPosition.z - 30) {
-                    if (index < trainManager.wagons.Count - 1) {
+                if (transform.transform.position.z <= originalPosition.z - 30)
+                {
+                    
+                    if (index <= trainManager.wagons.Count - 1) {
                         changeWagon = false;
                         nextWagon.wagonEnableable.SetActive(true);
                         foreach (GameObject player in playerManager.players) {
@@ -81,6 +87,7 @@ namespace Train.Wagon
                             player.GetComponent<NavMeshAgent>().enabled = true;
                             Debug.Log("Wagon Changed");
                         }
+                        wagonEnableable.SetActive(false);
                         wagonChanged = true;
                         enemyManager.StartNextWagonTransition();
                         enemyManager.SortEnemies();

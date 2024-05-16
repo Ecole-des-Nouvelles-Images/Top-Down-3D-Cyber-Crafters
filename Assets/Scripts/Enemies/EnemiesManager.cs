@@ -22,7 +22,7 @@ namespace Enemies
         public int fastNumber;
         public int neutralNumber;
         public bool spawnEnemies; // Booléen permettant de lancer le spawn des Ennemis
-        private float _spawnDelay; // Timer de spawn des Ennemis;
+        //private float _spawnDelay; // Timer de spawn des Ennemis;
         private bool _areEnemiesTeleported;
         private bool _spawnTimerOn; // Booléen d'activation du Timer
         private bool _firstWave; // Booléen pour vérifier si il s'agit de la première vague
@@ -38,7 +38,7 @@ namespace Enemies
         private void Start() {
             // Initialisation des variables et Récupération du SPM
             spawnEnemies = false;
-            _spawnDelay = 0;
+            //_spawnDelay = 0;
             currentSteamPipeManager = FindObjectOfType<SteamPipeManager>();
             _firstWave = true;
             //finishedWaveIndicator.SetActive(false);

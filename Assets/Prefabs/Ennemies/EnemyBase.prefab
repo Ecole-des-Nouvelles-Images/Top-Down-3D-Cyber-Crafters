@@ -130,7 +130,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &917943266812866264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,6 +148,8 @@ MonoBehaviour:
   navMeshAgent: {fileID: 0}
   inTrain: 0
   healthPoints: 15
+  attackPoints: 0
+  speed: 0
   Models:
   - {fileID: 6429452140686623801, guid: 3987dc0b98dabac4aa935493b03a7a1f, type: 3}
   - {fileID: 6429452140686623801, guid: f0530ebd45340fe408b048873cd7f28c, type: 3}
