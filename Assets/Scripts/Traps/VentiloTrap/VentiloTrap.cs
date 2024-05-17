@@ -58,7 +58,7 @@ public class VentiloTrap : Trap
     {
         foreach (Enemy enemy in _slowedEnemies)
         {
-            enemy.ResetSpeed(1);
+            enemy.ResetSpeed();
             _slowedEnemies.Remove(enemy);
         }
         ventiloParticleSystem.Stop();
@@ -69,7 +69,7 @@ public class VentiloTrap : Trap
         if (other.CompareTag("Enemy") && isActivated)
         {
             Enemy enemy = other.GetComponent<Enemy>();
-            enemy.SlowDown(5);
+            enemy.SlowDown();
             _slowedEnemies.Add(enemy);
         }
     }
@@ -78,7 +78,7 @@ public class VentiloTrap : Trap
     {
         if (other.CompareTag("Enemy") & isActivated)
         {
-            other.GetComponent<Enemy>().SlowDown(5);
+            other.GetComponent<Enemy>().SlowDown();
         }
     }
 
@@ -87,7 +87,7 @@ public class VentiloTrap : Trap
         if (other.CompareTag("Enemy"))
         {
             Enemy enemy = other.GetComponent<Enemy>();
-            enemy.ResetSpeed(1);
+            enemy.ResetSpeed();
             _slowedEnemies.Remove(enemy);
         }
     }

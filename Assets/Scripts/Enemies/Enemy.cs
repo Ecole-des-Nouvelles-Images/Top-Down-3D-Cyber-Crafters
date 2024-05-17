@@ -116,22 +116,29 @@ namespace Enemies {
             if (healthPoints <= 0) { Destroy(gameObject); }
         }
 
-        public void SlowDown(float slowDownDuration)
+        public void Stun(float stunDuration)
         {
             navMeshAgent.speed = 0;
             navMeshAgent.isStopped = true;
+            //animate Stun
 
-            StartCoroutine(ResetSpeed(slowDownDuration));
+            StartCoroutine(ResetStun(stunDuration));
         }
 
-        public IEnumerator ResetSpeed(float slowDownDuration)
+        public void SlowDown()
         {
-            yield return new WaitForSeconds(slowDownDuration);
+            navMeshAgent.isStopped = true;
+            //Animate SlowDown
+        }
+
+        public IEnumerator ResetStun(float stunDuration)
+        {
+            yield return new WaitForSeconds(stunDuration);
             navMeshAgent.isStopped = false;
         }
-        // public void ResetSpeed()
-        // {
-        //     navMeshAgent.isStopped = false;
-        // }
+        public void ResetSpeed()
+        {
+            navMeshAgent.isStopped = false;
+        }
     }
 }

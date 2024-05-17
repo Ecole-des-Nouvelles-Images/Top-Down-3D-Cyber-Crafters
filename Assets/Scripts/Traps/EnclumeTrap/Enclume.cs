@@ -1,12 +1,13 @@
 using Enemies;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Enclume : MonoBehaviour
 {
     public int damage = 5;
     private float timer = 0;
     public float enclumeDuration = 5f;
-    public float slowDownDuration = 2f;
+    [FormerlySerializedAs("slowDownDuration")] public float stunDuration = 2f;
 
     public AudioClip bongGroundClip;
     public AudioClip bongEnemyClip;
@@ -30,7 +31,7 @@ public class Enclume : MonoBehaviour
             audioSource.PlayOneShot(bongEnemyClip);
             Enemy enemy = other.gameObject.GetComponent<Enemy>();
             enemy.TakeDamage(damage);
-            enemy.SlowDown(slowDownDuration);
+            enemy.Stun(stunDuration);
             
         }
         else audioSource.PlayOneShot(bongGroundClip);
