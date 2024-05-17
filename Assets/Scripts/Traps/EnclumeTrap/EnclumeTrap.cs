@@ -8,6 +8,10 @@ public class EnclumeTrap : Trap
     public GameObject enclume;
     public Transform enclumeSpawnPoint;
     public Animator animator;
+    
+    [Header("SFX")]
+    public AudioClip activateClip;
+    public AudioSource audioSource;
 
     private float timer;
     private float trapDuration = 5f;
@@ -28,6 +32,7 @@ public class EnclumeTrap : Trap
 
     public override void ActivateTrap()
     {
+        audioSource.PlayOneShot(activateClip);
         animator.SetTrigger("activateTrap");
         Instantiate(enclume, enclumeSpawnPoint);
         isActivated = true;

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Train;
 using Train.Wagon;
@@ -29,6 +30,7 @@ namespace Enemies {
         }
         [SerializeField] public EnemyType enemyType;
         private Animator _animator;
+
 
         private void Awake() {
             parentManager = transform.parent.GetComponent<EnemiesManager>();
@@ -114,14 +116,22 @@ namespace Enemies {
             if (healthPoints <= 0) { Destroy(gameObject); }
         }
 
-        public void SlowDown()
+        public void SlowDown(float slowDownDuration)
         {
+            navMeshAgent.speed = 0;
             navMeshAgent.isStopped = true;
+
+            StartCoroutine(ResetSpeed(slowDownDuration));
         }
 
-        public void ResetSpeed()
+        public IEnumerator ResetSpeed(float slowDownDuration)
         {
+            yield return new WaitForSeconds(slowDownDuration);
             navMeshAgent.isStopped = false;
         }
+        // public void ResetSpeed()
+        // {
+        //     navMeshAgent.isStopped = false;
+        // }
     }
 }
