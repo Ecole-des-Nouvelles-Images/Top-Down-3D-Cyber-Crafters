@@ -441,6 +441,74 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnId: 4
+--- !u!1001 &317938608
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5715364455228057870, guid: f5a405da3b52f4243b7c0a130134a74e,
+        type: 3}
+      propertyPath: m_Name
+      value: EnclumeTrap
+      objectReference: {fileID: 0}
+    - target: {fileID: 8258302288406954325, guid: f5a405da3b52f4243b7c0a130134a74e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8258302288406954325, guid: f5a405da3b52f4243b7c0a130134a74e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8258302288406954325, guid: f5a405da3b52f4243b7c0a130134a74e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8258302288406954325, guid: f5a405da3b52f4243b7c0a130134a74e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8258302288406954325, guid: f5a405da3b52f4243b7c0a130134a74e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8258302288406954325, guid: f5a405da3b52f4243b7c0a130134a74e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8258302288406954325, guid: f5a405da3b52f4243b7c0a130134a74e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8258302288406954325, guid: f5a405da3b52f4243b7c0a130134a74e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8258302288406954325, guid: f5a405da3b52f4243b7c0a130134a74e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8258302288406954325, guid: f5a405da3b52f4243b7c0a130134a74e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f5a405da3b52f4243b7c0a130134a74e, type: 3}
 --- !u!1 &356235983
 GameObject:
   m_ObjectHideFlags: 0
@@ -705,11 +773,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TonneauxTrap
       objectReference: {fileID: 0}
-    - target: {fileID: 169668159693970988, guid: 9709378938e9f344b9441c52f2c9921c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6787113264958618716, guid: 9709378938e9f344b9441c52f2c9921c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -926,11 +989,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 'TrappeTrap '
-      objectReference: {fileID: 0}
-    - target: {fileID: 5151040044684096297, guid: 771ae398cc878f04c88194b950b4456e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1375,11 +1433,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: VentiloTrap
       objectReference: {fileID: 0}
-    - target: {fileID: 6068133360990831485, guid: 125c8cf639bca054a96f8e825752c93c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1605,11 +1658,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TourelleTrap
       objectReference: {fileID: 0}
-    - target: {fileID: 1479897277652245224, guid: 4807ad9ba63c3eb4d97c2898c6feff72,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1522308820436549998, guid: 4807ad9ba63c3eb4d97c2898c6feff72,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1766,11 +1814,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RessortTrap
-      objectReference: {fileID: 0}
-    - target: {fileID: 1016945907646736461, guid: b1dcdf3ef52493d40ba5cadc6c52ef8d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1788408162750080661, guid: b1dcdf3ef52493d40ba5cadc6c52ef8d,
         type: 3}
@@ -2395,3 +2438,4 @@ SceneRoots:
   - {fileID: 556267197}
   - {fileID: 1780641552}
   - {fileID: 1426656399}
+  - {fileID: 317938608}

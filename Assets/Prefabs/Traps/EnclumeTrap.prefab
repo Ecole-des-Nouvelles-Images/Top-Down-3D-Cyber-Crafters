@@ -474,6 +474,7 @@ MonoBehaviour:
   animator: {fileID: 5772683298381149792}
   dangerZone: {fileID: 5902332030002737014}
   alreadyPressed: 0
+  cooldownTime: 5
   trap: {fileID: 2737683299918614128}
 --- !u!1 &5902332030002737014
 GameObject:
@@ -527,7 +528,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 2, y: 2, z: 4}
   m_Center: {x: 0, y: 0, z: -4}
@@ -565,7 +566,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActivated: 0
-  enclume: {fileID: 3395804874062410291, guid: d69d91dead50dd74b93233c6509225b5, type: 3}
+  enclume: {fileID: 6991947922379529239, guid: 51ed161d0220ac442a8fee32d2011b78, type: 3}
   enclumeSpawnPoint: {fileID: 2441160241026923660}
   animator: {fileID: 4954184530679157541}
 --- !u!1 &6408363119291633571

@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1788408162750080661
 Transform:
   m_ObjectHideFlags: 0
@@ -203,6 +203,7 @@ MonoBehaviour:
   jumpHeight: 5
   jumpDuration: 1
   maxJumpDistance: 5
+  damage: 1
   ressortStartSound: {fileID: 8300000, guid: 99e9f079f4eb30444a416f6f2b092122, type: 3}
   audioSource: {fileID: 7864541480731666322}
   trapZone: {fileID: 5185936264528818062}
