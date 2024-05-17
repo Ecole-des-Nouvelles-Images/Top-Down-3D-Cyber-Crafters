@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2591899001093285814}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -186,7 +186,8 @@ MonoBehaviour:
   playerModel: {fileID: 2591899001093285814}
   playerMesh: {fileID: 0}
   playerModels:
-  - {fileID: 5359623257534762658, guid: c5756f3eeea53df4aaf088ed02409dff, type: 3}
+  - {fileID: 7077676027053604520, guid: fc2dca6cc7d21f14e9525111b75cf389, type: 3}
+  - {fileID: 1843833893768358088, guid: 4432ea040149b6d4682277e39850b6a1, type: 3}
   mainCamera: {fileID: 0}
   speed: 5
   stoppingDistance: 0.25
