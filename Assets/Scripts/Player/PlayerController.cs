@@ -14,6 +14,7 @@ namespace Player
         public GameObject playerMesh; // Mesh du PlayerModel (Voir Liste "playerModels")
         public List<GameObject> playerModels = new List<GameObject>(); // Liste des PlayerModels disponibles
         private Animator _animator; // Animator du Joueur (Présent sur l'objet PlayerModel)
+        private int _materialIdFixer;
         
         [Header("Variables de Déplacement")] 
         [SerializeField] private Camera mainCamera; // Caméra nécéssaire aux calculs de déplacements
@@ -41,13 +42,21 @@ namespace Player
             // /!\ TEMPORAIRE /!\ Choix d'un Player Model Random et (Pas Temporaire) Instantiation du Player Model
             // Choix Random
             int randomPm = Random.Range(0, playerModels.Count);
+            if (randomPm == 0)
+            {
+                _materialIdFixer = 0;
+            }
+            else if (randomPm == 1)
+            {
+                _materialIdFixer = 1;
+            }
             // Instantiation
             Vector3 pmPosition = playerModel.transform.position;
             Instantiate(playerModels[randomPm], new Vector3(pmPosition.x, pmPosition.y, pmPosition.z),
                 playerModel.transform.rotation, playerModel.transform);
             // Assignation des Variables
             _animator = playerModel.GetComponentInChildren<Animator>();
-            playerMesh = playerModel.GetComponentInChildren<MeshRenderer>().gameObject;
+            playerMesh = playerModel.GetComponentInChildren<SkinnedMeshRenderer>().gameObject;
             
             // Assignation Variables
             _navMeshAgent.stoppingDistance = stoppingDistance;
@@ -61,16 +70,16 @@ namespace Player
             // Assigation de la Couleur selon l'ID
             switch (playerId) {
                 case 1:
-                    playerMesh.GetComponent<MeshRenderer>().material.color = Color.red;
+                    playerMesh.GetComponent<SkinnedMeshRenderer>().materials[_materialIdFixer].color = Color.red;
                     break;
                 case 2:
-                    playerMesh.GetComponent<MeshRenderer>().material.color = Color.blue;
+                    playerMesh.GetComponent<SkinnedMeshRenderer>().materials[_materialIdFixer].color = Color.blue;
                     break;
                 case 3:
-                    playerMesh.GetComponent<MeshRenderer>().material.color = Color.yellow;
+                    playerMesh.GetComponent<SkinnedMeshRenderer>().materials[_materialIdFixer].color = Color.yellow;
                     break;
                 case 4:
-                    playerMesh.GetComponent<MeshRenderer>().material.color = Color.green;
+                    playerMesh.GetComponent<SkinnedMeshRenderer>().materials[_materialIdFixer].color = Color.green;
                     break;
             }
         }
@@ -79,17 +88,16 @@ namespace Player
             Vector2 moveInput = playerInput.actions["Move"].ReadValue<Vector2>();
             _navMeshAgent.speed = speed;
             if (moveInput.magnitude <= 0.05f) {
-                //ANIMATION DE WALK A METTRE EN FALSE
-                return;
-            }
+                _animator.SetBool("Walk", false);
+                return; 
+            } 
             if (moveInput.magnitude >= 0.1f) { Move(moveInput); }
         }
 
         // METHODE DE MOUVEMENT
         private void Move(Vector2 input)
         {
-            //ANIMATION DE WALK A METTRE EN TRUE
-            
+            _animator.SetBool("Walk", true);
             // Calculs par rapport à l'angle de Camera
             Vector3 cameraForward = mainCamera.transform.forward;
             cameraForward.y = 0;
