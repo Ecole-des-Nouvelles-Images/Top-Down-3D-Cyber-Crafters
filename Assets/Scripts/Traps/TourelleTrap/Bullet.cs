@@ -6,7 +6,9 @@ namespace Proto.Script.Trap
     public class Bullet : MonoBehaviour
     {
         public GameObject particleExplosion;
+        public int damage = 1;
         private float _timer;
+        
 
         private void Update()
         {
@@ -21,6 +23,7 @@ namespace Proto.Script.Trap
         {
             if (other.CompareTag("Enemy"))
             {
+                other.GetComponent<Enemies.Enemy>().TakeDamage(damage);
                 Destroy(gameObject);
             }
         }
