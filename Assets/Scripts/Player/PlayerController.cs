@@ -46,12 +46,10 @@ namespace Player
             // /!\ TEMPORAIRE /!\ Choix d'un Player Model Random et (Pas Temporaire) Instantiation du Player Model
             // Choix Random
             int randomPm = Random.Range(0, playerModels.Count);
-            if (randomPm == 0)
-            {
+            if (randomPm == 0) {
                 _materialIdFixer = 0;
             }
-            else if (randomPm == 1)
-            {
+            else if (randomPm == 1) {
                 _materialIdFixer = 1;
             }
             // Instantiation
