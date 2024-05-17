@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class Enclume : MonoBehaviour
 {
+    public int damage = 5;
     private float timer = 0;
     public float enclumeDuration = 5f;
     private void FixedUpdate()
@@ -17,10 +18,10 @@ public class Enclume : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        if(other.CompareTag("Enemy")) {
-            other.GetComponent<Enemy>().TakeDamage(1);
+        if(other.transform.CompareTag("Enemy")) {
+            other.gameObject.GetComponent<Enemy>().TakeDamage(damage);
         }
     }
 }
