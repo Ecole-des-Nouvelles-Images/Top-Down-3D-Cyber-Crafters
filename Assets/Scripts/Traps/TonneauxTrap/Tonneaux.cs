@@ -6,6 +6,12 @@ using UnityEngine;
 public class Tonneaux : MonoBehaviour
 {
     public float force = 5f;
+    public int damage = 1;
+    
+    public float timeBeforeDestroy = 2f;
+    private float timer;
+
+    public GameObject brokenBarrel;
 
     private Rigidbody rb;
 
@@ -15,12 +21,27 @@ public class Tonneaux : MonoBehaviour
         rb.AddForce(transform.right * force, ForceMode.VelocityChange);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void Update()
     {
-        if (other.CompareTag("Enemy"))
+        if (timer >= timeBeforeDestroy)
         {
-            other.GetComponent<Enemies.Enemy>().TakeDamage(1);
+            Instantiate(brokenBarrel, transform.position, Quaternion.Euler(0, 0, 90));
+            Destroy(gameObject);
+        }
+        timer += Time.deltaTime;
+        
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.transform.CompareTag("Enemy"))
+        {
+            other.gameObject.GetComponent<Enemies.Enemy>().TakeDamage(damage);
+            Instantiate(brokenBarrel, transform.position, Quaternion.Euler(0, 0, 90));
+            Destroy(gameObject);
         }
     }
+    
+    
     // Détruire tonneaux avec animation
 }
