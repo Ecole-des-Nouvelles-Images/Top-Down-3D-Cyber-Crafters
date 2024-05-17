@@ -1,17 +1,20 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Enemies;
 using UnityEngine;
 
 public class Tonneaux : MonoBehaviour
 {
     public float force = 5f;
     public int damage = 1;
+    public float stunDuration = 2f;
     
     public float timeBeforeDestroy = 2f;
     private float timer;
 
     public GameObject brokenBarrel;
+    
 
     private Rigidbody rb;
 
@@ -36,7 +39,9 @@ public class Tonneaux : MonoBehaviour
     {
         if (other.transform.CompareTag("Enemy"))
         {
-            other.gameObject.GetComponent<Enemies.Enemy>().TakeDamage(damage);
+            Enemy enemy = other.gameObject.GetComponent<Enemy>();
+            enemy.TakeDamage(damage);
+            enemy.Stun(stunDuration);
             Instantiate(brokenBarrel, transform.position, Quaternion.Euler(0, 0, 90));
             Destroy(gameObject);
         }

@@ -52,6 +52,7 @@ public class RessortTrap : Trap
         Vector3 targetPos = enemy.transform.position + Vector3.up * jumpHeight - enemy.transform.forward * maxJumpDistance;
         StartCoroutine(LerpEnemy(enemy, targetPos, jumpDuration));
         //Infliger les dégâts à l'ennemi.
+        enemy.Stun(3);
         enemy.TakeDamage(damage);
         //Désactiver le piège.
        // gameObject.SetActive(false);

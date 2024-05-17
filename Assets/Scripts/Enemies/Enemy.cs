@@ -118,7 +118,6 @@ namespace Enemies {
 
         public void Stun(float stunDuration)
         {
-            navMeshAgent.speed = 0;
             navMeshAgent.isStopped = true;
             //animate Stun
 
