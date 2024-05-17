@@ -188,6 +188,10 @@ MonoBehaviour:
   playerModels:
   - {fileID: 7077676027053604520, guid: fc2dca6cc7d21f14e9525111b75cf389, type: 3}
   - {fileID: 1843833893768358088, guid: 4432ea040149b6d4682277e39850b6a1, type: 3}
+  playerOneColor: {r: 0.3773585, g: 0, b: 0, a: 0}
+  playerTwoColor: {r: 0.303554, g: 0.23789605, b: 0.509434, a: 0}
+  playerThreeColor: {r: 0.745283, g: 0.5944292, b: 0.05273228, a: 0}
+  playerFourColor: {r: 0.16745284, g: 0.5, b: 0.23741557, a: 0}
   mainCamera: {fileID: 0}
   speed: 5
   stoppingDistance: 0.25
