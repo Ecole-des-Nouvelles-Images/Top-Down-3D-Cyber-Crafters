@@ -12,6 +12,8 @@ public class RessortTrap : Trap
     public float jumpDuration = 1f;
     public float maxJumpDistance = 25f;
     
+    public int damage = 1;
+    
     [Header("SFX")]
     public AudioClip ressortStartSound;
     public AudioSource audioSource;
@@ -49,6 +51,8 @@ public class RessortTrap : Trap
         //Propulser l'ennemi via translation et lerp.
         Vector3 targetPos = enemy.transform.position + Vector3.up * jumpHeight - enemy.transform.forward * maxJumpDistance;
         StartCoroutine(LerpEnemy(enemy, targetPos, jumpDuration));
+        //Infliger les dégâts à l'ennemi.
+        enemy.TakeDamage(damage);
         //Désactiver le piège.
        // gameObject.SetActive(false);
         //Piège en attente de réarmement. 
