@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3674278683232315980}
   - component: {fileID: 659141937364192005}
   - component: {fileID: 6251621388442722393}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,9 +95,9 @@ GameObject:
   - component: {fileID: 6216958074635597075}
   - component: {fileID: 4446580412120276523}
   - component: {fileID: 1745393363253716151}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ModelNeutralPlaceHolder
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

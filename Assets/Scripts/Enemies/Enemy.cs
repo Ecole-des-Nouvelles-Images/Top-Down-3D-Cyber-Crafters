@@ -116,12 +116,12 @@ namespace Enemies {
 
         public void SlowDown()
         {
-            
+            navMeshAgent.isStopped = true;
         }
 
         public void ResetSpeed()
         {
-            
+            navMeshAgent.isStopped = false;
         }
     }
 }
