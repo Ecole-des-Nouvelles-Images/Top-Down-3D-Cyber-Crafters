@@ -15,6 +15,10 @@ namespace Player
         public List<GameObject> playerModels = new List<GameObject>(); // Liste des PlayerModels disponibles
         private Animator _animator; // Animator du Joueur (Présent sur l'objet PlayerModel)
         private int _materialIdFixer;
+        public Color playerOneColor;
+        public Color playerTwoColor;
+        public Color playerThreeColor;
+        public Color playerFourColor;
         
         [Header("Variables de Déplacement")] 
         [SerializeField] private Camera mainCamera; // Caméra nécéssaire aux calculs de déplacements
@@ -70,16 +74,16 @@ namespace Player
             // Assigation de la Couleur selon l'ID
             switch (playerId) {
                 case 1:
-                    playerMesh.GetComponent<SkinnedMeshRenderer>().materials[_materialIdFixer].color = Color.red;
+                    playerMesh.GetComponent<SkinnedMeshRenderer>().materials[_materialIdFixer].color = playerOneColor;
                     break;
                 case 2:
-                    playerMesh.GetComponent<SkinnedMeshRenderer>().materials[_materialIdFixer].color = Color.blue;
+                    playerMesh.GetComponent<SkinnedMeshRenderer>().materials[_materialIdFixer].color = playerTwoColor;
                     break;
                 case 3:
-                    playerMesh.GetComponent<SkinnedMeshRenderer>().materials[_materialIdFixer].color = Color.yellow;
+                    playerMesh.GetComponent<SkinnedMeshRenderer>().materials[_materialIdFixer].color = playerThreeColor;
                     break;
                 case 4:
-                    playerMesh.GetComponent<SkinnedMeshRenderer>().materials[_materialIdFixer].color = Color.green;
+                    playerMesh.GetComponent<SkinnedMeshRenderer>().materials[_materialIdFixer].color = playerFourColor;
                     break;
             }
         }

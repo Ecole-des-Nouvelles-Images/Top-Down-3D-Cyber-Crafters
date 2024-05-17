@@ -52,8 +52,13 @@ namespace Enemies
             _teleportedEnemies.Clear();
             _maxEnemiesSpawned = false;
             currentWave += 1;
-            if (lastWave > currentWave) { //enemiesNumber += 10;
-                lastWave += 1; } // Incrémentation de la vague et du Nombre d'Ennemis à Spawner
+            if (lastWave > currentWave) { 
+                enemiesNumber += 9;
+                tankNumber += 3;
+                neutralNumber += 3;
+                fastNumber += 3;
+                lastWave += 1; 
+            } // Incrémentation de la vague et du Nombre d'Ennemis à Spawner
             spawnEnemies = true;
         }
         
