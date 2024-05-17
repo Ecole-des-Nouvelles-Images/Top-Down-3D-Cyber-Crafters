@@ -5108,7 +5108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2682c466b693a441afc7850b2ad56fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiGameObject: {fileID: 0}
+  uiGameObject: {fileID: 4179518762450100965}
 --- !u!54 &5164415046151888180
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5514,7 +5514,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4452358700628621544
 Transform:
   m_ObjectHideFlags: 0
@@ -5524,7 +5524,7 @@ Transform:
   m_GameObject: {fileID: 6068133360990831485}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1087267, y: -1.515896, z: 0.08239967}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
