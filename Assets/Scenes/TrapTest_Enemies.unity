@@ -705,6 +705,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TonneauxTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 169668159693970988, guid: 9709378938e9f344b9441c52f2c9921c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6787113264958618716, guid: 9709378938e9f344b9441c52f2c9921c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1587,6 +1592,79 @@ Transform:
   m_Children: []
   m_Father: {fileID: 228623635}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1426656399
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1479897277652245224, guid: 4807ad9ba63c3eb4d97c2898c6feff72,
+        type: 3}
+      propertyPath: m_Name
+      value: TourelleTrap
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479897277652245224, guid: 4807ad9ba63c3eb4d97c2898c6feff72,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1522308820436549998, guid: 4807ad9ba63c3eb4d97c2898c6feff72,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1522308820436549998, guid: 4807ad9ba63c3eb4d97c2898c6feff72,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1522308820436549998, guid: 4807ad9ba63c3eb4d97c2898c6feff72,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1522308820436549998, guid: 4807ad9ba63c3eb4d97c2898c6feff72,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1522308820436549998, guid: 4807ad9ba63c3eb4d97c2898c6feff72,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1522308820436549998, guid: 4807ad9ba63c3eb4d97c2898c6feff72,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1522308820436549998, guid: 4807ad9ba63c3eb4d97c2898c6feff72,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1522308820436549998, guid: 4807ad9ba63c3eb4d97c2898c6feff72,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1522308820436549998, guid: 4807ad9ba63c3eb4d97c2898c6feff72,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1522308820436549998, guid: 4807ad9ba63c3eb4d97c2898c6feff72,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4807ad9ba63c3eb4d97c2898c6feff72, type: 3}
 --- !u!1 &1509148797
 GameObject:
   m_ObjectHideFlags: 0
@@ -1688,6 +1766,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RessortTrap
+      objectReference: {fileID: 0}
+    - target: {fileID: 1016945907646736461, guid: b1dcdf3ef52493d40ba5cadc6c52ef8d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1788408162750080661, guid: b1dcdf3ef52493d40ba5cadc6c52ef8d,
         type: 3}
@@ -2292,6 +2375,7 @@ MonoBehaviour:
   wagonExitDoor: {fileID: 1918900778}
   wagonEnableable: {fileID: 228623634}
   playerAnchor: {fileID: 202335277}
+  enemyAnchor: {fileID: 0}
   originalPosition: {x: 0, y: 0, z: 0}
   steamPipesTaken: 0
   playersInsideExit: 0
@@ -2310,3 +2394,4 @@ SceneRoots:
   - {fileID: 652624818}
   - {fileID: 556267197}
   - {fileID: 1780641552}
+  - {fileID: 1426656399}
