@@ -52,6 +52,14 @@ namespace Player
             else if (randomPm == 1) {
                 _materialIdFixer = 1;
             }
+            else if (randomPm == 2) {
+                _materialIdFixer = 1;
+            }
+            else if (randomPm == 3)
+            {
+                _materialIdFixer = 1;
+            }
+            
             // Instantiation
             Vector3 pmPosition = playerModel.transform.position;
             Instantiate(playerModels[randomPm], new Vector3(pmPosition.x, pmPosition.y, pmPosition.z),
