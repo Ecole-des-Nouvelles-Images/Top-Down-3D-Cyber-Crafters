@@ -12,6 +12,8 @@ public class ControlStation : MonoBehaviour
     public bool alreadyPressed;
     public float cooldownTime = 5f;
     private float _timer;
+    private float activationTime;
+    private bool isActivated;
 
     public Trap trap;
     
@@ -33,6 +35,7 @@ public class ControlStation : MonoBehaviour
         {
             animator.SetBool("isActivated", false);
             buttonMeshRenderer.material.color = Color.red;
+            isActivated = false; //?
             alreadyPressed = false;
            // dangerZone.SetActive(false);
             
@@ -44,11 +47,61 @@ public class ControlStation : MonoBehaviour
     {
         if (!alreadyPressed)
         {
-            trap.ActivateTrap();
-            buttonMeshRenderer.material.color = Color.green;
-            animator.SetBool("isActivated", true);
-            alreadyPressed = true;
-            _timer = 0;
+            activationTime = Time.time;
+            isActivated = true;
+            
+            //Si il n'y a qu'une seule station de controle, on active le piege directement.
+            if (trap.controlStations.Count < 2)
+            {
+                trap.ActivateTrap();
+                alreadyPressed = true;
+                _timer = 0;
+                animator.SetBool("isActivated", true);
+
+            }
+            //Sinon on verifie que toutes les stations de controle sont activées.
+            else StartCoroutine(CheckOtherStations());
+           
         }
     }
+
+    private IEnumerator CheckOtherStations()
+    {
+        alreadyPressed = true;
+        _timer = 0;
+        yield return new WaitForSeconds(1);
+        ControlStation sister = null;
+        
+        foreach (ControlStation controlStation in trap.controlStations)
+        {
+            Debug.Log($"controlStation.isActivated : {controlStation.isActivated} activationTime : {activationTime}");
+            if (!controlStation.isActivated || Mathf.Abs(controlStation.GetActivationTime() - activationTime) > 0.5f)
+            {
+                Debug.Log($"CheckOtherStations is breaking early for controlStation: {controlStation.name}");
+                if (controlStation != this)
+                {
+                    sister = controlStation;
+                    Debug.Log($"sister is {sister.name}");
+                }
+
+                isActivated = false;
+                yield break;
+            }
+        }
+        Debug.Log($"CheckOtherStations is setting isActivated to true {this.name}");
+        buttonMeshRenderer.material.color = Color.green;
+        animator.SetBool("isActivated", true);
+
+        if(sister != null) sister.animator.SetBool("isActivated", true);
+
+        trap.ActivateTrap();
+
+    }
+
+    public float GetActivationTime()
+    {
+        return activationTime;
+    }
+    
+    
 }

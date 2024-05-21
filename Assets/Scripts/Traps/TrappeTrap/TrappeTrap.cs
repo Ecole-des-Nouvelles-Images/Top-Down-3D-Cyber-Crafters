@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Enemies;
 using UnityEngine;
 
@@ -12,12 +13,15 @@ public class TrappeTrap : Trap
     // Supprimer le sol du train et le remplacer par celui de la trappe ? 
     // Ajouter un triggered collider sous le train pour lancer mort de l'ennemi.
     
+    //Le piege ne se ferme pas des fois ?
+    
     [Header("SFX")]
     public AudioClip trapStartSound;
 
     public AudioClip trapStopSound;
     public AudioSource audioSource;
-    
+
+    private bool isActivating= false;
 
     private void FixedUpdate()
     {
@@ -35,6 +39,14 @@ public class TrappeTrap : Trap
 
     public override void ActivateTrap()
     {
+        if (isActivating)
+        {
+            Debug.Log($"ActivateTrap : Trap is already activating.");
+            return;
+        }
+        Debug.Log("ActivateTrap is setting isActivating to true");
+
+        isActivating = true;
         audioSource.PlayOneShot(trapStartSound);
         animator.SetTrigger("startTrap");
         playTrap();
@@ -51,6 +63,8 @@ public class TrappeTrap : Trap
     private void stopTrap()
     {
         audioSource.PlayOneShot(trapStopSound);
+        isActivating = false;
+
     }
 
 

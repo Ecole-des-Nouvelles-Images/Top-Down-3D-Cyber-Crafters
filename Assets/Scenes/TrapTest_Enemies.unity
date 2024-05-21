@@ -454,6 +454,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnclumeTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 5715364455228057870, guid: f5a405da3b52f4243b7c0a130134a74e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8258302288406954325, guid: f5a405da3b52f4243b7c0a130134a74e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -545,7 +550,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -573,7 +578,7 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -772,6 +777,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TonneauxTrap
+      objectReference: {fileID: 0}
+    - target: {fileID: 169668159693970988, guid: 9709378938e9f344b9441c52f2c9921c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6787113264958618716, guid: 9709378938e9f344b9441c52f2c9921c,
         type: 3}
@@ -989,11 +999,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 'TrappeTrap '
-      objectReference: {fileID: 0}
-    - target: {fileID: 5151040044684096297, guid: 771ae398cc878f04c88194b950b4456e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1843,7 +1848,7 @@ PrefabInstance:
     - target: {fileID: 1788408162750080661, guid: b1dcdf3ef52493d40ba5cadc6c52ef8d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 4.02
       objectReference: {fileID: 0}
     - target: {fileID: 1788408162750080661, guid: b1dcdf3ef52493d40ba5cadc6c52ef8d,
         type: 3}

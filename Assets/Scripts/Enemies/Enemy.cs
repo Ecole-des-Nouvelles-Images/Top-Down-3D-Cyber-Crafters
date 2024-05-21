@@ -92,10 +92,10 @@ namespace Enemies {
         }
 
         //DEBUG COLLISIONS
-        private void OnCollisionEnter(Collision collision)
-        {
-            Debug.Log("Enemy collided with: " + collision.gameObject.name);
-        }
+        // private void OnCollisionEnter(Collision collision)
+        // {
+        //     Debug.Log("Enemy collided with: " + collision.gameObject.name);
+        // }
         private void OnTriggerStay(Collider other)
         {
             //throw new NotImplementedException();

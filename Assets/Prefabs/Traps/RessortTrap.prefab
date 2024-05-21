@@ -199,6 +199,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActivated: 0
+  controlStations:
+  - {fileID: 8513845532640167224}
   animator: {fileID: 8394860757068584493}
   jumpHeight: 5
   jumpDuration: 1
