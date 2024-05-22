@@ -1250,7 +1250,7 @@ MonoBehaviour:
   animator: {fileID: 4992871955743497272}
   dangerZone: {fileID: 4568626777862465414}
   alreadyPressed: 0
-  cooldownTime: 5
+  cooldownTime: 0.2
   trap: {fileID: 6090629010432861880}
 --- !u!1 &6392873752004205591
 GameObject:
@@ -2071,6 +2071,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1289173659531501270, guid: 36085d6c6ec173a4089f48e64cf91ffb,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2781225483322468851, guid: 36085d6c6ec173a4089f48e64cf91ffb,
         type: 3}
       propertyPath: m_Name
@@ -2080,6 +2085,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Trap
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644975393779354113, guid: 36085d6c6ec173a4089f48e64cf91ffb,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5834789401644184285, guid: 36085d6c6ec173a4089f48e64cf91ffb,
         type: 3}
@@ -2094,7 +2104,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5834789401644184285, guid: 36085d6c6ec173a4089f48e64cf91ffb, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3791931420092052411, guid: 36085d6c6ec173a4089f48e64cf91ffb, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1042096388430766554, guid: 36085d6c6ec173a4089f48e64cf91ffb,
         type: 3}

@@ -1972,6 +1972,7 @@ MonoBehaviour:
   localSteamPipeManager: {fileID: 2838423043442016543}
   wagonExitDoor: {fileID: 7791392737080385048}
   wagonEnableable: {fileID: 1037308835163231699}
+  wagonRoof: {fileID: 3912103849790676352}
   playerAnchor: {fileID: 8070338091597991124}
   enemyAnchor: {fileID: 0}
   originalPosition: {x: 0, y: 0, z: 0}
