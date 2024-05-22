@@ -26,7 +26,6 @@ namespace Train.Wagon
         private bool _allPlayersInDoor; // Booléen à activer lorsque tout les joueurs sont dans la Porte de sortie
         public bool changeWagon; // Booléen controlant le fait que le Wagon change et passe au suivant
         public bool wagonChanged; // Booléen activé lorsque le Wagon est passé au suivant
-        private bool enemyPseudoFreeze;
 
         private void Awake() {
             // Récupération des Objets Importants
@@ -62,7 +61,6 @@ namespace Train.Wagon
                     if (!changeWagon && !wagonChanged) {
                         originalPosition = train.transform.position;
                         changeWagon = true;
-                        enemyPseudoFreeze = true;
                     }
                 }
                 if (wagonChanged) { enabled = false; }
@@ -75,9 +73,7 @@ namespace Train.Wagon
                 Vector3 newPosition = new Vector3(0, 0, originalPosition.z - 30);
                 train.transform.Translate(newPosition * 0.25f * Time.deltaTime);
                 Debug.Log("Wagon Changing");
-                if (transform.transform.position.z <= originalPosition.z - 30)
-                {
-                    
+                if (transform.transform.position.z <= originalPosition.z - 30) {
                     if (index <= trainManager.wagons.Count - 1) {
                         changeWagon = false;
                         nextWagon.wagonEnableable.SetActive(true);

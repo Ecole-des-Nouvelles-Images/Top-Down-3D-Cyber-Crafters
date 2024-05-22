@@ -28,7 +28,7 @@ namespace Enemies
         private bool _firstWave; // Booléen pour vérifier si il s'agit de la première vague
         private float _firstWaveTimer; // Timer du Spawn de la Première Vague
         private bool _maxEnemiesSpawned; // Permet de stopper le spawn des Ennemis lorsque enemiesNumber est atteint
-        //public GameObject finishedWaveIndicator; // Objet d'UI pour montrer qu'une Vague est finie
+        public GameObject finishedWaveIndicator; // Objet d'UI pour montrer qu'une Vague est finie
         
         [Header("Objets Locaux")] 
         public List<Enemy> enemies = new List<Enemy>(); // Ennemis Enfants en Vie
@@ -41,23 +41,32 @@ namespace Enemies
             //_spawnDelay = 0;
             currentSteamPipeManager = FindObjectOfType<SteamPipeManager>();
             _firstWave = true;
-            //finishedWaveIndicator.SetActive(false);
+            finishedWaveIndicator.SetActive(false);
         }
 
         [ContextMenu("Star next Wave")] // Méthode d'initialisation d'une Wave (Avec l'incrément)
         public void StartWave()
         {
             _areEnemiesTeleported = false;
-            //finishedWaveIndicator.SetActive(false);
             _teleportedEnemies.Clear();
             _maxEnemiesSpawned = false;
             currentWave += 1;
-            if (lastWave > currentWave) { 
-                enemiesNumber += 9;
-                tankNumber += 3;
-                neutralNumber += 3;
-                fastNumber += 3;
-                lastWave += 1; 
+            if (lastWave < currentWave) {
+                if (_firstWave) {
+                    enemiesNumber += 9;
+                    tankNumber += 3;
+                    neutralNumber += 3;
+                    fastNumber += 3;
+                    lastWave += 1; 
+                }
+                else {
+                    enemiesNumber += 3;
+                    tankNumber += 1;
+                    neutralNumber += 1;
+                    fastNumber += 1;
+                    lastWave += 1; 
+                }
+                
             } // Incrémentation de la vague et du Nombre d'Ennemis à Spawner
             spawnEnemies = true;
         }
@@ -123,6 +132,15 @@ namespace Enemies
             {
                 StartCoroutine(TeleportEnemiesToTrain());
             }
+
+            if (enemies.Count <= 0 && _maxEnemiesSpawned && _areEnemiesTeleported && !_firstWave)
+            {
+                Debug.Log("Next wave starting in 10 seconds");
+                _maxEnemiesSpawned = false;
+                _areEnemiesTeleported = false;
+                enemies.Clear();
+                StartCoroutine(WaveInterval());
+            }
         } // Il arrive que les script d'enemis se désactivent je sais pas pourquoi, donc il faut les spam pour qu'ils restent activés
 
         private IEnumerator GoToNextWagon() // GLOBALEMENT LA MÊME CHOSE QUE TeleportEnemiesToTrain MAIS UN PEU DIFFÉRENT
@@ -155,6 +173,38 @@ namespace Enemies
                 SortEnemies();
                 yield return new WaitForSeconds(1);
             }
+            foreach (Enemy enemy in enemies)
+            {
+                if (enemy.inTrain) { continue; }
+                Rigidbody rb = enemy.GetComponent<Rigidbody>();
+                rb.velocity = Vector3.zero;
+                enemy.GetComponent<NavMeshAgent>().enabled = false;
+                enemy.transform.position = new Vector3(transform.position.x, 1, transform.position.z + 1);
+                enemy.GetComponent<NavMeshAgent>().enabled = true;
+                enemy.inTrain = true;
+                SortEnemies();
+                yield return new WaitForSeconds(1);
+            }
+            foreach (Enemy enemy in enemies)
+            {
+                if (enemy.inTrain) { continue; }
+                Rigidbody rb = enemy.GetComponent<Rigidbody>();
+                rb.velocity = Vector3.zero;
+                enemy.GetComponent<NavMeshAgent>().enabled = false;
+                enemy.transform.position = new Vector3(transform.position.x, 1, transform.position.z + 1);
+                enemy.GetComponent<NavMeshAgent>().enabled = true;
+                enemy.inTrain = true;
+                SortEnemies();
+                yield return new WaitForSeconds(1);
+            }
+        }
+
+        private IEnumerator WaveInterval()
+        {
+            finishedWaveIndicator.SetActive(true);
+            yield return new WaitForSeconds(10);
+            finishedWaveIndicator.SetActive(false);
+            StartWave();
         }
         
         
