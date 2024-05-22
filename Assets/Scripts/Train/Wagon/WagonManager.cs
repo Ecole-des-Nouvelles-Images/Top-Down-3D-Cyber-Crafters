@@ -17,6 +17,7 @@ namespace Train.Wagon
         public SteamPipeManager localSteamPipeManager; // Manager des SteamPipes présents dans le Wagon
         public ExitDoor wagonExitDoor; // Porte de Sortie pour le changement de Wagon
         public GameObject wagonEnableable; // Objets à activer lorsque le wagon est actif
+        public GameObject wagonRoof;
         public Transform playerAnchor; // Point de TP des joueurs
         public Transform enemyAnchor;
 
@@ -77,6 +78,7 @@ namespace Train.Wagon
                     if (index <= trainManager.wagons.Count - 1) {
                         changeWagon = false;
                         nextWagon.wagonEnableable.SetActive(true);
+                        nextWagon.wagonRoof.SetActive(false);
                         foreach (GameObject player in playerManager.players) {
                             player.GetComponent<NavMeshAgent>().enabled = false;
                             player.transform.position = nextWagon.playerAnchor.position;
@@ -84,6 +86,7 @@ namespace Train.Wagon
                             Debug.Log("Wagon Changed");
                         }
                         wagonEnableable.SetActive(false);
+                        wagonRoof.SetActive(true);
                         wagonChanged = true;
                         enemyManager.StartNextWagonTransition();
                         enemyManager.SortEnemies();
