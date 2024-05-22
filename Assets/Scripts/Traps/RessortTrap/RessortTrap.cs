@@ -12,7 +12,7 @@ public class RessortTrap : Trap
     public float jumpDuration = 1f;
     public float maxJumpDistance = 25f;
     
-    public int damage = 1;
+    public int damage = 3;
     
     [Header("SFX")]
     public AudioClip ressortStartSound;

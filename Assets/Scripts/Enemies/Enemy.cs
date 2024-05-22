@@ -116,14 +116,20 @@ namespace Enemies {
 
         public void TakeDamage(int damage) {
             healthPoints -= damage;
-            if (healthPoints <= 0) { Destroy(gameObject); }
+            _animator.SetTrigger("Hit");
+            if (healthPoints <= 0) { Die(); }
+        }
+
+        public void Fall()
+        {
+            _animator.SetBool("Fall", true);
         }
 
         public void Stun(float stunDuration)
         {
             navMeshAgent.isStopped = true;
             //animate Stun
-
+            _animator.SetBool("Stun", true);
             StartCoroutine(ResetStun(stunDuration));
         }
 
@@ -131,16 +137,26 @@ namespace Enemies {
         {
             navMeshAgent.isStopped = true;
             //Animate SlowDown
+            _animator.SetBool("Slow", true);
         }
 
         public IEnumerator ResetStun(float stunDuration)
         {
             yield return new WaitForSeconds(stunDuration);
             navMeshAgent.isStopped = false;
+            _animator.SetBool("Stun", false);
         }
         public void ResetSpeed()
         {
+            _animator.SetBool("Slow", false);
             navMeshAgent.isStopped = false;
+        }
+
+        public void Die()
+        {
+            //Animation de mort
+            _animator.SetTrigger("Die");
+            Destroy(gameObject);
         }
     }
 }

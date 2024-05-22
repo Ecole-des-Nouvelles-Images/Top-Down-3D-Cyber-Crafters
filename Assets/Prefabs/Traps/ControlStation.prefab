@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -351,7 +351,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89463fb5321739a4b985cc27311b823e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiGameObject: {fileID: 6392031328245016877}
+  buttonMeshRenderer: {fileID: 0}
+  animator: {fileID: 0}
+  dangerZone: {fileID: 0}
+  alreadyPressed: 0
+  cooldownTime: 5
   trap: {fileID: 0}
 --- !u!1 &3791931420092052411
 GameObject:
@@ -664,7 +668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
