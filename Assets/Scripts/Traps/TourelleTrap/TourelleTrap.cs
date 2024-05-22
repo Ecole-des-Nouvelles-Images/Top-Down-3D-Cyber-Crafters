@@ -113,10 +113,10 @@ public class TourelleTrap : MonoBehaviour
             {
                 _isActivated = false;
                 _playerInput.currentActionMap = _playerInput.actions.FindActionMap("Gameplay");
-                foreach (MeshRenderer childMr in childsMeshRenderers)
-                {
-                    childMr.material.color = _baseColor;
-                }
+                // foreach (MeshRenderer childMr in childsMeshRenderers)
+                // {
+                //     childMr.material.color = _baseColor;
+                // }
             }
         }
     }
