@@ -70,27 +70,30 @@ namespace Train.Wagon
             if (changeWagon) {
                 TrainManager trainManager = train.GetComponent<TrainManager>();
                 int index = trainManager.wagons.FindIndex(w => w == this);
-                WagonManager nextWagon = trainManager.wagons[index + 1];
-                Vector3 newPosition = new Vector3(0, 0, originalPosition.z - 30);
-                train.transform.Translate(newPosition * 0.25f * Time.deltaTime);
-                Debug.Log("Wagon Changing");
-                if (transform.transform.position.z <= originalPosition.z - 30) {
-                    if (index <= trainManager.wagons.Count - 1) {
-                        changeWagon = false;
-                        nextWagon.wagonEnableable.SetActive(true);
-                        nextWagon.wagonRoof.SetActive(false);
-                        foreach (GameObject player in playerManager.players) {
-                            player.GetComponent<NavMeshAgent>().enabled = false;
-                            player.transform.position = nextWagon.playerAnchor.position;
-                            player.GetComponent<NavMeshAgent>().enabled = true;
-                            Debug.Log("Wagon Changed");
+                if (index > trainManager.wagons.Count)
+                {
+                    WagonManager nextWagon = trainManager.wagons[index + 1];
+                    Vector3 newPosition = new Vector3(0, 0, originalPosition.z - 30);
+                    train.transform.Translate(newPosition * 0.25f * Time.deltaTime);
+                    Debug.Log("Wagon Changing");
+                    if (transform.transform.position.z <= originalPosition.z - 30) {
+                        if (index <= trainManager.wagons.Count - 1) {
+                            changeWagon = false;
+                            nextWagon.wagonEnableable.SetActive(true);
+                            nextWagon.wagonRoof.SetActive(false);
+                            foreach (GameObject player in playerManager.players) {
+                                player.GetComponent<NavMeshAgent>().enabled = false;
+                                player.transform.position = nextWagon.playerAnchor.position;
+                                player.GetComponent<NavMeshAgent>().enabled = true;
+                                Debug.Log("Wagon Changed");
+                            }
+                            wagonEnableable.SetActive(false);
+                            wagonRoof.SetActive(true);
+                            wagonChanged = true;
+                            enemyManager.StartNextWagonTransition();
+                            enemyManager.SortEnemies();
+                            enabled = false;
                         }
-                        wagonEnableable.SetActive(false);
-                        wagonRoof.SetActive(true);
-                        wagonChanged = true;
-                        enemyManager.StartNextWagonTransition();
-                        enemyManager.SortEnemies();
-                        enabled = false;
                     }
                 }
             }

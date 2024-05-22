@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Enemies;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class TrappeTrap : Trap
 {
@@ -14,6 +15,7 @@ public class TrappeTrap : Trap
     // Ajouter un triggered collider sous le train pour lancer mort de l'ennemi.
     
     //Le piege ne se ferme pas des fois ?
+    public NavMeshObstacle navMeshObstacle;
     
     [Header("SFX")]
     public AudioClip trapStartSound;
@@ -57,6 +59,7 @@ public class TrappeTrap : Trap
     {
         isActivated = true;
         timer = 0;
+        navMeshObstacle.enabled = true;
     }
 
     // Appelé par l'Event de l'animator à la fin de l'arrêt du piège.
@@ -64,6 +67,7 @@ public class TrappeTrap : Trap
     {
         audioSource.PlayOneShot(trapStopSound);
         isActivating = false;
+        navMeshObstacle.enabled = false;
 
     }
 
