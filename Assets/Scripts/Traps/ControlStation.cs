@@ -65,6 +65,8 @@ public class ControlStation : MonoBehaviour
         }
     }
 
+    
+    // Verifie que toutes les stations de controle sont activées ensembles dans le temps imparti.
     private IEnumerator CheckOtherStations()
     {
         alreadyPressed = true;
