@@ -112,6 +112,8 @@ public class TourelleTrap : MonoBehaviour
             if (_playerInput.actions["Exit"].WasPressedThisFrame())
             {
                 _isActivated = false;
+                animator.SetBool("isAiming", false);
+                audioSource.clip = null;
                 _playerInput.currentActionMap = _playerInput.actions.FindActionMap("Gameplay");
                 // foreach (MeshRenderer childMr in childsMeshRenderers)
                 // {
