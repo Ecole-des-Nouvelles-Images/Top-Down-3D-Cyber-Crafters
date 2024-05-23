@@ -46,9 +46,9 @@ namespace Enemies {
                     Vector3 position = new Vector3(transform.position.x, transform.position.y + 1.25f, transform.position.z);
                     GameObject model = Instantiate(Models[0], position, transform.rotation, transform);
                     _animator = model.GetComponent<Animator>();
-                    healthPoints = 30;
+                    healthPoints = 30/5;
                     attackPoints = 15;
-                    speed = 2;
+                    speed = 2 / 3;
                     model.GetComponent<MeshRenderer>().material.color = Color.red;
                     break;
                 }
@@ -56,9 +56,9 @@ namespace Enemies {
                     Vector3 position = new Vector3(transform.position.x, transform.position.y + 0.75f, transform.position.z);
                     GameObject model = Instantiate(Models[1], position, transform.rotation, transform);
                     _animator = model.GetComponent<Animator>();
-                    healthPoints = 10;
+                    healthPoints = 10/5;
                     attackPoints = 5;
-                    speed = 6;
+                    speed = 6 / 3;
                     model.GetComponent<MeshRenderer>().material.color = Color.yellow;
                     break;
                 }
@@ -66,9 +66,9 @@ namespace Enemies {
                     Vector3 position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
                     GameObject model = Instantiate(Models[2], position, transform.rotation, transform);
                     _animator = model.GetComponent<Animator>();
-                    healthPoints = 25;
+                    healthPoints = 25/5;
                     attackPoints = 10;
-                    speed = 4;
+                    speed = 4 / 3;
                     model.GetComponent<MeshRenderer>().material.color = Color.green;
                     break;
                 }

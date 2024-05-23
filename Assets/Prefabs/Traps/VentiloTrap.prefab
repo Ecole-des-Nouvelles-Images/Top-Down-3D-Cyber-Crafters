@@ -5739,6 +5739,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActivated: 0
+  controlStations: []
   ventiloParticleSystem: {fileID: 7417485395870957337}
   animator: {fileID: 1762578487912229004}
   ventiloStartSound: {fileID: 8300000, guid: ec31699fb78020545ae205792227ffb0, type: 3}
@@ -6118,7 +6119,7 @@ PrefabInstance:
     - target: {fileID: 1042096388430766554, guid: 36085d6c6ec173a4089f48e64cf91ffb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1042096388430766554, guid: 36085d6c6ec173a4089f48e64cf91ffb,
         type: 3}

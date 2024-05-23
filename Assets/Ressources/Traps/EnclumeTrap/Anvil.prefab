@@ -166,8 +166,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7191e474d5742f34a875ff6045605d12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
-  enclumeDuration: 5
+  damage: 6
+  enclumeDuration: 3.5
+  stunDuration: 2
   bongGroundClip: {fileID: 8300000, guid: c1fa8cb252e5f5b479b334ce2f009cc3, type: 3}
   bongEnemyClip: {fileID: 8300000, guid: 441b182c571e20a4f86d31b7624161c7, type: 3}
   audioSource: {fileID: 3353812751851232881}

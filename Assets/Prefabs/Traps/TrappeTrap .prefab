@@ -391,8 +391,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.369, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1, y: 1, z: 0.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2059875736226172172}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -486,8 +486,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.369, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1, y: 1, z: 0.52}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3125479514520197961}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -955,6 +955,7 @@ MonoBehaviour:
   - {fileID: 3150934805921455115}
   animator: {fileID: 2856078872042501345}
   trapDuration: 5
+  navMeshObstacle: {fileID: 0}
   trapStartSound: {fileID: 8300000, guid: 46fb27030880ea54198199fde01b762c, type: 3}
   trapStopSound: {fileID: 8300000, guid: a5bedb082894a8748b57b1043cfc808c, type: 3}
   audioSource: {fileID: 1833007495154356582}
@@ -1250,7 +1251,7 @@ MonoBehaviour:
   animator: {fileID: 4992871955743497272}
   dangerZone: {fileID: 4568626777862465414}
   alreadyPressed: 0
-  cooldownTime: 0.2
+  cooldownTime: 5
   trap: {fileID: 6090629010432861880}
 --- !u!1 &6392873752004205591
 GameObject:

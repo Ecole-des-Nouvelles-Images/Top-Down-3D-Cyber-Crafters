@@ -123,6 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particleExplosion: {fileID: 9179839855629268840, guid: 6184ad883aa3fb645b3a9a1e1b83db22,
     type: 3}
+  damage: 2
 --- !u!54 &4076703373310035649
 Rigidbody:
   m_ObjectHideFlags: 0
