@@ -43,7 +43,7 @@ namespace Enemies {
             switch (enemyType) {
                 case EnemyType.Tank:
                 {
-                    Vector3 position = new Vector3(transform.position.x, transform.position.y + 1.25f, transform.position.z);
+                    Vector3 position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
                     GameObject model = Instantiate(Models[0], position, transform.rotation, transform);
                     _animator = model.GetComponent<Animator>();
                     healthPoints = 30/5;
@@ -53,7 +53,7 @@ namespace Enemies {
                     break;
                 }
                 case EnemyType.Fast: {
-                    Vector3 position = new Vector3(transform.position.x, transform.position.y + 0.75f, transform.position.z);
+                    Vector3 position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
                     GameObject model = Instantiate(Models[1], position, transform.rotation, transform);
                     _animator = model.GetComponent<Animator>();
                     healthPoints = 10/5;
@@ -63,7 +63,7 @@ namespace Enemies {
                     break;
                 }
                 case EnemyType.Neutral: {
-                    Vector3 position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
+                    Vector3 position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
                     GameObject model = Instantiate(Models[2], position, transform.rotation, transform);
                     _animator = model.GetComponent<Animator>();
                     healthPoints = 25/5;
