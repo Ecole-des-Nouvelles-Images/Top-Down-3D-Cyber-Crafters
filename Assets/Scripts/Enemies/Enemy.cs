@@ -49,7 +49,6 @@ namespace Enemies {
                     healthPoints = 30/5;
                     attackPoints = 15;
                     speed = 2 / 3;
-                    model.GetComponent<MeshRenderer>().material.color = Color.red;
                     break;
                 }
                 case EnemyType.Fast: {
@@ -59,7 +58,6 @@ namespace Enemies {
                     healthPoints = 10/5;
                     attackPoints = 5;
                     speed = 6 / 3;
-                    model.GetComponent<MeshRenderer>().material.color = Color.yellow;
                     break;
                 }
                 case EnemyType.Neutral: {
@@ -68,8 +66,7 @@ namespace Enemies {
                     _animator = model.GetComponent<Animator>();
                     healthPoints = 25/5;
                     attackPoints = 10;
-                    speed = 4 / 3;
-                    model.GetComponent<MeshRenderer>().material.color = Color.green;
+                    speed = 1;
                     break;
                 }
             }
