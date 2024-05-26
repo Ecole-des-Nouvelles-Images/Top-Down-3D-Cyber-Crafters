@@ -60,7 +60,7 @@ namespace Train.Wagon
         {
             if (other.CompareTag("Enemy") && enemyDetector && !other.GetComponent<Enemy>().navMeshAgent.isStopped) {
                 healthPoints -= 1; // Retirer des PV en cas de Contact avec un Ennemi Actif
-                other.GetComponentInChildren()<Animator>().SetBool("Attack", false);
+                other.GetComponentInChildren<Animator>().SetBool("Attack", false);
             }
         }
     }
