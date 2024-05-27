@@ -46,7 +46,16 @@ namespace Train.Wagon
         
         private void Start() {
             originalPosition = transform.position; // Récupération de la position de base pour éffectuer la transition au prochain Wagon.
-            train = transform.parent.GetComponent<TrainManager>().gameObject;
+            if (transform.parent.GetComponent<TrainManager>())
+            {
+                train = transform.parent.GetComponent<TrainManager>().gameObject;
+            }
+            else
+            {
+                train = transform.parent.GetComponent<TrainManagerTesting>().gameObject;
+            }
+            
+            
         }
 
         private void FixedUpdate() {

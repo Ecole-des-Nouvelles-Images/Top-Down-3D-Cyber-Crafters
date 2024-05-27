@@ -13,6 +13,7 @@ namespace Gare
         private float rotationTimeElapsed = 0f;
         public int WagonIndex;
         public List<GameObject> shopWagons = new List<GameObject>();
+        public FakeWagon selectedWagon;
 
         private void FixedUpdate()
         {
@@ -39,6 +40,7 @@ namespace Gare
                     if (WagonIndex < 0) { WagonIndex = 5; }
                     shopWagons[WagonIndex].SetActive(true);
                     rotating = true;
+                    selectedWagon = shopWagons[WagonIndex].GetComponent<FakeWagon>();
                     targetRotation = Quaternion.Euler(wagonShopGameObject.transform.eulerAngles.x, wagonShopGameObject.transform.eulerAngles.y, wagonShopGameObject.transform.eulerAngles.z + 60f);
                 }
 
@@ -50,7 +52,13 @@ namespace Gare
                     if (WagonIndex < 0) { WagonIndex = 5; }
                     shopWagons[WagonIndex].SetActive(true);
                     rotating = true;
+                    selectedWagon = shopWagons[WagonIndex].GetComponent<FakeWagon>();
                     targetRotation = Quaternion.Euler(wagonShopGameObject.transform.eulerAngles.x, wagonShopGameObject.transform.eulerAngles.y, wagonShopGameObject.transform.eulerAngles.z - 60f);
+                }
+
+                if (Input.GetKey(KeyCode.Return) && selectedWagon.buyable)
+                {
+                    selectedWagon.OnBuy();
                 }
             }
         }
