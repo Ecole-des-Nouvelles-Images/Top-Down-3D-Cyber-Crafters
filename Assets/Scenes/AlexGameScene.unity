@@ -658,6 +658,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 173626810}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &179850704 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1360912851577014477, guid: d0330d64da1888c45b68b71ceb2788b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 684469490423361315}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &191220900
 GameObject:
   m_ObjectHideFlags: 0
@@ -2719,7 +2725,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 32.15
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2957,6 +2963,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 423540629043290448, guid: 669ea7dfa976f44418fde11bd2c65d07,
     type: 3}
   m_PrefabInstance: {fileID: 719283191}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &725937693 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3099304366347060922, guid: d0330d64da1888c45b68b71ceb2788b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 684469490423361315}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &745071601
 GameObject:
@@ -5121,7 +5133,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 47.15
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6916,7 +6928,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 43.1
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7684,7 +7696,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 32.15
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7917,6 +7929,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1278247171}
     m_Modifications:
+    - target: {fileID: 309353020928631056, guid: d0330d64da1888c45b68b71ceb2788b1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 419728699284252009, guid: d0330d64da1888c45b68b71ceb2788b1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7967,13 +7984,70 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 990491114147949215, guid: d0330d64da1888c45b68b71ceb2788b1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2901129956395584122, guid: d0330d64da1888c45b68b71ceb2788b1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2968499286789400473, guid: d0330d64da1888c45b68b71ceb2788b1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3507623548381486093, guid: d0330d64da1888c45b68b71ceb2788b1,
+        type: 3}
+      propertyPath: buttonMeshRenderer
+      value: 
+      objectReference: {fileID: 179850704}
+    - target: {fileID: 4014762819119819537, guid: d0330d64da1888c45b68b71ceb2788b1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4108368470877613820, guid: d0330d64da1888c45b68b71ceb2788b1,
         type: 3}
       propertyPath: m_Name
       value: Wagon_1
       objectReference: {fileID: 0}
+    - target: {fileID: 4299531655086028206, guid: d0330d64da1888c45b68b71ceb2788b1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5634966976256166876, guid: d0330d64da1888c45b68b71ceb2788b1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558199561073016244, guid: d0330d64da1888c45b68b71ceb2788b1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6797146816148584835, guid: d0330d64da1888c45b68b71ceb2788b1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7201603483675063242, guid: d0330d64da1888c45b68b71ceb2788b1,
+        type: 3}
+      propertyPath: buttonMeshRenderer
+      value: 
+      objectReference: {fileID: 725937693}
+    - target: {fileID: 9083288050947183937, guid: d0330d64da1888c45b68b71ceb2788b1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3366825853241901626, guid: d0330d64da1888c45b68b71ceb2788b1, type: 3}
+    - {fileID: 1682448122212109389, guid: d0330d64da1888c45b68b71ceb2788b1, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0330d64da1888c45b68b71ceb2788b1, type: 3}
