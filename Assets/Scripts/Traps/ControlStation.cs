@@ -17,6 +17,8 @@ public class ControlStation : MonoBehaviour
 
     public Trap trap;
     
+    public bool button = false; // Si c'est un bouton, on change la couleur du bouton en fonction de l'activation du piege.
+    
 
     private void Awake()
     {
@@ -34,7 +36,7 @@ public class ControlStation : MonoBehaviour
         if (_timer >= cooldownTime && !trap.isActivated)
         {
             animator.SetBool("isActivated", false);
-            buttonMeshRenderer.material.color = Color.red;
+            if(button) buttonMeshRenderer.material.color = Color.red;
             isActivated = false; //?
             alreadyPressed = false;
            // dangerZone.SetActive(false);
@@ -91,7 +93,7 @@ public class ControlStation : MonoBehaviour
             }
         }
         Debug.Log($"CheckOtherStations is setting isActivated to true {this.name}");
-        buttonMeshRenderer.material.color = Color.green;
+        if(button) buttonMeshRenderer.material.color = Color.green;
         animator.SetBool("isActivated", true);
 
         if(sister != null) sister.animator.SetBool("isActivated", true);
