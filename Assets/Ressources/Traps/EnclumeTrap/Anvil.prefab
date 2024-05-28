@@ -149,7 +149,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -172,6 +172,8 @@ MonoBehaviour:
   bongGroundClip: {fileID: 8300000, guid: c1fa8cb252e5f5b479b334ce2f009cc3, type: 3}
   bongEnemyClip: {fileID: 8300000, guid: 441b182c571e20a4f86d31b7624161c7, type: 3}
   audioSource: {fileID: 3353812751851232881}
+  isDropped: 1
+  rb: {fileID: 6469790590249376269}
 --- !u!82 &3353812751851232881
 AudioSource:
   m_ObjectHideFlags: 0

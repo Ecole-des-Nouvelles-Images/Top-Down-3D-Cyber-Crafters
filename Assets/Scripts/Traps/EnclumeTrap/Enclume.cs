@@ -1,3 +1,4 @@
+using System;
 using Enemies;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -14,13 +15,21 @@ public class Enclume : MonoBehaviour
     public AudioSource audioSource;
 
     private bool _hasLanded = false;
+
+    public bool isDropped = false; 
+    public Rigidbody rb;
+    
+
     private void FixedUpdate()
     {
-        if (timer < enclumeDuration) timer += Time.deltaTime;
-        else
-        {
-            Destroy(gameObject);
-        }
+        //if (isDropped)
+        //{
+        //    if (timer < enclumeDuration) timer += Time.deltaTime;
+        //    else
+        //    {
+        //        Destroy(gameObject);
+        //    }
+        //}
     }
 
     private void OnCollisionEnter(Collision other)
@@ -37,5 +46,11 @@ public class Enclume : MonoBehaviour
         else audioSource.PlayOneShot(bongGroundClip);
 
         _hasLanded = true;
+    }
+    
+    public void DropEnclume()
+    {
+        isDropped = true;
+        rb.useGravity = true;
     }
 }

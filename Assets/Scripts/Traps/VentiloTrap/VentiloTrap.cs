@@ -56,9 +56,14 @@ public class VentiloTrap : Trap
     // Appelé par l'Event de l'animator à la fin de l'arrêt du piège.
     private void stopTrap()
     {
+        List<Enemy> enemiesToRemove = new List<Enemy>();
         foreach (Enemy enemy in _slowedEnemies)
         {
             enemy.ResetSpeed();
+            enemiesToRemove.Add(enemy);
+        }
+        foreach (Enemy enemy in enemiesToRemove)
+        {
             _slowedEnemies.Remove(enemy);
         }
         ventiloParticleSystem.Stop();

@@ -11,6 +11,8 @@ TagManager:
   - ControlStation
   - Bullet
   - Enemy
+  - Detection
+  - DangerZone
   layers:
   - Default
   - TransparentFX

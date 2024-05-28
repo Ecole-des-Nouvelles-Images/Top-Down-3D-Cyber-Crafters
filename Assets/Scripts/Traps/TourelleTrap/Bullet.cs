@@ -31,7 +31,12 @@ namespace Proto.Script.Trap
 
         private void OnTriggerEnter(Collider other)
         {
-            Destroy(gameObject);
+            Debug.Log("Bullet collided with: " + other.gameObject.name + other.transform.parent.name);
+            if (!other.CompareTag("DangerZone"))
+            {
+                Destroy(gameObject);
+            }
+            
         }
 
         private void OnDestroy()

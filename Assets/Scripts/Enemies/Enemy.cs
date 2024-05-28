@@ -124,6 +124,7 @@ namespace Enemies {
 
         public void Stun(float stunDuration)
         {
+            if(navMeshAgent.isStopped) return;
             navMeshAgent.isStopped = true;
             //animate Stun
             _animator.SetBool("Stun", true);
@@ -132,6 +133,7 @@ namespace Enemies {
 
         public void SlowDown()
         {
+            if(navMeshAgent.isStopped) return;
             navMeshAgent.isStopped = true;
             //Animate SlowDown
             _animator.SetBool("Slow", true);
