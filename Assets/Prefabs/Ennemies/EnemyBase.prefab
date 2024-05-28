@@ -127,7 +127,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
@@ -155,3 +155,4 @@ MonoBehaviour:
   - {fileID: 6429452140686623801, guid: f0530ebd45340fe408b048873cd7f28c, type: 3}
   - {fileID: 6429452140686623801, guid: 31659aead9415974fb18279db8a9b895, type: 3}
   enemyType: 0
+  _animator: {fileID: 0}

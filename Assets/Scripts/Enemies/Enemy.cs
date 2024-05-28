@@ -21,7 +21,7 @@ namespace Enemies {
         public bool inTrain; // Pour vérifier si l'Ennemi est présent à bord du Train (Pour des Manipulations Physiques en rapport avec le Spawn)
         public int healthPoints;
         public int attackPoints;
-        public int speed;
+        public float speed;
         public List<GameObject> Models = new List<GameObject>();
         public enum EnemyType {
             Tank,
@@ -29,7 +29,7 @@ namespace Enemies {
             Neutral
         }
         [SerializeField] public EnemyType enemyType;
-        private Animator _animator;
+        public Animator _animator;
 
 
         private void Awake() {
@@ -45,19 +45,19 @@ namespace Enemies {
                 {
                     Vector3 position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
                     GameObject model = Instantiate(Models[0], position, transform.rotation, transform);
-                    _animator = model.GetComponent<Animator>();
+                    _animator = model.GetComponentInChildren<Animator>();
                     healthPoints = 30/5;
                     attackPoints = 15;
-                    speed = 2 / 3;
+                    navMeshAgent.speed = 0.75f;
                     break;
                 }
                 case EnemyType.Fast: {
                     Vector3 position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
                     GameObject model = Instantiate(Models[1], position, transform.rotation, transform);
-                    _animator = model.GetComponent<Animator>();
+                    _animator = model.GetComponentInChildren<Animator>();
                     healthPoints = 10/5;
                     attackPoints = 5;
-                    speed = 6 / 3;
+                    navMeshAgent.speed = 2f;
                     break;
                 }
                 case EnemyType.Neutral: {
@@ -66,7 +66,7 @@ namespace Enemies {
                     _animator = model.GetComponent<Animator>();
                     healthPoints = 25/5;
                     attackPoints = 10;
-                    speed = 1;
+                    navMeshAgent.speed = 1f;
                     break;
                 }
             }

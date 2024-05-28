@@ -51,6 +51,7 @@ public class Enclume : MonoBehaviour
     public void DropEnclume()
     {
         isDropped = true;
-        rb.useGravity = true;
+        rb.isKinematic = false;
+        //rb.useGravity = true;
     }
 }
