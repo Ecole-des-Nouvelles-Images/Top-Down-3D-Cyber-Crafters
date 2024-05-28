@@ -34,6 +34,7 @@ namespace Train.Wagon
             parentSpm.localSteamPipes.Remove(this); // Suppréssion de la Liste des SteamPipes afin de pouvoir vérifier si tout les SteamPipes sont "Morts"
             foreach (Enemy enemy in assignedEnemies) { // Rediriger l'ennemi vers un autre SteamPipe
                 enemy.targetedSteamPipe = null;
+                enemy.GetComponentInChildren<Animator>().SetBool("Attack", false);
                 if (parentSpm.localSteamPipes.Count > 0) {
                     int randomSpId = Random.Range(0, parentSpm.localSteamPipes.Count);
                     parentSpm.localSteamPipes[randomSpId].AddEnemy(enemy);
@@ -58,8 +59,7 @@ namespace Train.Wagon
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.CompareTag("Enemy") && enemyDetector && !other.GetComponent<Enemy>().navMeshAgent.isStopped) {
-                healthPoints -= 1; // Retirer des PV en cas de Contact avec un Ennemi Actif
+            if (other.CompareTag("Enemy")) {
                 other.GetComponentInChildren<Animator>().SetBool("Attack", false);
             }
         }
