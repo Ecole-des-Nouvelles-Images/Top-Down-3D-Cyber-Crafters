@@ -16,7 +16,7 @@ namespace Gare {
 
         private void Update()
         {
-            if (FindObjectOfType<TrainManagerTesting>().scrapsCount >= price) {
+            if (FindObjectOfType<TrainManager>().scrapsCount >= price) {
                 foreach (MeshRenderer meshRenderer in wagonRenderers) {
                     for (int i = 0; i < meshRenderer.materials.Length; i++) {
                         meshRenderer.materials[i].SetColor(FresnelColor, Color.green);
@@ -24,7 +24,7 @@ namespace Gare {
                 }
                 buyable = true;
             }
-            else if (FindObjectOfType<TrainManagerTesting>().scrapsCount < price) {
+            else if (FindObjectOfType<TrainManager>().scrapsCount < price) {
                 foreach (MeshRenderer meshRenderer in wagonRenderers) {
                     for (int i = 0; i < meshRenderer.materials.Length; i++) {
                         meshRenderer.materials[i].SetColor(FresnelColor, Color.red);
@@ -42,11 +42,11 @@ namespace Gare {
             if (!buying)
             {
                 buying = true;
-                FindObjectOfType<TrainManagerTesting>().wagonPrefab = wagonPrefab;
-                FindObjectOfType<TrainManagerTesting>().AddWagon();
-                FindObjectOfType<TrainManagerTesting>().transform.position = new Vector3(0, 0,
-                    FindObjectOfType<TrainManagerTesting>().transform.position.z - 30);
-                FindObjectOfType<TrainManagerTesting>().scrapsCount -= price;
+                FindObjectOfType<TrainManager>().wagonPrefab = wagonPrefab;
+                FindObjectOfType<TrainManager>().AddWagon();
+                FindObjectOfType<TrainManager>().transform.position = new Vector3(0, 0,
+                    FindObjectOfType<TrainManager>().transform.position.z - 30);
+                FindObjectOfType<TrainManager>().scrapsCount -= price;
             }
         }
     }

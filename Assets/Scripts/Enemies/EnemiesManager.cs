@@ -5,6 +5,7 @@ using Train.Wagon;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 
 namespace Enemies
 {
@@ -27,8 +28,9 @@ namespace Enemies
         private bool _spawnTimerOn; // Booléen d'activation du Timer
         private bool _firstWave; // Booléen pour vérifier si il s'agit de la première vague
         private float _firstWaveTimer; // Timer du Spawn de la Première Vague
-        private bool _maxEnemiesSpawned; // Permet de stopper le spawn des Ennemis lorsque enemiesNumber est atteint
-        public GameObject finishedWaveIndicator; // Objet d'UI pour montrer qu'une Vague est finie
+        public bool maxEnemiesSpawned; // Permet de stopper le spawn des Ennemis lorsque enemiesNumber est atteint
+        public GameObject finishedWaveIndicator;
+        public float waveInterval = 10;// Objet d'UI pour montrer qu'une Vague est finie
         
         [Header("Objets Locaux")] 
         public List<Enemy> enemies = new List<Enemy>(); // Ennemis Enfants en Vie
@@ -49,7 +51,7 @@ namespace Enemies
         {
             _areEnemiesTeleported = false;
             _teleportedEnemies.Clear();
-            _maxEnemiesSpawned = false;
+            maxEnemiesSpawned = false;
             currentWave += 1;
             if (lastWave < currentWave) {
                 if (_firstWave) {
@@ -86,13 +88,13 @@ namespace Enemies
                 _firstWave = false;
             }
             if (enemies.Count == enemiesNumber) { // Activation du Timer de TP des Ennemis au Train si ils sont tous Spawnés
-                _maxEnemiesSpawned = true;
+                maxEnemiesSpawned = true;
                 spawnEnemies = false;
                 _spawnTimerOn = true;
             }
-            if (!_maxEnemiesSpawned && spawnEnemies) { 
+            if (!maxEnemiesSpawned && spawnEnemies) { 
                 EnemySpawn();
-                _maxEnemiesSpawned = true;
+                maxEnemiesSpawned = true;
             } // Spawner les Ennemis
         }
 
@@ -105,7 +107,7 @@ namespace Enemies
             StartCoroutine(SpawnFastEnemies(fastNumber));
             StartCoroutine(SpawnNeutralEnemies(neutralNumber));
             SortEnemies();
-            _maxEnemiesSpawned = false;
+            maxEnemiesSpawned = false;
         }
 
         public void SortEnemies() { // Tri des Ennemis selon les SteamPipes actifs
@@ -128,15 +130,15 @@ namespace Enemies
         private void FixedUpdate() {
             foreach (Enemy enemy in enemies) { if (enemy.enabled == false) { enemy.enabled = true; } }
 
-            if (_maxEnemiesSpawned && !_areEnemiesTeleported && _spawnTimerOn)
+            if (maxEnemiesSpawned && !_areEnemiesTeleported && _spawnTimerOn)
             {
                 StartCoroutine(TeleportEnemiesToTrain());
             }
 
-            if (enemies.Count <= 0 && _maxEnemiesSpawned && _areEnemiesTeleported && !_firstWave)
+            if (enemies.Count <= 0 && maxEnemiesSpawned && _areEnemiesTeleported && !_firstWave)
             {
                 Debug.Log("Next wave starting in 10 seconds");
-                _maxEnemiesSpawned = false;
+                maxEnemiesSpawned = false;
                 _areEnemiesTeleported = false;
                 enemies.Clear();
                 StartCoroutine(WaveInterval());
@@ -202,7 +204,7 @@ namespace Enemies
         private IEnumerator WaveInterval()
         {
             finishedWaveIndicator.SetActive(true);
-            yield return new WaitForSeconds(10);
+            yield return new WaitForSeconds(waveInterval);
             finishedWaveIndicator.SetActive(false);
             StartWave();
         }

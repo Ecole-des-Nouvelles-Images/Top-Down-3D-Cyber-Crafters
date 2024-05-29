@@ -15,6 +15,11 @@ namespace Gare
         public List<GameObject> shopWagons = new List<GameObject>();
         public FakeWagon selectedWagon;
 
+        private void OnEnable()
+        {
+            selectedWagon = shopWagons[WagonIndex].GetComponent<FakeWagon>();
+        }
+
         private void FixedUpdate()
         {
             
