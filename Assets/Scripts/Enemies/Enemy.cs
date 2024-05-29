@@ -86,7 +86,7 @@ namespace Enemies
         {
             if (healthPoints <= 0)
             {
-                Destroy(gameObject);
+                Die();
             }
         }
 
@@ -185,6 +185,12 @@ namespace Enemies
         {
             //Animation de mort
             _animator.SetTrigger("Die");
+            //Désactiver le NavMeshAgent
+            navMeshAgent.isStopped = true;
+        }
+
+        public void DestroyEnemy()
+        {
             Destroy(gameObject);
         }
     }
