@@ -221,8 +221,10 @@ MonoBehaviour:
   - {fileID: 0}
   shotClip: {fileID: 8300000, guid: 6e14eb2018bf19b4aaee22c273a9ba5f, type: 3}
   aimingClip: {fileID: 8300000, guid: 62dbde0530d16c1459fd558021ec6c41, type: 3}
+  cooldownClip: {fileID: 8300000, guid: 1d868bfea161ee94b8b4c9a0e753bd59, type: 3}
   audioSource: {fileID: 5388729476251385598}
   Tourelle: {fileID: 4049304043260461519}
+  maxShots: 5
 --- !u!82 &5388729476251385598
 AudioSource:
   m_ObjectHideFlags: 0

@@ -53,14 +53,14 @@ namespace Train.Wagon
         private void OnTriggerStay(Collider other) {
             if (other.CompareTag("Enemy") && enemyDetector && !other.GetComponent<Enemy>().navMeshAgent.isStopped) {
                 healthPoints -= 1; // Retirer des PV en cas de Contact avec un Ennemi Actif
-                other.GetComponentInChildren<Animator>().SetBool("Attack", true);
+                other.GetComponent<Enemy>()._animator.SetBool("Attack", true);
             }
         }
 
         private void OnTriggerExit(Collider other)
         {
             if (other.CompareTag("Enemy")) {
-                other.GetComponentInChildren<Animator>().SetBool("Attack", false);
+                other.GetComponent<Enemy>()._animator.SetBool("Attack", false);
             }
         }
     }
