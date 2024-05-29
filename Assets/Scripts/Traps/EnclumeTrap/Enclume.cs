@@ -18,6 +18,8 @@ public class Enclume : MonoBehaviour
 
     public bool isDropped = false; 
     public Rigidbody rb;
+
+    public Collider col;
     
 
     private void FixedUpdate()
@@ -52,6 +54,7 @@ public class Enclume : MonoBehaviour
     {
         isDropped = true;
         rb.isKinematic = false;
+        col.providesContacts = true;
         //rb.useGravity = true;
     }
 }

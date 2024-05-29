@@ -1,5 +1,7 @@
+using System.Collections;
 using System.Collections.Generic;
 using Player;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -20,12 +22,18 @@ public class TourelleTrap : MonoBehaviour
 
     [Header("SFX")] public AudioClip shotClip;
     public AudioClip aimingClip;
+    public AudioClip cooldownClip;
     public AudioSource audioSource;
 
     public GameObject Tourelle;
 
     private Quaternion _initialRotation;
     private bool isAiming;
+    
+    
+    public int maxShots = 5;
+    private int shotCount = 0;
+    private bool isCooldown = false;
 
     private void Awake()
     {
@@ -92,8 +100,9 @@ public class TourelleTrap : MonoBehaviour
             }
 
             //Gérer le tir ( shoot in the actionMap )
-            if (_playerInput.actions["Shoot"].WasPressedThisFrame() && Time.time > nextFireTime)
+            if (_playerInput.actions["Shoot"].WasPressedThisFrame() && Time.time > nextFireTime  && !isCooldown)
             {
+                shotCount++;
                 //SFX
                 audioSource.PlayOneShot(shotClip);
                 //Instancie la balle
@@ -106,6 +115,7 @@ public class TourelleTrap : MonoBehaviour
                     bulletDirection.normalized; // Normalisez la direction pour obtenir une vitesse constante
                 rb.velocity = bulletDirection * bulletSpeed;
                 nextFireTime = Time.time + 1f / fireRate;
+                if (shotCount >= maxShots) StartCoroutine(Cooldown());
             }
 
             // Gérer la sortie
@@ -135,6 +145,17 @@ public class TourelleTrap : MonoBehaviour
             _playerInput.SwitchCurrentActionMap("Turret");
             _isActivated = true;
         }
+    }
+    
+    private IEnumerator Cooldown()
+    {
+        audioSource.PlayOneShot(cooldownClip);
+        isCooldown = true; // Mettez la tourelle en phase de refroidissement
+        //Activate particles or shader hot ? 
+        yield return new WaitForSeconds(5); // Attendez 5 secondes
+        isCooldown = false; // Sortez la tourelle de la phase de refroidissement
+        shotCount = 0; // Réinitialisez le compteur de tirs
+        audioSource.clip = null;
     }
     // when on the triggerZone press A to activate the tourelle
     // lock player movement
