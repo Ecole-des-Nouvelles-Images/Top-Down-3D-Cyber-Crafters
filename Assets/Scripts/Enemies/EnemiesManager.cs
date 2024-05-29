@@ -75,7 +75,7 @@ namespace Enemies
         {
             GameObject enemy = Instantiate(enemyPrefab, position, rotation, transform);
             enemy.GetComponent<Enemy>().enemyType = enemyType;
-            enemy.GetComponent<Rigidbody>().velocity = Vector3.zero;
+//            enemy.GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
 
         private void Update() {
@@ -164,8 +164,8 @@ namespace Enemies
             foreach (Enemy enemy in enemies)
             {
                 if (enemy.inTrain) { continue; }
-                Rigidbody rb = enemy.GetComponent<Rigidbody>();
-                rb.velocity = Vector3.zero;
+                //Rigidbody rb = enemy.GetComponent<Rigidbody>();
+                //rb.velocity = Vector3.zero;
                 enemy.GetComponent<NavMeshAgent>().enabled = false;
                 enemy.transform.position = new Vector3(transform.position.x, 1, transform.position.z + 1);
                 enemy.GetComponent<NavMeshAgent>().enabled = true;
@@ -176,8 +176,8 @@ namespace Enemies
             foreach (Enemy enemy in enemies)
             {
                 if (enemy.inTrain) { continue; }
-                Rigidbody rb = enemy.GetComponent<Rigidbody>();
-                rb.velocity = Vector3.zero;
+                //Rigidbody rb = enemy.GetComponent<Rigidbody>();
+                //rb.velocity = Vector3.zero;
                 enemy.GetComponent<NavMeshAgent>().enabled = false;
                 enemy.transform.position = new Vector3(transform.position.x, 1, transform.position.z + 1);
                 enemy.GetComponent<NavMeshAgent>().enabled = true;
@@ -188,8 +188,8 @@ namespace Enemies
             foreach (Enemy enemy in enemies)
             {
                 if (enemy.inTrain) { continue; }
-                Rigidbody rb = enemy.GetComponent<Rigidbody>();
-                rb.velocity = Vector3.zero;
+                //Rigidbody rb = enemy.GetComponent<Rigidbody>();
+                //rb.velocity = Vector3.zero;
                 enemy.GetComponent<NavMeshAgent>().enabled = false;
                 enemy.transform.position = new Vector3(transform.position.x, 1, transform.position.z + 1);
                 enemy.GetComponent<NavMeshAgent>().enabled = true;
