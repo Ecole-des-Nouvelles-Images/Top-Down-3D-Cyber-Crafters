@@ -71,7 +71,7 @@ public class VentiloTrap : Trap
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy") && isActivated)
+        if (other.CompareTag("Enemy") && isActivated  && other.GetComponent<Enemy>().enemyType != Enemy.EnemyType.Tank)
         {
             Enemy enemy = other.GetComponent<Enemy>();
             enemy.SlowDown();
@@ -81,7 +81,7 @@ public class VentiloTrap : Trap
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Enemy") & isActivated)
+        if (other.CompareTag("Enemy") && isActivated && other.GetComponent<Enemy>().enemyType != Enemy.EnemyType.Tank)
         {
             other.GetComponent<Enemy>().SlowDown();
         }
