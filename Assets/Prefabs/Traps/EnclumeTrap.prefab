@@ -209,8 +209,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isActivated: 0
   controlStations: []
-  enclumePrefab: {fileID: 0}
-  enclume: {fileID: 6991947922379529239, guid: 51ed161d0220ac442a8fee32d2011b78, type: 3}
+  enclumePrefab: {fileID: 5805624446779350285, guid: 51ed161d0220ac442a8fee32d2011b78,
+    type: 3}
+  enclume: {fileID: 6007371091100306282}
   enclumeSpawnPoint: {fileID: 2441160241026923660}
   animator: {fileID: 4954184530679157541}
   activateClip: {fileID: 8300000, guid: c0a052cd6b2642e4cb3cb70a82005d87, type: 3}
@@ -379,6 +380,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51ed161d0220ac442a8fee32d2011b78, type: 3}
+--- !u!114 &6007371091100306282 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5805624446779350285, guid: 51ed161d0220ac442a8fee32d2011b78,
+    type: 3}
+  m_PrefabInstance: {fileID: 274649762834634343}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7191e474d5742f34a875ff6045605d12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7605581116587725002 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7657160860460517037, guid: 51ed161d0220ac442a8fee32d2011b78,
