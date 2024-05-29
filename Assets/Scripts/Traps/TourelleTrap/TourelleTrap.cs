@@ -29,8 +29,8 @@ public class TourelleTrap : MonoBehaviour
 
     private Quaternion _initialRotation;
     private bool isAiming;
-    
-    
+
+
     public int maxShots = 5;
     private int shotCount = 0;
     private bool isCooldown = false;
@@ -75,6 +75,7 @@ public class TourelleTrap : MonoBehaviour
                     audioSource.Play();
                     isAiming = true;
                 }
+
                 //Animation Vanne
                 animator.SetBool("isAiming", true);
                 // Calculez l'angle cible en utilisant Mathf.Atan2 pour obtenir l'angle en radians, puis convertissez-le en degrés
@@ -100,20 +101,14 @@ public class TourelleTrap : MonoBehaviour
             }
 
             //Gérer le tir ( shoot in the actionMap )
-            if (_playerInput.actions["Shoot"].WasPressedThisFrame() && Time.time > nextFireTime  && !isCooldown)
+            if (_playerInput.actions["Shoot"].WasPressedThisFrame() && Time.time > nextFireTime && !isCooldown)
             {
                 shotCount++;
                 //SFX
                 audioSource.PlayOneShot(shotClip);
                 //Instancie la balle
                 GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
-                Rigidbody rb = bullet.GetComponent<Rigidbody>();
-                // Utilisez la rotation de la tourelle pour définir la direction initiale de la balle
-                Vector3 bulletDirection = Tourelle.transform.forward;
-                bulletDirection.y = 0; // Réinitialisez la composante y pour que la balle reste à plat sur le sol
-                bulletDirection =
-                    bulletDirection.normalized; // Normalisez la direction pour obtenir une vitesse constante
-                rb.velocity = bulletDirection * bulletSpeed;
+                // Pas besoin de définir la vélocité du Rigidbody car la balle se déplace maintenant par elle-même
                 nextFireTime = Time.time + 1f / fireRate;
                 if (shotCount >= maxShots) StartCoroutine(Cooldown());
             }
@@ -146,7 +141,7 @@ public class TourelleTrap : MonoBehaviour
             _isActivated = true;
         }
     }
-    
+
     private IEnumerator Cooldown()
     {
         audioSource.PlayOneShot(cooldownClip);

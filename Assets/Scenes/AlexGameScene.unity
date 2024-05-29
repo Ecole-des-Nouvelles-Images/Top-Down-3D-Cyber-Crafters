@@ -8207,6 +8207,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5805624446779350285, guid: 51ed161d0220ac442a8fee32d2011b78,
         type: 3}
+    - target: {fileID: 7031347524776586128, guid: d0330d64da1888c45b68b71ceb2788b1,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7031347524776586128, guid: d0330d64da1888c45b68b71ceb2788b1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7031347524776586128, guid: d0330d64da1888c45b68b71ceb2788b1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 7201603483675063242, guid: d0330d64da1888c45b68b71ceb2788b1,
         type: 3}
       propertyPath: buttonMeshRenderer

@@ -7,8 +7,8 @@ namespace Proto.Script.Trap
     {
         public GameObject particleExplosion;
         public int damage = 1;
+        public float speed = 10f; // Ajoutez une vitesse à la balle
         private float _timer;
-        
 
         private void Update()
         {
@@ -17,6 +17,9 @@ namespace Proto.Script.Trap
             {
                 Destroy(gameObject);
             }
+
+            // Déplacez la balle en fonction de sa vitesse
+            transform.position += transform.forward * (speed * Time.deltaTime);
         }
 
         private void OnTriggerStay(Collider other)
@@ -36,7 +39,6 @@ namespace Proto.Script.Trap
             {
                 Destroy(gameObject);
             }
-            
         }
 
         private void OnDestroy()
