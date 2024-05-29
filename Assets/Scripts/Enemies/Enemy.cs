@@ -81,12 +81,24 @@ namespace Enemies
                 }
             }
         }
+        //
+        // private void Update()
+        // {
+        //     if (healthPoints <= 0)
+        //     {
+        //         Die();
+        //     }
+        // }
 
-        private void Update()
+        private void FixedUpdate()
         {
-            if (healthPoints <= 0)
+            if (navMeshAgent.speed > 0)
             {
-                Die();
+                _animator.SetBool("Walk", true);
+            }
+            else
+            {
+                _animator.SetBool("Walk", false);
             }
         }
 
