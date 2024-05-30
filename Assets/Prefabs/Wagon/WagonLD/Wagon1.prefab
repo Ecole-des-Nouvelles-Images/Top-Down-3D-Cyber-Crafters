@@ -98,7 +98,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1546191602728184848
 Transform:
   m_ObjectHideFlags: 0
@@ -116,6 +116,7 @@ Transform:
   - {fileID: 714188809213023744}
   - {fileID: 1710160081398082576}
   - {fileID: 284769249518780994}
+  - {fileID: 4083249427648501489}
   m_Father: {fileID: 7555152127243538489}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1015402170211162067
@@ -374,7 +375,7 @@ Transform:
   m_GameObject: {fileID: 1642997328801602457}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -410,7 +411,7 @@ Transform:
   - {fileID: 4784951653222449718}
   - {fileID: 2074597973686611165}
   - {fileID: 7018895775987540454}
-  m_Father: {fileID: 7555152127243538489}
+  m_Father: {fileID: 1546191602728184848}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1948170505157180049
 GameObject:
@@ -755,7 +756,6 @@ Transform:
   - {fileID: 1546191602728184848}
   - {fileID: 6196806991046951238}
   - {fileID: 3895617691110472915}
-  - {fileID: 4083249427648501489}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &5566176558838927538
@@ -776,7 +776,7 @@ MonoBehaviour:
   localSteamPipeManager: {fileID: 400774830849639188}
   wagonExitDoor: {fileID: 5623845732014483073}
   wagonEnableable: {fileID: 725495137569931384}
-  wagonRoof: {fileID: 0}
+  wagonRoof: {fileID: 4742821066683666266}
   playerAnchor: {fileID: 6196806991046951238}
   enemyAnchor: {fileID: 0}
   originalPosition: {x: 0, y: 0, z: 0}
@@ -813,7 +813,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.083333336
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: a9acb6b9b34817248b23137f2d4dd13e, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 897118853dbdcc4489669acd50aa4ba4, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1 &2960268656261030867
 GameObject:
@@ -2303,7 +2303,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6772904240048005765
 Transform:
   m_ObjectHideFlags: 0
@@ -4840,6 +4840,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8303096255652696191, guid: f5a405da3b52f4243b7c0a130134a74e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5308,6 +5313,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4612343239769143074, guid: 4807ad9ba63c3eb4d97c2898c6feff72,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8189558613768084774, guid: 4807ad9ba63c3eb4d97c2898c6feff72,
         type: 3}
@@ -5787,6 +5797,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TonneauxTrap (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3454105574659452655, guid: 9709378938e9f344b9441c52f2c9921c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6659693853421544002, guid: 9709378938e9f344b9441c52f2c9921c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5939,6 +5954,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TonneauxTrap
+      objectReference: {fileID: 0}
+    - target: {fileID: 3454105574659452655, guid: 9709378938e9f344b9441c52f2c9921c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6659693853421544002, guid: 9709378938e9f344b9441c52f2c9921c,
         type: 3}
@@ -6908,6 +6928,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4612343239769143074, guid: 4807ad9ba63c3eb4d97c2898c6feff72,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8189558613768084774, guid: 4807ad9ba63c3eb4d97c2898c6feff72,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7139,6 +7164,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303096255652696191, guid: f5a405da3b52f4243b7c0a130134a74e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -1,3 +1,4 @@
+using System.Collections;
 using Enemies;
 using Player;
 using UnityEngine;
@@ -54,11 +55,9 @@ namespace Train.Wagon
             {
                 train = transform.parent.GetComponent<TrainManagerTesting>().gameObject;
             }
-            
-            
         }
 
-        private void FixedUpdate() {
+        private void Update() {
             if (wagonEnableable.activeSelf) {
                 if (!steamPipesTaken) {
                     localSteamPipeManager = GetComponentInChildren<SteamPipeManager>();
@@ -79,7 +78,7 @@ namespace Train.Wagon
             if (changeWagon) {
                 TrainManager trainManager = train.GetComponent<TrainManager>();
                 int index = trainManager.wagons.FindIndex(w => w == this);
-                if (index > trainManager.wagons.Count)
+                if (index <= trainManager.wagons.Count)
                 {
                     WagonManager nextWagon = trainManager.wagons[index + 1];
                     Vector3 newPosition = new Vector3(0, 0, originalPosition.z - 30);
@@ -107,5 +106,15 @@ namespace Train.Wagon
                 }
             }
         }
+
+        /*private IEnumerator ChangeWagon()
+        {
+            TrainManager trainManager = train.GetComponent<TrainManager>();
+            int index = trainManager.wagons.FindIndex(w => w == this);
+            if (index > trainManager.wagons.Count)
+            {
+             yield break;   
+            }
+        }*/
     }
 }

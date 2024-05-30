@@ -67,18 +67,21 @@ namespace Manager
             if (transitionToStation)
             {
                 trainManager.transform.Translate(transitionPosition * 0.25f * Time.deltaTime);
-                if (trainManager.transform.position.z <= transitionPosition.z)
+                if (trainManager.transform.position.z <= transform.position.z)
                 {
                     transitionToStation = false;
+                    inStation = true;
                 }
             }
 
             if (transitionToTrain)
             {
-                trainManager.transform.Translate(transitionPosition * -0.25f * Time.deltaTime);
-                if (trainManager.transform.position.z >= transitionPosition.z)
+                trainManager.transform.Translate((-trainManager.transform.position) * 0.25f * Time.deltaTime);
+                if (transform.position.z <= trainManager.transform.position.z)
                 {
                     transitionToTrain = false;
+                    inStation = false;
+                    justLeavedStation = true;
                 }
             }
         }
@@ -88,10 +91,10 @@ namespace Manager
         {
             if (!transitionToTrain)
             {
-                inStation = false;
-                justLeavedStation = true;
                 WagonManager firstWagon = trainManager.wagons[0];
-                transitionPosition = new Vector3(0,0,firstWagon.transform.localPosition.z);
+                transitionPosition = new Vector3(0,0,trainStation.transform.position.z);
+                this.transform.position = transitionPosition;
+                transitionToTrain = true;
             }
         }
 
@@ -101,10 +104,11 @@ namespace Manager
             if (!transitionToStation)
             {
                 WagonManager lastWagon = trainManager.wagons[^1];
-                Vector3 newStationPosition = new Vector3(0, 0, lastWagon.transform.localPosition.z + 35);
+                Vector3 newStationPosition = new Vector3(0, 0, lastWagon.transform.position.z + 35);
                 trainStation.transform.position = newStationPosition;
                 transitionToStation = true;
-                transitionPosition = new Vector3(0,0,trainStation.transform.position.z);
+                transitionPosition = new Vector3(0,0,-trainStation.transform.localPosition.z);
+                this.transform.position = transitionPosition;
             }
         }
 

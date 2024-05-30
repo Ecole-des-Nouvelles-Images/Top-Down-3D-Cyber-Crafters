@@ -81,14 +81,14 @@ namespace Enemies
                 }
             }
         }
-        //
-        // private void Update()
-        // {
-        //     if (healthPoints <= 0)
-        //     {
-        //         Die();
-        //     }
-        // }
+        
+         private void Update()
+        {
+           if (healthPoints <= 0)
+           {
+               Die();
+           }
+        }
 
         private void FixedUpdate()
         {
@@ -197,6 +197,7 @@ namespace Enemies
         {
             //Animation de mort
             _animator.SetTrigger("Die");
+            _animator.SetBool("Walk", false);
             //Désactiver le NavMeshAgent
             navMeshAgent.isStopped = true;
         }

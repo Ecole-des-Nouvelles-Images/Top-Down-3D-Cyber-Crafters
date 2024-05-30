@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Manager;
 using Train.Wagon;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -130,12 +131,12 @@ namespace Enemies
         private void FixedUpdate() {
             foreach (Enemy enemy in enemies) { if (enemy.enabled == false) { enemy.enabled = true; } }
 
-            if (maxEnemiesSpawned && !_areEnemiesTeleported && _spawnTimerOn)
+            if (maxEnemiesSpawned && !_areEnemiesTeleported && _spawnTimerOn && FindObjectOfType<GameManager>().inStation == false)
             {
                 StartCoroutine(TeleportEnemiesToTrain());
             }
 
-            if (enemies.Count <= 0 && maxEnemiesSpawned && _areEnemiesTeleported && !_firstWave)
+            if (enemies.Count <= 0 && maxEnemiesSpawned && _areEnemiesTeleported && !_firstWave  && FindObjectOfType<GameManager>().inStation == false)
             {
                 Debug.Log("Next wave starting in 10 seconds");
                 maxEnemiesSpawned = false;
