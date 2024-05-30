@@ -13,6 +13,7 @@ TagManager:
   - Enemy
   - Detection
   - DangerZone
+  - ControlStationEnclume
   layers:
   - Default
   - TransparentFX

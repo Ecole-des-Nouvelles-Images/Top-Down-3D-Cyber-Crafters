@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.21189575, g: 0.25504377, b: 0.32717878, a: 1}
+  m_IndirectSpecularColor: {r: 0.21189584, g: 0.25504398, b: 0.32717878, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4586,6 +4586,7 @@ MonoBehaviour:
   transitionToStation: 0
   transitionToTrain: 0
   transitionPosition: {x: 0, y: 0, z: 0}
+  playerManager: {fileID: 0}
 --- !u!4 &1214873238
 Transform:
   m_ObjectHideFlags: 0
@@ -7753,6 +7754,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1278247171}
     m_Modifications:
+    - target: {fileID: 209739721163327314, guid: be280e78c0100f34fbafc73527fb3920,
+        type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1214873237}
+    - target: {fileID: 209739721163327314, guid: be280e78c0100f34fbafc73527fb3920,
+        type: 3}
+      propertyPath: playerManager
+      value: 
+      objectReference: {fileID: 799558633}
     - target: {fileID: 862007723640367134, guid: be280e78c0100f34fbafc73527fb3920,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7807,6 +7818,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TrainStation
+      objectReference: {fileID: 0}
+    - target: {fileID: 6827362386403720273, guid: be280e78c0100f34fbafc73527fb3920,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

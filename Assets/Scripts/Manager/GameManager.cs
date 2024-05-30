@@ -2,9 +2,11 @@ using System;
 using System.Collections.Generic;
 using Enemies;
 using Environement;
+using Player;
 using Train;
 using Train.Wagon;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Manager
 {
@@ -26,6 +28,8 @@ namespace Manager
         public bool transitionToStation;
         public bool transitionToTrain;
         public Vector3 transitionPosition;
+
+        public PlayerManager playerManager;
 
         private void Start() {
             inStation = false;
@@ -82,6 +86,8 @@ namespace Manager
                     transitionToTrain = false;
                     inStation = false;
                     justLeavedStation = true;
+                    trainStation.gameObject.SetActive(false);
+                    trainStation.transform.position = new Vector3(0, 0, 450);
                 }
             }
         }
@@ -103,6 +109,12 @@ namespace Manager
         {
             if (!transitionToStation)
             {
+                trainStation.gameObject.SetActive(true);
+
+                //Change inputAction
+                // PlayerInput playerInput = playerManager.players[0].GetComponent<PlayerInput>();
+                // playerInput.currentActionMap = playerInput.actions.FindActionMap("GareStation");
+                // playerInput.SwitchCurrentActionMap("GareStation");
                 WagonManager lastWagon = trainManager.wagons[^1];
                 Vector3 newStationPosition = new Vector3(0, 0, lastWagon.transform.position.z + 35);
                 trainStation.transform.position = newStationPosition;

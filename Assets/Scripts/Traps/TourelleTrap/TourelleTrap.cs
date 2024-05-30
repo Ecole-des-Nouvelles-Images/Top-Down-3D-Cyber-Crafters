@@ -154,7 +154,7 @@ public class TourelleTrap : MonoBehaviour
         isCooldown = false; // Sortez la tourelle de la phase de refroidissement
         shotCount = 0; // Réinitialisez le compteur de tirs
         audioSource.clip = null;
-        overheatParticle.Stop();
+        overheatParticle.Stop();    
     }
     // when on the triggerZone press A to activate the tourelle
     // lock player movement

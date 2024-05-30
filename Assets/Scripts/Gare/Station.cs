@@ -1,6 +1,10 @@
 using System;
 using System.Collections.Generic;
+using Manager;
+using Player;
+using UnityEditor.Build.Content;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Gare
 {
@@ -14,10 +18,17 @@ namespace Gare
         public int WagonIndex;
         public List<GameObject> shopWagons = new List<GameObject>();
         public FakeWagon selectedWagon;
-
+        
+        public GameManager gameManager;
+        public PlayerManager playerManager;
+        private PlayerInput _playerInput;
         private void OnEnable()
         {
             selectedWagon = shopWagons[WagonIndex].GetComponent<FakeWagon>();
+            _playerInput = playerManager.players[0].GetComponent<PlayerInput>();
+            _playerInput = playerManager.players[0].GetComponent<PlayerInput>();
+            _playerInput.currentActionMap = _playerInput.actions.FindActionMap("GareStation");
+            _playerInput.SwitchCurrentActionMap("GareStation");
         }
 
         private void FixedUpdate()
@@ -37,7 +48,7 @@ namespace Gare
             }
             else
             {
-                if (Input.GetKeyDown(KeyCode.RightArrow))
+                if (_playerInput.actions["Right"].WasPressedThisFrame())
                 {
                     shopWagons[WagonIndex].SetActive(false);
                     WagonIndex -= 1;
@@ -49,7 +60,7 @@ namespace Gare
                     targetRotation = Quaternion.Euler(wagonShopGameObject.transform.eulerAngles.x, wagonShopGameObject.transform.eulerAngles.y, wagonShopGameObject.transform.eulerAngles.z + 60f);
                 }
 
-                if (Input.GetKeyDown(KeyCode.LeftArrow))
+                if (_playerInput.actions["Left"].WasPressedThisFrame())
                 {
                     shopWagons[WagonIndex].SetActive(false);
                     WagonIndex += 1;
@@ -61,9 +72,14 @@ namespace Gare
                     targetRotation = Quaternion.Euler(wagonShopGameObject.transform.eulerAngles.x, wagonShopGameObject.transform.eulerAngles.y, wagonShopGameObject.transform.eulerAngles.z - 60f);
                 }
 
-                if (Input.GetKey(KeyCode.Return) && selectedWagon.buyable)
+                if (_playerInput.actions["Buy"].WasPressedThisFrame())
                 {
                     selectedWagon.OnBuy();
+                }
+                
+                if(_playerInput.actions["Exit"].WasPressedThisFrame())
+                {
+                    gameManager.LeaveStation();
                 }
             }
         }

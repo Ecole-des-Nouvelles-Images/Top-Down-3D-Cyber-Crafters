@@ -286,6 +286,217 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""MovingEnclume"",
+            ""id"": ""8ccd0c69-1284-4970-81de-a53056802ab6"",
+            ""actions"": [
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""27babf91-afa2-4554-8268-d37a95c75719"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Drop"",
+                    ""type"": ""Button"",
+                    ""id"": ""657c8f1e-037e-4354-9789-71b0eff5ed36"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Exit"",
+                    ""type"": ""Button"",
+                    ""id"": ""f2d923d9-b13c-4775-ab53-f396e76683ae"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""57288d22-daba-424d-ab00-2d069c8e94c7"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2DVector"",
+                    ""id"": ""d928e889-efdd-4499-b6eb-80f5e5b79987"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Up"",
+                    ""id"": ""c1a31ab4-c3f8-43ae-9617-e9bdfd5669e8"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Down"",
+                    ""id"": ""41d58385-aef5-46a2-a584-6b1d9d28fc35"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Left"",
+                    ""id"": ""56b3af17-015e-452b-b419-063864e4378c"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Right"",
+                    ""id"": ""9a782c49-41a7-4990-bbbb-4c976a9ec910"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""df715100-ac47-4789-9417-505d735c31ab"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Drop"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ab8b4721-75a5-446c-a445-bbedcda5f95e"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Exit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""GareStation"",
+            ""id"": ""669d9d7b-308d-40e3-913b-5585c8fa1d14"",
+            ""actions"": [
+                {
+                    ""name"": ""Left"",
+                    ""type"": ""Button"",
+                    ""id"": ""9d5e3148-8511-4a83-abb4-2609b6486fb3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Right"",
+                    ""type"": ""Button"",
+                    ""id"": ""5df56e8e-0dd5-4356-977d-ac12d70b0548"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Buy"",
+                    ""type"": ""Button"",
+                    ""id"": ""ae780ee0-1184-4a8e-b301-cfa84affc15a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Leave"",
+                    ""type"": ""Button"",
+                    ""id"": ""46f3039d-15d3-4ffa-980a-bb7924efde6c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""265a4454-b3b3-4e56-a46f-e12ef7d5d2bf"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""424e1eee-d3e0-42ff-a941-e60863bfcf6c"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0f23b1d8-8b8f-4296-8978-c8acecbca68a"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Buy"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e2d2574e-a51d-4cc4-b0bd-c756aaed24e3"",
+                    ""path"": ""<Gamepad>/{Cancel}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Leave"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -314,6 +525,17 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
         m_Turret_Aim = m_Turret.FindAction("Aim", throwIfNotFound: true);
         m_Turret_Shoot = m_Turret.FindAction("Shoot", throwIfNotFound: true);
         m_Turret_Exit = m_Turret.FindAction("Exit", throwIfNotFound: true);
+        // MovingEnclume
+        m_MovingEnclume = asset.FindActionMap("MovingEnclume", throwIfNotFound: true);
+        m_MovingEnclume_Move = m_MovingEnclume.FindAction("Move", throwIfNotFound: true);
+        m_MovingEnclume_Drop = m_MovingEnclume.FindAction("Drop", throwIfNotFound: true);
+        m_MovingEnclume_Exit = m_MovingEnclume.FindAction("Exit", throwIfNotFound: true);
+        // GareStation
+        m_GareStation = asset.FindActionMap("GareStation", throwIfNotFound: true);
+        m_GareStation_Left = m_GareStation.FindAction("Left", throwIfNotFound: true);
+        m_GareStation_Right = m_GareStation.FindAction("Right", throwIfNotFound: true);
+        m_GareStation_Buy = m_GareStation.FindAction("Buy", throwIfNotFound: true);
+        m_GareStation_Leave = m_GareStation.FindAction("Leave", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -511,6 +733,138 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
         }
     }
     public TurretActions @Turret => new TurretActions(this);
+
+    // MovingEnclume
+    private readonly InputActionMap m_MovingEnclume;
+    private List<IMovingEnclumeActions> m_MovingEnclumeActionsCallbackInterfaces = new List<IMovingEnclumeActions>();
+    private readonly InputAction m_MovingEnclume_Move;
+    private readonly InputAction m_MovingEnclume_Drop;
+    private readonly InputAction m_MovingEnclume_Exit;
+    public struct MovingEnclumeActions
+    {
+        private @InputAsset m_Wrapper;
+        public MovingEnclumeActions(@InputAsset wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_MovingEnclume_Move;
+        public InputAction @Drop => m_Wrapper.m_MovingEnclume_Drop;
+        public InputAction @Exit => m_Wrapper.m_MovingEnclume_Exit;
+        public InputActionMap Get() { return m_Wrapper.m_MovingEnclume; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MovingEnclumeActions set) { return set.Get(); }
+        public void AddCallbacks(IMovingEnclumeActions instance)
+        {
+            if (instance == null || m_Wrapper.m_MovingEnclumeActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_MovingEnclumeActionsCallbackInterfaces.Add(instance);
+            @Move.started += instance.OnMove;
+            @Move.performed += instance.OnMove;
+            @Move.canceled += instance.OnMove;
+            @Drop.started += instance.OnDrop;
+            @Drop.performed += instance.OnDrop;
+            @Drop.canceled += instance.OnDrop;
+            @Exit.started += instance.OnExit;
+            @Exit.performed += instance.OnExit;
+            @Exit.canceled += instance.OnExit;
+        }
+
+        private void UnregisterCallbacks(IMovingEnclumeActions instance)
+        {
+            @Move.started -= instance.OnMove;
+            @Move.performed -= instance.OnMove;
+            @Move.canceled -= instance.OnMove;
+            @Drop.started -= instance.OnDrop;
+            @Drop.performed -= instance.OnDrop;
+            @Drop.canceled -= instance.OnDrop;
+            @Exit.started -= instance.OnExit;
+            @Exit.performed -= instance.OnExit;
+            @Exit.canceled -= instance.OnExit;
+        }
+
+        public void RemoveCallbacks(IMovingEnclumeActions instance)
+        {
+            if (m_Wrapper.m_MovingEnclumeActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IMovingEnclumeActions instance)
+        {
+            foreach (var item in m_Wrapper.m_MovingEnclumeActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_MovingEnclumeActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public MovingEnclumeActions @MovingEnclume => new MovingEnclumeActions(this);
+
+    // GareStation
+    private readonly InputActionMap m_GareStation;
+    private List<IGareStationActions> m_GareStationActionsCallbackInterfaces = new List<IGareStationActions>();
+    private readonly InputAction m_GareStation_Left;
+    private readonly InputAction m_GareStation_Right;
+    private readonly InputAction m_GareStation_Buy;
+    private readonly InputAction m_GareStation_Leave;
+    public struct GareStationActions
+    {
+        private @InputAsset m_Wrapper;
+        public GareStationActions(@InputAsset wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Left => m_Wrapper.m_GareStation_Left;
+        public InputAction @Right => m_Wrapper.m_GareStation_Right;
+        public InputAction @Buy => m_Wrapper.m_GareStation_Buy;
+        public InputAction @Leave => m_Wrapper.m_GareStation_Leave;
+        public InputActionMap Get() { return m_Wrapper.m_GareStation; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(GareStationActions set) { return set.Get(); }
+        public void AddCallbacks(IGareStationActions instance)
+        {
+            if (instance == null || m_Wrapper.m_GareStationActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_GareStationActionsCallbackInterfaces.Add(instance);
+            @Left.started += instance.OnLeft;
+            @Left.performed += instance.OnLeft;
+            @Left.canceled += instance.OnLeft;
+            @Right.started += instance.OnRight;
+            @Right.performed += instance.OnRight;
+            @Right.canceled += instance.OnRight;
+            @Buy.started += instance.OnBuy;
+            @Buy.performed += instance.OnBuy;
+            @Buy.canceled += instance.OnBuy;
+            @Leave.started += instance.OnLeave;
+            @Leave.performed += instance.OnLeave;
+            @Leave.canceled += instance.OnLeave;
+        }
+
+        private void UnregisterCallbacks(IGareStationActions instance)
+        {
+            @Left.started -= instance.OnLeft;
+            @Left.performed -= instance.OnLeft;
+            @Left.canceled -= instance.OnLeft;
+            @Right.started -= instance.OnRight;
+            @Right.performed -= instance.OnRight;
+            @Right.canceled -= instance.OnRight;
+            @Buy.started -= instance.OnBuy;
+            @Buy.performed -= instance.OnBuy;
+            @Buy.canceled -= instance.OnBuy;
+            @Leave.started -= instance.OnLeave;
+            @Leave.performed -= instance.OnLeave;
+            @Leave.canceled -= instance.OnLeave;
+        }
+
+        public void RemoveCallbacks(IGareStationActions instance)
+        {
+            if (m_Wrapper.m_GareStationActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IGareStationActions instance)
+        {
+            foreach (var item in m_Wrapper.m_GareStationActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_GareStationActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public GareStationActions @GareStation => new GareStationActions(this);
     private int m_GamepadSchemeIndex = -1;
     public InputControlScheme GamepadScheme
     {
@@ -533,5 +887,18 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
         void OnAim(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
         void OnExit(InputAction.CallbackContext context);
+    }
+    public interface IMovingEnclumeActions
+    {
+        void OnMove(InputAction.CallbackContext context);
+        void OnDrop(InputAction.CallbackContext context);
+        void OnExit(InputAction.CallbackContext context);
+    }
+    public interface IGareStationActions
+    {
+        void OnLeft(InputAction.CallbackContext context);
+        void OnRight(InputAction.CallbackContext context);
+        void OnBuy(InputAction.CallbackContext context);
+        void OnLeave(InputAction.CallbackContext context);
     }
 }

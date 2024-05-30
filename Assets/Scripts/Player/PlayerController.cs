@@ -154,6 +154,21 @@ namespace Player
                     _buttonAPressed = false;
                 }
             }
+            
+            if (other.CompareTag("ControlStationEnclume")) {
+                if (_buttonAPressed) {
+                    //Activer TourelleTrap et changer InputActionMap
+                    other.GetComponentInParent<MovingEnclumeTrap>().OnControlStation(this);
+                    _buttonAPressed = false;
+                }
+            }
+        }
+
+        void OnGareStation()
+        {
+            PlayerInput _playerInput = GetComponent<PlayerInput>();
+            _playerInput.currentActionMap = _playerInput.actions.FindActionMap("GareStation");
+            _playerInput.SwitchCurrentActionMap("GareStation");
         }
     }
 }
