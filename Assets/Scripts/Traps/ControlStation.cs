@@ -19,6 +19,8 @@ public class ControlStation : MonoBehaviour
     
     public bool button = false; // Si c'est un bouton, on change la couleur du bouton en fonction de l'activation du piege.
     
+    public AudioClip ErrorSound;
+    
 
     private void Awake()
     {
@@ -71,6 +73,7 @@ public class ControlStation : MonoBehaviour
     // Verifie que toutes les stations de controle sont activées ensembles dans le temps imparti.
     private IEnumerator CheckOtherStations()
     {
+        if(button) buttonMeshRenderer.material.color = Color.green;
         alreadyPressed = true;
         _timer = 0;
         yield return new WaitForSeconds(1);
@@ -88,15 +91,19 @@ public class ControlStation : MonoBehaviour
                     Debug.Log($"sister is {sister.name}");
                 }
 
+                if(button) buttonMeshRenderer.material.color = Color.red;
+                GetComponent<AudioSource>().PlayOneShot(ErrorSound);
+
                 isActivated = false;
                 yield break;
             }
         }
         Debug.Log($"CheckOtherStations is setting isActivated to true {this.name}");
-        if(button) buttonMeshRenderer.material.color = Color.green;
+        //if(button) buttonMeshRenderer.material.color = Color.green;
         animator.SetBool("isActivated", true);
 
         if(sister != null) sister.animator.SetBool("isActivated", true);
+        if(button) buttonMeshRenderer.material.color = Color.yellow;
 
         trap.ActivateTrap();
 
