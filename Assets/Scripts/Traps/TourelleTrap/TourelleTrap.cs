@@ -29,7 +29,9 @@ public class TourelleTrap : MonoBehaviour
 
     private Quaternion _initialRotation;
     private bool isAiming;
-
+    
+    
+    public ParticleSystem overheatParticle;
 
     public int maxShots = 5;
     private int shotCount = 0;
@@ -145,12 +147,14 @@ public class TourelleTrap : MonoBehaviour
     private IEnumerator Cooldown()
     {
         audioSource.PlayOneShot(cooldownClip);
+        overheatParticle.Play();
         isCooldown = true; // Mettez la tourelle en phase de refroidissement
         //Activate particles or shader hot ? 
         yield return new WaitForSeconds(5); // Attendez 5 secondes
         isCooldown = false; // Sortez la tourelle de la phase de refroidissement
         shotCount = 0; // Réinitialisez le compteur de tirs
         audioSource.clip = null;
+        overheatParticle.Stop();
     }
     // when on the triggerZone press A to activate the tourelle
     // lock player movement
