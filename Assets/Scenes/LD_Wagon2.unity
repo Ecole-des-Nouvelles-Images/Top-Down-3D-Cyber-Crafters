@@ -2193,6 +2193,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wagon3
       objectReference: {fileID: 0}
+    - target: {fileID: 2691762023673686753, guid: 77f7bb9e2e373384995f49109e06cbd3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7555152127243538489, guid: 77f7bb9e2e373384995f49109e06cbd3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9509,6 +9514,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1278247171}
     m_Modifications:
+    - target: {fileID: 1699452403854383553, guid: c791860f8d5920942931b2efde7cfdc4,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2691762023673686753, guid: c791860f8d5920942931b2efde7cfdc4,
         type: 3}
       propertyPath: m_Name
@@ -9517,7 +9527,7 @@ PrefabInstance:
     - target: {fileID: 2691762023673686753, guid: c791860f8d5920942931b2efde7cfdc4,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7555152127243538489, guid: c791860f8d5920942931b2efde7cfdc4,
         type: 3}
