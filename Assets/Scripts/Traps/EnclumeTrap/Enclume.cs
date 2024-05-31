@@ -55,6 +55,7 @@ public class Enclume : MonoBehaviour
         isDropped = true;
         rb.isKinematic = false;
         col.providesContacts = true;
+        transform.SetParent(null);
         //rb.useGravity = true;
     }
 }

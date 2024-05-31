@@ -292,7 +292,7 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
             ""id"": ""8ccd0c69-1284-4970-81de-a53056802ab6"",
             ""actions"": [
                 {
-                    ""name"": ""Move"",
+                    ""name"": ""MoveEnclume"",
                     ""type"": ""Value"",
                     ""id"": ""27babf91-afa2-4554-8268-d37a95c75719"",
                     ""expectedControlType"": ""Vector2"",
@@ -327,64 +327,9 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Move"",
+                    ""action"": ""MoveEnclume"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""2DVector"",
-                    ""id"": ""d928e889-efdd-4499-b6eb-80f5e5b79987"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""Up"",
-                    ""id"": ""c1a31ab4-c3f8-43ae-9617-e9bdfd5669e8"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Down"",
-                    ""id"": ""41d58385-aef5-46a2-a584-6b1d9d28fc35"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Left"",
-                    ""id"": ""56b3af17-015e-452b-b419-063864e4378c"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Right"",
-                    ""id"": ""9a782c49-41a7-4990-bbbb-4c976a9ec910"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
@@ -527,7 +472,7 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
         m_Turret_Exit = m_Turret.FindAction("Exit", throwIfNotFound: true);
         // MovingEnclume
         m_MovingEnclume = asset.FindActionMap("MovingEnclume", throwIfNotFound: true);
-        m_MovingEnclume_Move = m_MovingEnclume.FindAction("Move", throwIfNotFound: true);
+        m_MovingEnclume_MoveEnclume = m_MovingEnclume.FindAction("MoveEnclume", throwIfNotFound: true);
         m_MovingEnclume_Drop = m_MovingEnclume.FindAction("Drop", throwIfNotFound: true);
         m_MovingEnclume_Exit = m_MovingEnclume.FindAction("Exit", throwIfNotFound: true);
         // GareStation
@@ -737,14 +682,14 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
     // MovingEnclume
     private readonly InputActionMap m_MovingEnclume;
     private List<IMovingEnclumeActions> m_MovingEnclumeActionsCallbackInterfaces = new List<IMovingEnclumeActions>();
-    private readonly InputAction m_MovingEnclume_Move;
+    private readonly InputAction m_MovingEnclume_MoveEnclume;
     private readonly InputAction m_MovingEnclume_Drop;
     private readonly InputAction m_MovingEnclume_Exit;
     public struct MovingEnclumeActions
     {
         private @InputAsset m_Wrapper;
         public MovingEnclumeActions(@InputAsset wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Move => m_Wrapper.m_MovingEnclume_Move;
+        public InputAction @MoveEnclume => m_Wrapper.m_MovingEnclume_MoveEnclume;
         public InputAction @Drop => m_Wrapper.m_MovingEnclume_Drop;
         public InputAction @Exit => m_Wrapper.m_MovingEnclume_Exit;
         public InputActionMap Get() { return m_Wrapper.m_MovingEnclume; }
@@ -756,9 +701,9 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_MovingEnclumeActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_MovingEnclumeActionsCallbackInterfaces.Add(instance);
-            @Move.started += instance.OnMove;
-            @Move.performed += instance.OnMove;
-            @Move.canceled += instance.OnMove;
+            @MoveEnclume.started += instance.OnMoveEnclume;
+            @MoveEnclume.performed += instance.OnMoveEnclume;
+            @MoveEnclume.canceled += instance.OnMoveEnclume;
             @Drop.started += instance.OnDrop;
             @Drop.performed += instance.OnDrop;
             @Drop.canceled += instance.OnDrop;
@@ -769,9 +714,9 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
 
         private void UnregisterCallbacks(IMovingEnclumeActions instance)
         {
-            @Move.started -= instance.OnMove;
-            @Move.performed -= instance.OnMove;
-            @Move.canceled -= instance.OnMove;
+            @MoveEnclume.started -= instance.OnMoveEnclume;
+            @MoveEnclume.performed -= instance.OnMoveEnclume;
+            @MoveEnclume.canceled -= instance.OnMoveEnclume;
             @Drop.started -= instance.OnDrop;
             @Drop.performed -= instance.OnDrop;
             @Drop.canceled -= instance.OnDrop;
@@ -890,7 +835,7 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
     }
     public interface IMovingEnclumeActions
     {
-        void OnMove(InputAction.CallbackContext context);
+        void OnMoveEnclume(InputAction.CallbackContext context);
         void OnDrop(InputAction.CallbackContext context);
         void OnExit(InputAction.CallbackContext context);
     }

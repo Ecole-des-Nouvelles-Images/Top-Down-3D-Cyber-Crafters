@@ -15,12 +15,14 @@ public class MovingEnclumeTrap : MonoBehaviour
     public Transform enclumeSpawnPoint;
     public Animator animator;
     public float moveSpeed = 5f; // Vitesse de déplacement de l'enclume
-    public float moveRange = 10f; // Distance maximale que l'enclume peut parcourir
+    //public float moveRange = 10f; // Distance maximale que l'enclume peut parcourir
+    public BoxCollider moveArea;  // Zone de déplacement de l'enclume
     
     private Vector3 moveDirection;
     private Vector3 initialPosition;
 
     private float coolDown;
+    private bool isDropped;
 
     private PlayerInput _playerInput;
     private bool _isActivated = false;
@@ -38,14 +40,17 @@ public class MovingEnclumeTrap : MonoBehaviour
         if (_isActivated)
         {
             //Déplacement de l'enclume
-            Vector2 input = _playerInput.currentActionMap.FindAction("Move").ReadValue<Vector2>();
-            moveDirection = new Vector3(input.x, 0, input.y);
-            Vector3 newPosition = enclumeHolder.transform.position += moveDirection * (moveSpeed * Time.deltaTime);
-            Vector3 clampedPosition = initialPosition + Vector3.ClampMagnitude(newPosition - initialPosition, moveRange);
-            enclumeHolder.transform.position = clampedPosition;
-
-            if (_playerInput.actions["Drop"].WasPressedThisFrame())
+            Vector2 input = _playerInput.currentActionMap.FindAction("MoveEnclume").ReadValue<Vector2>();
+            moveDirection = new Vector3(0, 0, input.x);
+            Vector3 newPosition = enclumeHolder.transform.position + moveDirection * (moveSpeed * Time.deltaTime);
+            if (moveArea.bounds.Contains(newPosition))
             {
+                enclumeHolder.transform.position = newPosition;
+            }
+
+            if (_playerInput.actions["Drop"].WasPressedThisFrame() && !isDropped)
+            {
+                isDropped = true;
                 enclume.DropEnclume();
                 Destroy(enclume.gameObject, 2);
                 StartCoroutine(InstantiateEnclumeAfterDelay(5f)); // change delay with cooldowntime
@@ -54,7 +59,7 @@ public class MovingEnclumeTrap : MonoBehaviour
             if (_playerInput.actions["Exit"].WasPressedThisFrame())
             {
                 
-                _playerInput.SwitchCurrentActionMap("GamePlay");
+                _playerInput.currentActionMap = _playerInput.actions.FindActionMap("Gameplay");
                 _isActivated = false;
             }
 
@@ -67,9 +72,8 @@ public class MovingEnclumeTrap : MonoBehaviour
         if (!_isActivated)
         {
             _playerInput = playerController.GetComponent<PlayerInput>();
-            _playerInput.currentActionMap.Disable();
             _playerInput.currentActionMap =
-                playerController.GetComponent<PlayerInput>().actions.FindActionMap("MovingEnclume");
+                _playerInput.actions.FindActionMap("MovingEnclume");
             _playerInput.SwitchCurrentActionMap("MovingEnclume");
             _isActivated = true;
         }
@@ -78,8 +82,7 @@ public class MovingEnclumeTrap : MonoBehaviour
     private IEnumerator InstantiateEnclumeAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        enclume = Instantiate(enclumePrefab
-            , enclumeSpawnPoint);
-        
+        enclume = Instantiate(enclumePrefab, enclumeHolder.transform, false);
+        isDropped = false;
     }
 }

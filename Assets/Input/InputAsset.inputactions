@@ -270,7 +270,7 @@
             "id": "8ccd0c69-1284-4970-81de-a53056802ab6",
             "actions": [
                 {
-                    "name": "Move",
+                    "name": "MoveEnclume",
                     "type": "Value",
                     "id": "27babf91-afa2-4554-8268-d37a95c75719",
                     "expectedControlType": "Vector2",
@@ -305,64 +305,9 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Move",
+                    "action": "MoveEnclume",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "2DVector",
-                    "id": "d928e889-efdd-4499-b6eb-80f5e5b79987",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "Up",
-                    "id": "c1a31ab4-c3f8-43ae-9617-e9bdfd5669e8",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Down",
-                    "id": "41d58385-aef5-46a2-a584-6b1d9d28fc35",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Left",
-                    "id": "56b3af17-015e-452b-b419-063864e4378c",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Right",
-                    "id": "9a782c49-41a7-4990-bbbb-4c976a9ec910",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
