@@ -29,16 +29,44 @@ public class MovingEnclumeTrap : MonoBehaviour
 
     public GameObject enclumeHolder;
     
+    public LineRenderer lineRenderer;
+    public float maxRaycastDistance = 100f;
+    
+    [Header("SFX")] public AudioClip activateClip;
+    public AudioSource _audioSource;
+    
 
     private void Start()
     {
         initialPosition = enclumeSpawnPoint.position;
+        
+        // Initialisez le LineRenderer
+        lineRenderer = enclumeHolder.AddComponent<LineRenderer>();
+        lineRenderer.enabled = false;
+        lineRenderer.positionCount = 2;
+        // Configurez d'autres paramètres du LineRenderer ici si nécessaire
+
     }
 
     private void Update()
     {
         if (_isActivated)
         {
+            lineRenderer.enabled = true;
+            lineRenderer.SetPosition(0, enclumeHolder.transform.position);
+
+            RaycastHit hit;
+            if (Physics.Raycast(enclumeHolder.transform.position, Vector3.down, out hit, maxRaycastDistance))
+            {
+                lineRenderer.SetPosition(1, hit.point);
+            }
+            else
+            {
+                lineRenderer.SetPosition(1, enclumeHolder.transform.position + Vector3.down * maxRaycastDistance);
+            }
+        
+        
+
             //Déplacement de l'enclume
             Vector2 input = _playerInput.currentActionMap.FindAction("MoveEnclume").ReadValue<Vector2>();
             moveDirection = new Vector3(0, 0, input.x);
@@ -50,6 +78,7 @@ public class MovingEnclumeTrap : MonoBehaviour
 
             if (_playerInput.actions["Drop"].WasPressedThisFrame() && !isDropped)
             {
+                _audioSource.PlayOneShot(activateClip);
                 isDropped = true;
                 enclume.DropEnclume();
                 Destroy(enclume.gameObject, 2);
@@ -63,6 +92,10 @@ public class MovingEnclumeTrap : MonoBehaviour
                 _isActivated = false;
             }
 
+            else
+            {
+                lineRenderer.enabled = false;
+            }
             
         }
     }
