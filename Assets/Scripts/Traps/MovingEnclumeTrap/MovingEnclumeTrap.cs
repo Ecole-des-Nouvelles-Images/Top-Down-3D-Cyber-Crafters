@@ -33,6 +33,7 @@ public class MovingEnclumeTrap : MonoBehaviour
     public float maxRaycastDistance = 100f;
     
     [Header("SFX")] public AudioClip activateClip;
+    public AudioClip moveClip;
     public AudioSource _audioSource;
     
 
@@ -74,6 +75,19 @@ public class MovingEnclumeTrap : MonoBehaviour
             if (moveArea.bounds.Contains(newPosition))
             {
                 enclumeHolder.transform.position = newPosition;
+                if (!_audioSource.isPlaying)
+                {
+                    _audioSource.clip = moveClip;
+                    _audioSource.Play();
+                }
+            }
+            else
+            {
+                // Si l'enclume ne se déplace pas, arrêtez de jouer le son de déplacement
+                if (_audioSource.clip == moveClip)
+                {
+                    _audioSource.Stop();
+                }
             }
 
             if (_playerInput.actions["Drop"].WasPressedThisFrame() && !isDropped)
