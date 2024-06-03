@@ -13,7 +13,7 @@ public class EnclumeTrap : Trap
     private float coolDown;
     
     [Header("SFX")]
-    public AudioClip activateClip;
+    //public AudioClip activateClip;
     public AudioSource audioSource;
 
     // private float timer;
@@ -43,7 +43,7 @@ public class EnclumeTrap : Trap
     public override void ActivateTrap()
     {
         if (enclume.gameObject == null) return;
-        audioSource.PlayOneShot(activateClip);
+        //audioSource.PlayOneShot(activateClip); ( moved on enclume )
        // animator.SetTrigger("activateTrap");
         enclume.DropEnclume();
         Destroy(enclume.gameObject, 2);

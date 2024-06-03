@@ -27,7 +27,8 @@ public class MovingEnclumeTrap : MonoBehaviour
 
     public GameObject enclumeHolder;
     
-    [Header("SFX")] public AudioClip activateClip;
+    [Header("SFX")] 
+    //public AudioClip activateClip;
     
     public AudioClip moveClip;
     public AudioSource _audioSource;
@@ -55,14 +56,6 @@ public class MovingEnclumeTrap : MonoBehaviour
                     _audioSource.Play();
                 }
             }
-            else
-            {
-                // Si l'enclume ne se déplace pas, arrêtez de jouer le son de déplacement
-                if (_audioSource.clip == moveClip)
-                {
-                    _audioSource.Stop();
-                }
-            }
 
             // Stop audio if player is not moving the enclume
             if (input == Vector2.zero && _audioSource.clip == moveClip)
@@ -72,7 +65,7 @@ public class MovingEnclumeTrap : MonoBehaviour
 
             if (_playerInput.actions["Drop"].WasPressedThisFrame() && !isDropped)
             {
-                _audioSource.PlayOneShot(activateClip);
+                //_audioSource.PlayOneShot(activateClip); ( moved on enclume directly )
                 isDropped = true;
                 enclume.DropEnclume();
                 Destroy(enclume.gameObject, 2);
