@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 2736964963609834547}
   - component: {fileID: 4719750550244456179}
   - component: {fileID: 1898703850537864792}
+  - component: {fileID: 2838775752161239807}
   m_Layer: 0
   m_Name: Canon
   m_TagString: Untagged
@@ -161,6 +162,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2838775752161239807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035585492022151121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1c4f75f39f06624b86606d44381f629, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 0}
 --- !u!1 &1479897277652245224
 GameObject:
   m_ObjectHideFlags: 0
@@ -5897,6 +5911,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiGameObject: {fileID: 4786878716771566466}
+  leaveTrapUI: {fileID: 0}
+  trapHLShader: {fileID: 2838775752161239807}
 --- !u!54 &540752507158052479
 Rigidbody:
   m_ObjectHideFlags: 0

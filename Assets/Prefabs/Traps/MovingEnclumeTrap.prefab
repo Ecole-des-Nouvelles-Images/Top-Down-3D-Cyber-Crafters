@@ -246,6 +246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiGameObject: {fileID: 8268507165495580980}
   leaveTrapUI: {fileID: 0}
+  trapHLShader: {fileID: 4220226533276097658}
 --- !u!54 &4180162410561036087
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -429,7 +430,6 @@ MonoBehaviour:
   moveSpeed: 5
   moveArea: {fileID: 772033602556519518}
   enclumeHolder: {fileID: 4813195003335977703}
-  activateClip: {fileID: 8300000, guid: c0a052cd6b2642e4cb3cb70a82005d87, type: 3}
   moveClip: {fileID: 8300000, guid: 8730cffe52facb54b8e1d390eec751d9, type: 3}
   _audioSource: {fileID: 1866079260532727949}
 --- !u!82 &1866079260532727949
@@ -1301,7 +1301,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6991947922379529239, guid: 51ed161d0220ac442a8fee32d2011b78,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4220226533276097658}
   m_SourcePrefab: {fileID: 100100000, guid: 51ed161d0220ac442a8fee32d2011b78, type: 3}
 --- !u!114 &1186796800029256739 stripped
 MonoBehaviour:
@@ -1309,12 +1313,31 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 4677517946099806510}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2441375810007690553}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7191e474d5742f34a875ff6045605d12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2441375810007690553 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6991947922379529239, guid: 51ed161d0220ac442a8fee32d2011b78,
+    type: 3}
+  m_PrefabInstance: {fileID: 4677517946099806510}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4220226533276097658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2441375810007690553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1c4f75f39f06624b86606d44381f629, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: adb0cfd6a621c134ba19bc719bea88a0, type: 2}
 --- !u!4 &3074360893426710403 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7657160860460517037, guid: 51ed161d0220ac442a8fee32d2011b78,

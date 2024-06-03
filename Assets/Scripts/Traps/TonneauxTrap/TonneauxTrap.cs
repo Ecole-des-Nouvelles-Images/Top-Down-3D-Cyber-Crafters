@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TonneauxTrap : Trap
 {
-    public GameObject tonneaux;
+    public Tonneaux tonneauxPrefab;
+    public Tonneaux tonneaux;
     public Transform tonneauxSpawnPoint;
     public Animator animator;
     
@@ -21,18 +22,22 @@ public class TonneauxTrap : Trap
                 //Lancement de l'animation d'arrêt du piège. 
                 animator.SetTrigger("stopTrap");
                 isActivated = false;
+                tonneaux = Instantiate(tonneauxPrefab, tonneauxSpawnPoint);
             }
         }
     }
     
     public override void ActivateTrap()
     {
-        Vector3 spawnPosition = tonneauxSpawnPoint.position;
-        Quaternion spawnRotation = tonneaux.transform.rotation;
+        // Vector3 spawnPosition = tonneauxSpawnPoint.position;
+        // Quaternion spawnRotation = tonneaux.transform.rotation;
         animator.SetTrigger("activateTrap");
-        Instantiate(tonneaux);//, spawnPosition, spawnRotation);
+        tonneaux.DropBarrel();
         isActivated = true;
         timer = 0;
     }
+
+
+
     
 }
