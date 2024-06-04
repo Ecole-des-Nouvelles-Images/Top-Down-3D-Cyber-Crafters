@@ -102,6 +102,8 @@ namespace Player
                 return; 
             } 
             if (moveInput.magnitude >= 0.1f) { Move(moveInput); }
+
+            _buttonAPressed = playerInput.actions["A"].IsPressed();
         }
 
         // METHODE DE MOUVEMENT
@@ -133,10 +135,12 @@ namespace Player
         }
 
         // Récupération de l'appui du bouton A (Pour les interractions)
-        private void OnA(InputValue value) {
-            if (value.isPressed) { _buttonAPressed = true; }
-            else { _buttonAPressed = false; }
-        }
+        // private void OnA(InputValue value) {
+        //     if (value.isPressed) { _buttonAPressed = true; }
+        //     else { _buttonAPressed = false; }
+        // }
+        
+        
 
         private void OnTriggerStay(Collider other) {
             // Activation pièges 
