@@ -56,13 +56,16 @@ public class MovingEnclumeTrap : MonoBehaviour
                     _audioSource.Play();
                 }
             }
+            
+            animator.SetFloat("rotation", input.x);
 
             // Stop audio if player is not moving the enclume
-            if (input == Vector2.zero && _audioSource.clip == moveClip)
+            if (input == Vector2.zero )
             {
-                _audioSource.Stop();
+                animator.SetBool("isAiming", false);
+                if (_audioSource.clip == moveClip) _audioSource.Stop();
             }
-
+            else animator.SetBool("isAiming", true);
             if (_playerInput.actions["Drop"].WasPressedThisFrame() && !isDropped)
             {
                 //_audioSource.PlayOneShot(activateClip); ( moved on enclume directly )
