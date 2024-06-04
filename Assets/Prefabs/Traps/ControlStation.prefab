@@ -394,6 +394,10 @@ MonoBehaviour:
   alreadyPressed: 0
   cooldownTime: 5
   trap: {fileID: 0}
+<<<<<<< Updated upstream
+=======
+  button: 0
+  ErrorSound: {fileID: 0}
 --- !u!1 &2819078123908121807
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,6 +651,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+>>>>>>> Stashed changes
 --- !u!1 &3791931420092052411
 GameObject:
   m_ObjectHideFlags: 0
@@ -899,6 +904,8 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+<<<<<<< Updated upstream
+=======
 --- !u!1 &6941062999975693070
 GameObject:
   m_ObjectHideFlags: 0
@@ -1144,6 +1151,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiGameObject: {fileID: 6941062999975693070}
+  leaveTrapUI: {fileID: 0}
+  trapHLShader: {fileID: 0}
 --- !u!54 &162660488072290300
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1171,6 +1180,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+>>>>>>> Stashed changes
 --- !u!1 &8621253719770993522
 GameObject:
   m_ObjectHideFlags: 0
@@ -1534,6 +1544,8 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+<<<<<<< Updated upstream
+=======
 --- !u!1001 &1469948351056337092
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1542,6 +1554,23 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1042096388430766554}
     m_Modifications:
+    - target: {fileID: 1263054830744924993, guid: 5e50c3a6b67663540b5fc22f81a1c7c1,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -4062497853385514286, guid: fb1a5c01e6795e44fb6234d5e5334081,
+        type: 3}
+    - target: {fileID: 5616763126500665269, guid: 5e50c3a6b67663540b5fc22f81a1c7c1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 23b9340418d5d3141a70d0d9b4310953, type: 2}
+    - target: {fileID: 5845021307473740514, guid: 5e50c3a6b67663540b5fc22f81a1c7c1,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 503229673059133149, guid: fb1a5c01e6795e44fb6234d5e5334081,
+        type: 3}
     - target: {fileID: 5913355604313215694, guid: 5e50c3a6b67663540b5fc22f81a1c7c1,
         type: 3}
       propertyPath: m_Name
@@ -1597,6 +1626,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8222680629298827845, guid: 5e50c3a6b67663540b5fc22f81a1c7c1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 23b9340418d5d3141a70d0d9b4310953, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1616,11 +1650,23 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1042096388430766554}
     m_Modifications:
+    - target: {fileID: 3053618403202734851, guid: 0391901233499d64cb3447c0c6c85117,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 1290533978350608505, guid: d0198c35a9a9a0149b09f40e1869ee32,
+        type: 3}
     - target: {fileID: 5806914544703220718, guid: 0391901233499d64cb3447c0c6c85117,
         type: 3}
       propertyPath: m_Name
       value: Button_ControlStation_Low
       objectReference: {fileID: 0}
+    - target: {fileID: 5946889041558292598, guid: 0391901233499d64cb3447c0c6c85117,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5894421597310714776, guid: ab23fec72173573458cbf15e93f82363,
+        type: 3}
     - target: {fileID: 8608289089102228445, guid: 0391901233499d64cb3447c0c6c85117,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1682,3 +1728,4 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8911094317128477821}
   m_PrefabAsset: {fileID: 0}
+>>>>>>> Stashed changes

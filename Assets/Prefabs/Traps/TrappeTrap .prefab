@@ -572,6 +572,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: ControlStation
       objectReference: {fileID: 0}
+    - target: {fileID: 2967037637137736715, guid: 36085d6c6ec173a4089f48e64cf91ffb,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 2792506364176012514, guid: d0198c35a9a9a0149b09f40e1869ee32,
+        type: 3}
+    - target: {fileID: 4067790737862304343, guid: 36085d6c6ec173a4089f48e64cf91ffb,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4130ef0460bab214fb9d7fc7f10de9d1, type: 2}
     - target: {fileID: 5834789401644184285, guid: 36085d6c6ec173a4089f48e64cf91ffb,
         type: 3}
       propertyPath: uiGameObject
@@ -619,6 +630,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1437487918144135071}
     m_Modifications:
+    - target: {fileID: -9001432278986257503, guid: 6c8a233998c3e20489a897e1ea0769bf,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -1324414925367114797, guid: 188f2c9027020da4086407385028359c,
+        type: 3}
     - target: {fileID: -8679921383154817045, guid: 6c8a233998c3e20489a897e1ea0769bf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -669,11 +686,49 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4913398112797626553, guid: 6c8a233998c3e20489a897e1ea0769bf,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 83c3693468b0a7142b5828fa1222647c, type: 2}
+    - target: {fileID: -3398520219885484158, guid: 6c8a233998c3e20489a897e1ea0769bf,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 957017142513437983, guid: 188f2c9027020da4086407385028359c,
+        type: 3}
+    - target: {fileID: -2130445133988239852, guid: 6c8a233998c3e20489a897e1ea0769bf,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 83c3693468b0a7142b5828fa1222647c, type: 2}
+    - target: {fileID: -1358838307328047687, guid: 6c8a233998c3e20489a897e1ea0769bf,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -3747430914531387020, guid: 188f2c9027020da4086407385028359c,
+        type: 3}
     - target: {fileID: 919132149155446097, guid: 6c8a233998c3e20489a897e1ea0769bf,
         type: 3}
       propertyPath: m_Name
       value: Hatch_V.2
       objectReference: {fileID: 0}
+    - target: {fileID: 2030283838636814516, guid: 6c8a233998c3e20489a897e1ea0769bf,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 83c3693468b0a7142b5828fa1222647c, type: 2}
+    - target: {fileID: 4234490429937128818, guid: 6c8a233998c3e20489a897e1ea0769bf,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -3625980394660111951, guid: 188f2c9027020da4086407385028359c,
+        type: 3}
+    - target: {fileID: 8498452953778120800, guid: 6c8a233998c3e20489a897e1ea0769bf,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 83c3693468b0a7142b5828fa1222647c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -784,6 +839,17 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Trap
       objectReference: {fileID: 0}
+    - target: {fileID: 2967037637137736715, guid: 36085d6c6ec173a4089f48e64cf91ffb,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 2792506364176012514, guid: d0198c35a9a9a0149b09f40e1869ee32,
+        type: 3}
+    - target: {fileID: 4067790737862304343, guid: 36085d6c6ec173a4089f48e64cf91ffb,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4130ef0460bab214fb9d7fc7f10de9d1, type: 2}
     - target: {fileID: 5644975393779354113, guid: 36085d6c6ec173a4089f48e64cf91ffb,
         type: 3}
       propertyPath: m_Color.a
