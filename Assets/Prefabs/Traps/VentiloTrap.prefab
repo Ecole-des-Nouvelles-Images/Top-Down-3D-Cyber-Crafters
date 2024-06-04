@@ -5091,10 +5091,6 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-<<<<<<< Updated upstream
-  m_Size: {x: 2.5, y: 2, z: 10}
-  m_Center: {x: 0, y: 2, z: -5}
-=======
   m_Size: {x: 2.5, y: 2, z: 8}
   m_Center: {x: 0, y: 2, z: -4}
 --- !u!114 &5123938789965995204
@@ -5308,33 +5304,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -5111589546961568093, guid: b6780d31dbe4ee64aad939ef42c8b346,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 9f97e10581e72d54a9dc2ceb274eec7f, type: 2}
-    - target: {fileID: -2878014161950573221, guid: b6780d31dbe4ee64aad939ef42c8b346,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: -4842789344684117339, guid: 5f1cf1606c3df5f4d9ccba5a3a253c3c,
-        type: 3}
-    - target: {fileID: 258778331883423525, guid: b6780d31dbe4ee64aad939ef42c8b346,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 2302361513419082275, guid: 5f1cf1606c3df5f4d9ccba5a3a253c3c,
-        type: 3}
     - target: {fileID: 919132149155446097, guid: b6780d31dbe4ee64aad939ef42c8b346,
         type: 3}
       propertyPath: m_Name
       value: Ventilator_
       objectReference: {fileID: 0}
-    - target: {fileID: 2652174439410360521, guid: b6780d31dbe4ee64aad939ef42c8b346,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 9f97e10581e72d54a9dc2ceb274eec7f, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5436,4 +5410,3 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 4909242533863871123}
   m_PrefabAsset: {fileID: 0}
->>>>>>> Stashed changes

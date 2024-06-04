@@ -313,39 +313,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 527759886520596154}
     m_Modifications:
-    - target: {fileID: 232110477067988185, guid: 89874c5c359668d48852a816b2662230,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: -4585596649863051820, guid: be27f9dd92ae9034f857e64370a1bd76,
-        type: 3}
-    - target: {fileID: 2055935964893405499, guid: 89874c5c359668d48852a816b2662230,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 26904a01640c27843bf2104298acfa86, type: 2}
-    - target: {fileID: 2104254654781480289, guid: 89874c5c359668d48852a816b2662230,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: -2085754605931981420, guid: be27f9dd92ae9034f857e64370a1bd76,
-        type: 3}
-    - target: {fileID: 3240160691544518451, guid: 89874c5c359668d48852a816b2662230,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: -277504268536812110, guid: be27f9dd92ae9034f857e64370a1bd76,
-        type: 3}
     - target: {fileID: 3322153737581611002, guid: 89874c5c359668d48852a816b2662230,
         type: 3}
       propertyPath: m_Name
       value: Spring_Low
       objectReference: {fileID: 0}
-    - target: {fileID: 4521398146570716175, guid: 89874c5c359668d48852a816b2662230,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 26904a01640c27843bf2104298acfa86, type: 2}
     - target: {fileID: 6931555344831659483, guid: 89874c5c359668d48852a816b2662230,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -396,11 +368,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8887974985422463557, guid: 89874c5c359668d48852a816b2662230,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 26904a01640c27843bf2104298acfa86, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -511,17 +478,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Trap
       objectReference: {fileID: 0}
-    - target: {fileID: 2967037637137736715, guid: 36085d6c6ec173a4089f48e64cf91ffb,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 2792506364176012514, guid: d0198c35a9a9a0149b09f40e1869ee32,
-        type: 3}
-    - target: {fileID: 4067790737862304343, guid: 36085d6c6ec173a4089f48e64cf91ffb,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 4130ef0460bab214fb9d7fc7f10de9d1, type: 2}
     - target: {fileID: 5834789401644184285, guid: 36085d6c6ec173a4089f48e64cf91ffb,
         type: 3}
       propertyPath: uiGameObject
