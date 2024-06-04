@@ -92,8 +92,8 @@ namespace Manager
             if (transitionToTrain)
             {
                 
-                trainManager.transform.Translate((-trainManager.transform.position) * 0.25f * Time.deltaTime);
-                environementAnimator.transform.Translate((-trainManager.transform.position) * 0.25f * Time.deltaTime);
+                trainManager.transform.Translate((-trainManager.transform.position) * 1 * Time.deltaTime);
+                environementAnimator.transform.Translate((-trainManager.transform.position) * 1 * Time.deltaTime);
                 if (FindObjectOfType<Camera>().orthographicSize > 8)
                 {
                     FindObjectOfType<Camera>().orthographicSize -= 0.01f;
