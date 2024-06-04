@@ -4786,7 +4786,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wagons: []
-  scrapsCount: 0
+  scrapsCount: 25
   wagonPrefab: {fileID: 0}
 --- !u!1 &1289813724
 GameObject:
