@@ -1,5 +1,6 @@
 using System.Collections;
 using Player;
+using Train.Wagon;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -77,9 +78,7 @@ public class MovingEnclumeTrap : MonoBehaviour
 
             if (_playerInput.actions["Exit"].WasPressedThisFrame())
             {
-                
-                _playerInput.currentActionMap = _playerInput.actions.FindActionMap("Gameplay");
-                _isActivated = false;
+                Exit();
             }
         }
     }
@@ -93,6 +92,10 @@ public class MovingEnclumeTrap : MonoBehaviour
                 _playerInput.actions.FindActionMap("MovingEnclume");
             _playerInput.SwitchCurrentActionMap("MovingEnclume");
             _isActivated = true;
+            
+            SteamPipeManager steamPipeManager = FindObjectOfType<SteamPipeManager>();
+            steamPipeManager.OnAllSteamPipesDestroyed += Exit;
+
         }
     }
     
@@ -101,5 +104,15 @@ public class MovingEnclumeTrap : MonoBehaviour
         yield return new WaitForSeconds(delay);
         enclume = Instantiate(enclumePrefab, enclumeHolder.transform, false);
         isDropped = false;
+    }
+
+    private void Exit()
+    {
+        _playerInput.currentActionMap = _playerInput.actions.FindActionMap("Gameplay");
+        _isActivated = false;
+        // Désabonnement de l'événement
+        SteamPipeManager steamPipeManager = FindObjectOfType<SteamPipeManager>();
+        steamPipeManager.OnAllSteamPipesDestroyed -= Exit;
+
     }
 }

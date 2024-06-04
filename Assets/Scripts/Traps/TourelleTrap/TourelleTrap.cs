@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Player;
+using Train.Wagon;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -118,10 +119,7 @@ public class TourelleTrap : MonoBehaviour
             // Gérer la sortie
             if (_playerInput.actions["Exit"].WasPressedThisFrame())
             {
-                _isActivated = false;
-                animator.SetBool("isAiming", false);
-                audioSource.clip = null;
-                _playerInput.currentActionMap = _playerInput.actions.FindActionMap("Gameplay");
+             Exit();
                 // foreach (MeshRenderer childMr in childsMeshRenderers)
                 // {
                 //     childMr.material.color = _baseColor;
@@ -141,6 +139,9 @@ public class TourelleTrap : MonoBehaviour
                 playerController.GetComponent<PlayerInput>().actions.FindActionMap("Turret");
             _playerInput.SwitchCurrentActionMap("Turret");
             _isActivated = true;
+            SteamPipeManager steamPipeManager = FindObjectOfType<SteamPipeManager>();
+            steamPipeManager.OnAllSteamPipesDestroyed += Exit;
+
         }
     }
 
@@ -155,6 +156,17 @@ public class TourelleTrap : MonoBehaviour
         shotCount = 0; // Réinitialisez le compteur de tirs
         audioSource.clip = null;
         overheatParticle.Stop();    
+    }
+
+    private void Exit()
+    {
+        _isActivated = false;
+        animator.SetBool("isAiming", false);
+        audioSource.clip = null;
+        _playerInput.currentActionMap = _playerInput.actions.FindActionMap("Gameplay");
+        SteamPipeManager steamPipeManager = FindObjectOfType<SteamPipeManager>();
+        steamPipeManager.OnAllSteamPipesDestroyed -= Exit;
+
     }
     // when on the triggerZone press A to activate the tourelle
     // lock player movement
