@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -29,44 +27,22 @@ public class MovingEnclumeTrap : MonoBehaviour
 
     public GameObject enclumeHolder;
     
-    public LineRenderer lineRenderer;
-    public float maxRaycastDistance = 100f;
+    [Header("SFX")] 
+    //public AudioClip activateClip;
     
-    [Header("SFX")] public AudioClip activateClip;
+    public AudioClip moveClip;
     public AudioSource _audioSource;
     
 
     private void Start()
     {
         initialPosition = enclumeSpawnPoint.position;
-        
-        // Initialisez le LineRenderer
-        lineRenderer = enclumeHolder.AddComponent<LineRenderer>();
-        lineRenderer.enabled = false;
-        lineRenderer.positionCount = 2;
-        // Configurez d'autres paramètres du LineRenderer ici si nécessaire
-
     }
 
     private void Update()
     {
         if (_isActivated)
         {
-            lineRenderer.enabled = true;
-            lineRenderer.SetPosition(0, enclumeHolder.transform.position);
-
-            RaycastHit hit;
-            if (Physics.Raycast(enclumeHolder.transform.position, Vector3.down, out hit, maxRaycastDistance))
-            {
-                lineRenderer.SetPosition(1, hit.point);
-            }
-            else
-            {
-                lineRenderer.SetPosition(1, enclumeHolder.transform.position + Vector3.down * maxRaycastDistance);
-            }
-        
-        
-
             //Déplacement de l'enclume
             Vector2 input = _playerInput.currentActionMap.FindAction("MoveEnclume").ReadValue<Vector2>();
             moveDirection = new Vector3(0, 0, input.x);
@@ -74,11 +50,25 @@ public class MovingEnclumeTrap : MonoBehaviour
             if (moveArea.bounds.Contains(newPosition))
             {
                 enclumeHolder.transform.position = newPosition;
+                if (!_audioSource.isPlaying)
+                {
+                    _audioSource.clip = moveClip;
+                    _audioSource.Play();
+                }
             }
+            
+            animator.SetFloat("rotation", input.x);
 
+            // Stop audio if player is not moving the enclume
+            if (input == Vector2.zero )
+            {
+                animator.SetBool("isAiming", false);
+                if (_audioSource.clip == moveClip) _audioSource.Stop();
+            }
+            else animator.SetBool("isAiming", true);
             if (_playerInput.actions["Drop"].WasPressedThisFrame() && !isDropped)
             {
-                _audioSource.PlayOneShot(activateClip);
+                //_audioSource.PlayOneShot(activateClip); ( moved on enclume directly )
                 isDropped = true;
                 enclume.DropEnclume();
                 Destroy(enclume.gameObject, 2);
@@ -91,12 +81,6 @@ public class MovingEnclumeTrap : MonoBehaviour
                 _playerInput.currentActionMap = _playerInput.actions.FindActionMap("Gameplay");
                 _isActivated = false;
             }
-
-            else
-            {
-                lineRenderer.enabled = false;
-            }
-            
         }
     }
 

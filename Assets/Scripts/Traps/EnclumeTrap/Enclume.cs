@@ -10,6 +10,7 @@ public class Enclume : MonoBehaviour
     public float enclumeDuration = 5f;
     [FormerlySerializedAs("slowDownDuration")] public float stunDuration = 2f;
 
+    public AudioClip fallClip;
     public AudioClip bongGroundClip;
     public AudioClip bongEnemyClip;
     public AudioSource audioSource;
@@ -52,6 +53,7 @@ public class Enclume : MonoBehaviour
     
     public void DropEnclume()
     {
+        audioSource.PlayOneShot(fallClip);
         isDropped = true;
         rb.isKinematic = false;
         col.providesContacts = true;

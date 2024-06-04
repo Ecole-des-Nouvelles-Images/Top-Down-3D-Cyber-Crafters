@@ -53,6 +53,7 @@ MonoBehaviour:
   cooldownTime: 5
   trap: {fileID: 4188384266515455277}
   button: 0
+  ErrorSound: {fileID: 0}
 --- !u!1 &4134877118954352458
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,7 +155,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isActivated: 0
   controlStations: []
-  tonneaux: {fileID: 5672735297474917147, guid: 3b8e5318b282e6f4c9d9976a5324de7a,
+  tonneauxPrefab: {fileID: 5946711022127823510, guid: 3b8e5318b282e6f4c9d9976a5324de7a,
+    type: 3}
+  tonneaux: {fileID: 5946711022127823510, guid: 3b8e5318b282e6f4c9d9976a5324de7a,
     type: 3}
   tonneauxSpawnPoint: {fileID: 5216864355559487298}
   animator: {fileID: 606032278403552034}

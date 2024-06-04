@@ -9,30 +9,34 @@ public class Tonneaux : MonoBehaviour
     public float force = 5f;
     public int damage = 1;
     public float stunDuration = 2f;
-    
+
     public float timeBeforeDestroy = 2f;
     private float timer;
+    private bool isDropped = false;
 
     public GameObject brokenBarrel;
-    
+
 
     private Rigidbody rb;
+    public Collider col;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.AddForce(transform.right * force, ForceMode.VelocityChange);
     }
 
     private void Update()
     {
-        if (timer >= timeBeforeDestroy)
+        if (isDropped)
         {
-            Instantiate(brokenBarrel, transform.position, Quaternion.Euler(0, 0, 90));
-            Destroy(gameObject);
+            if (timer >= timeBeforeDestroy)
+            {
+                Instantiate(brokenBarrel, transform.position, Quaternion.Euler(0, 0, 90));
+                Destroy(gameObject);
+            }
+
+            timer += Time.deltaTime;
         }
-        timer += Time.deltaTime;
-        
     }
 
     private void OnCollisionEnter(Collision other)
@@ -46,7 +50,16 @@ public class Tonneaux : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
-    
+
+    public void DropBarrel()
+    {
+        isDropped = true;
+        rb.isKinematic = false;
+        rb.AddForce(transform.right * force, ForceMode.VelocityChange);
+        col.providesContacts = true;
+        transform.SetParent(null);
+    }
+
+
     // Détruire tonneaux avec animation
 }
