@@ -43,7 +43,7 @@ AnimationClip:
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
-        time: 3.0166667
+        time: 1
         value: {x: 1390.4817, y: 0, z: 0}
         inSlope: {x: 504.4233, y: 0, z: 0}
         outSlope: {x: 504.4233, y: 0, z: 0}
@@ -52,7 +52,7 @@ AnimationClip:
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.24378169, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
-        time: 4.8166666
+        time: 1.6166667
         value: {x: 2290.032, y: 0, z: 0}
         inSlope: {x: 1338.112, y: 0, z: 0}
         outSlope: {x: 1338.112, y: 0, z: 0}
@@ -61,7 +61,7 @@ AnimationClip:
         inWeight: {x: 0.026518077, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.101612635, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
-        time: 7.483333
+        time: 2.5
         value: {x: 5000, y: 0, z: 0}
         inSlope: {x: 292.13638, y: 0, z: 0}
         outSlope: {x: 292.13638, y: 0, z: 0}
@@ -108,7 +108,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 7.483333
+    m_StopTime: 2.5
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -201,7 +201,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 3.0166667
+        time: 1
         value: 1390.4817
         inSlope: 504.4233
         outSlope: 504.4233
@@ -210,7 +210,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.24378169
       - serializedVersion: 3
-        time: 4.8166666
+        time: 1.6166667
         value: 2290.032
         inSlope: 1338.112
         outSlope: 1338.112
@@ -219,7 +219,7 @@ AnimationClip:
         inWeight: 0.026518077
         outWeight: 0.101612635
       - serializedVersion: 3
-        time: 7.483333
+        time: 2.5
         value: 5000
         inSlope: 292.13638
         outSlope: 292.13638
@@ -353,7 +353,7 @@ AnimationClip:
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 7.483333
+  - time: 2.5
     functionName: playTrap
     data: 
     objectReferenceParameter: {fileID: 0}
