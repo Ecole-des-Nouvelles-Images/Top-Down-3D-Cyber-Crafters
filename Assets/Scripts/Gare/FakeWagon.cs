@@ -47,6 +47,9 @@ namespace Gare {
                 FindObjectOfType<TrainManager>().transform.position = new Vector3(0, 0,
                     FindObjectOfType<TrainManager>().transform.position.z - 30);
                 FindObjectOfType<TrainManager>().scrapsCount -= price;
+                FindObjectOfType<Station>().transform.position =
+                    new Vector3(0, 0, FindObjectOfType<Station>().transform.position.z + 30);
+
             }
         }
     }

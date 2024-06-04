@@ -17,6 +17,7 @@ namespace Manager
         public GameObject trainStation;
         public List<TreeSpawner> treeSpawners = new List<TreeSpawner>();
         public RandomCameraShake randomCameraShake;
+        public Animator environementAnimator;
 
         public float enemyTimer;
         private bool _waveChanging;
@@ -70,7 +71,17 @@ namespace Manager
 
             if (transitionToStation)
             {
+                if (FindObjectOfType<Camera>().orthographicSize < 10)
+                {
+                    FindObjectOfType<Camera>().orthographicSize += 0.01f;
+                }
+                environementAnimator.enabled = false;
+                foreach (TreeSpawner treeSpawner in treeSpawners)
+                {
+                    treeSpawner.enabled = false;
+                }
                 trainManager.transform.Translate(transitionPosition * 0.25f * Time.deltaTime);
+                environementAnimator.transform.Translate(transitionPosition * 0.25f * Time.deltaTime);
                 if (trainManager.transform.position.z <= transform.position.z)
                 {
                     transitionToStation = false;
@@ -81,6 +92,15 @@ namespace Manager
             if (transitionToTrain)
             {
                 trainManager.transform.Translate((-trainManager.transform.position) * 0.25f * Time.deltaTime);
+                environementAnimator.transform.Translate((-trainManager.transform.position) * 0.25f * Time.deltaTime);
+                if (FindObjectOfType<Camera>().orthographicSize > 8)
+                {
+                    FindObjectOfType<Camera>().orthographicSize -= 0.01f;
+                }
+                foreach (TreeSpawner treeSpawner in treeSpawners)
+                {
+                    treeSpawner.enabled = true;
+                }
                 if (transform.position.z <= trainManager.transform.position.z)
                 {
                     transitionToTrain = false;
@@ -88,6 +108,8 @@ namespace Manager
                     justLeavedStation = true;
                     trainStation.gameObject.SetActive(false);
                     trainStation.transform.position = new Vector3(0, 0, 450);
+                    environementAnimator.enabled = true;
+                    
                 }
             }
         }
