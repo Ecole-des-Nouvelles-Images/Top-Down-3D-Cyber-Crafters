@@ -1,4 +1,4 @@
-using System.Collections;
+
 using Enemies;
 using Player;
 using UnityEngine;
@@ -98,11 +98,12 @@ namespace Train.Wagon
                             wagonEnableable.SetActive(false);
                             wagonRoof.SetActive(true);
                             wagonChanged = true;
-                            enemyManager.StartNextWagonTransition();
-                            enemyManager.SortEnemies();
                             enabled = false;
                         }
+                        enemyManager.StartNextWagonTransition();
+                        enemyManager.SortEnemies();
                     }
+                    
                 }
             }
         }

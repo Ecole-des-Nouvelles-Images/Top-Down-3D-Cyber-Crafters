@@ -123,6 +123,7 @@ MonoBehaviour:
   timeBeforeDestroy: 2
   brokenBarrel: {fileID: 4075782640050368429, guid: 6ebc9bf3f32c3b249a695dbba5d1166a,
     type: 3}
+  rb: {fileID: 2170707278840116246}
   col: {fileID: 4394764011205151847}
 --- !u!54 &2170707278840116246
 Rigidbody:

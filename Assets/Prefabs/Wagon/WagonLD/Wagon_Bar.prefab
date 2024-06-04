@@ -1534,8 +1534,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   assignedEnemies: []
   parentSpm: {fileID: 0}
-  maxHealthPoints: 1000
-  healthPoints: 1000
+  maxHealthPoints: 25000
+  healthPoints: 25000
   lifeBar: {fileID: 7887926685019414721}
   enemyDetector: {fileID: 8550627015806508298}
 --- !u!65 &8550627015806508298

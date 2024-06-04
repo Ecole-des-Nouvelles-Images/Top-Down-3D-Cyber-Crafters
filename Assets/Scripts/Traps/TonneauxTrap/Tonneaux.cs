@@ -17,12 +17,12 @@ public class Tonneaux : MonoBehaviour
     public GameObject brokenBarrel;
 
 
-    private Rigidbody rb;
+    public Rigidbody rb;
     public Collider col;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        
     }
 
     private void Update()

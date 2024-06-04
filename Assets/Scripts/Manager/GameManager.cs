@@ -1,4 +1,4 @@
-using System;
+
 using System.Collections.Generic;
 using Enemies;
 using Environement;
@@ -6,7 +6,7 @@ using Player;
 using Train;
 using Train.Wagon;
 using UnityEngine;
-using UnityEngine.InputSystem;
+
 
 namespace Manager
 {
@@ -91,6 +91,7 @@ namespace Manager
 
             if (transitionToTrain)
             {
+                
                 trainManager.transform.Translate((-trainManager.transform.position) * 0.25f * Time.deltaTime);
                 environementAnimator.transform.Translate((-trainManager.transform.position) * 0.25f * Time.deltaTime);
                 if (FindObjectOfType<Camera>().orthographicSize > 8)

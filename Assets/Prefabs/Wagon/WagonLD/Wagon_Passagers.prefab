@@ -215,8 +215,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   assignedEnemies: []
   parentSpm: {fileID: 0}
-  maxHealthPoints: 1000
-  healthPoints: 1000
+  maxHealthPoints: 25000
+  healthPoints: 25000
   lifeBar: {fileID: 3499115228556500780}
   enemyDetector: {fileID: 239263400410814329}
 --- !u!65 &239263400410814329
@@ -404,8 +404,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   assignedEnemies: []
   parentSpm: {fileID: 0}
-  maxHealthPoints: 1000
-  healthPoints: 1000
+  maxHealthPoints: 25000
+  healthPoints: 25000
   lifeBar: {fileID: 5727124696369626727}
   enemyDetector: {fileID: 6176376509711565045}
 --- !u!65 &6176376509711565045
@@ -1463,8 +1463,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   assignedEnemies: []
   parentSpm: {fileID: 0}
-  maxHealthPoints: 1000
-  healthPoints: 1000
+  maxHealthPoints: 25000
+  healthPoints: 25000
   lifeBar: {fileID: 8536231715694873517}
   enemyDetector: {fileID: 6426802937183105640}
 --- !u!65 &6426802937183105640

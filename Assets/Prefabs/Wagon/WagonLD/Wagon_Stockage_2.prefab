@@ -1378,7 +1378,7 @@ MonoBehaviour:
   localSteamPipeManager: {fileID: 417399034108362189}
   wagonExitDoor: {fileID: 2368273765478571630}
   wagonEnableable: {fileID: 1239828920850266486}
-  wagonRoof: {fileID: 0}
+  wagonRoof: {fileID: 2628920677158044070}
   playerAnchor: {fileID: 4898432054983701025}
   enemyAnchor: {fileID: 0}
   originalPosition: {x: 0, y: 0, z: 0}
@@ -1639,8 +1639,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   assignedEnemies: []
   parentSpm: {fileID: 0}
-  maxHealthPoints: 1000
-  healthPoints: 1000
+  maxHealthPoints: 25000
+  healthPoints: 25000
   lifeBar: {fileID: 3782440542692953173}
   enemyDetector: {fileID: 3922614377782895860}
 --- !u!65 &3922614377782895860
