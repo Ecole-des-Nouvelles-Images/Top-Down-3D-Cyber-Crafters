@@ -7,7 +7,7 @@ using UnityEngine;
         public GameObject uiGameObject;
         public GameObject leaveTrapUI;
 
-        public TrapHLShader trapHLShader;
+        //public TrapHLShader trapHLShader;
         private void Awake() {
             uiGameObject.SetActive(false);
         }
@@ -16,7 +16,7 @@ using UnityEngine;
             if (other.CompareTag("Player"))
             {
                 uiGameObject.SetActive(true);
-                if (trapHLShader != null) trapHLShader.ActivateTrap();
+                //if (trapHLShader != null) trapHLShader.ActivateTrap();
             }
         }
         private void OnTriggerExit(Collider other) {
