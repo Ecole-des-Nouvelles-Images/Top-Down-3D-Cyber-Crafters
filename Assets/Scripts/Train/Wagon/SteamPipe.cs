@@ -40,6 +40,8 @@ namespace Train.Wagon
                     parentSpm.localSteamPipes[randomSpId].AddEnemy(enemy);
                     enemy.AddSteamPipe(parentSpm.localSteamPipes[randomSpId]);
                 }
+                enemy.navMeshAgent.isStopped = false;
+                enemy._animator.SetBool("Attack", false);
             }
         }
 

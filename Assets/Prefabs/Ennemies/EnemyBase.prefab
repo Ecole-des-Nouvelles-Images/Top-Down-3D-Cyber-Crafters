@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3848872115575585218}
   - component: {fileID: 5764670643668260633}
   - component: {fileID: 917943266812866264}
-  - component: {fileID: 3926687050606902619}
+  - component: {fileID: 180647708155586148}
   m_Layer: 6
   m_Name: EnemyBase
   m_TagString: Enemy
@@ -129,7 +129,7 @@ MonoBehaviour:
   - {fileID: 6429452140686623801, guid: 31659aead9415974fb18279db8a9b895, type: 3}
   enemyType: 0
   _animator: {fileID: 0}
---- !u!54 &3926687050606902619
+--- !u!54 &180647708155586148
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -154,5 +154,5 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Constraints: 126
+  m_CollisionDetection: 1

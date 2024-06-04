@@ -1,9 +1,9 @@
-using System;
 using System.Collections.Generic;
 using Manager;
 using Player;
-using UnityEditor.Build.Content;
+using Train;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.InputSystem;
 
 namespace Gare
@@ -29,6 +29,14 @@ namespace Gare
             _playerInput = playerManager.players[0].GetComponent<PlayerInput>();
             _playerInput.currentActionMap = _playerInput.actions.FindActionMap("GareStation");
             _playerInput.SwitchCurrentActionMap("GareStation");
+        }
+
+        private void OnDisable()
+        {
+            _playerInput = playerManager.players[0].GetComponent<PlayerInput>();
+            _playerInput = playerManager.players[0].GetComponent<PlayerInput>();
+            _playerInput.currentActionMap = _playerInput.actions.FindActionMap("Gameplay");
+            _playerInput.SwitchCurrentActionMap("Gameplay");
         }
 
         private void FixedUpdate()
@@ -77,8 +85,14 @@ namespace Gare
                     selectedWagon.OnBuy();
                 }
                 
-                if(_playerInput.actions["Exit"].WasPressedThisFrame())
+                if(_playerInput.actions["Leave"].WasPressedThisFrame())
                 {
+                    foreach (GameObject player in playerManager.players)
+                    {
+                        player.GetComponent<NavMeshAgent>().enabled = false;
+                        player.transform.position = FindObjectOfType<TrainManager>().wagons[0].playerAnchor.position;
+                        player.GetComponent<NavMeshAgent>().enabled = true;
+                    }
                     gameManager.LeaveStation();
                 }
             }

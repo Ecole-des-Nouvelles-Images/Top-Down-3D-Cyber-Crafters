@@ -1,11 +1,9 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using Train;
 using Train.Wagon;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Serialization;
 
 namespace Enemies
 {
@@ -128,12 +126,21 @@ namespace Enemies
 
         private void OnTriggerStay(Collider other)
         {
-            //throw new NotImplementedException();
+            if (other.CompareTag("Steampipe"))
+            {
+                other.GetComponent<SteamPipe>().healthPoints -= attackPoints;
+                navMeshAgent.isStopped = true;
+                _animator.SetBool("Attack", true);
+            }
         }
 
         private void OnTriggerExit(Collider other)
         {
-            //throw new NotImplementedException();
+            if (other.CompareTag("Steampipe"))
+            {
+                navMeshAgent.isStopped = false;
+                _animator.SetBool("Attack", false);
+            }
         }
 
         private void OnTriggerEnter(Collider other)

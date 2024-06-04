@@ -14,6 +14,7 @@ TagManager:
   - Detection
   - DangerZone
   - ControlStationEnclume
+  - Steampipe
   layers:
   - Default
   - TransparentFX
