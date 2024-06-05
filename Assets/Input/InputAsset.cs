@@ -442,6 +442,54 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Lobby"",
+            ""id"": ""3689919d-fbd7-49bb-bd20-6a8ae3471d49"",
+            ""actions"": [
+                {
+                    ""name"": ""MoveLobby"",
+                    ""type"": ""Value"",
+                    ""id"": ""9456b7b5-8006-441f-af10-3331b5aa5cdf"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Validate"",
+                    ""type"": ""Button"",
+                    ""id"": ""ea4bc0d1-65a2-4483-a2c6-091d6f54145e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""628d2da9-f3b3-4c90-8f96-36c5cdc70f00"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveLobby"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cc68d1a5-3582-46e9-91a9-d77d3b8a3bcc"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Validate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -481,6 +529,10 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
         m_GareStation_Right = m_GareStation.FindAction("Right", throwIfNotFound: true);
         m_GareStation_Buy = m_GareStation.FindAction("Buy", throwIfNotFound: true);
         m_GareStation_Leave = m_GareStation.FindAction("Leave", throwIfNotFound: true);
+        // Lobby
+        m_Lobby = asset.FindActionMap("Lobby", throwIfNotFound: true);
+        m_Lobby_MoveLobby = m_Lobby.FindAction("MoveLobby", throwIfNotFound: true);
+        m_Lobby_Validate = m_Lobby.FindAction("Validate", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -810,6 +862,60 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
         }
     }
     public GareStationActions @GareStation => new GareStationActions(this);
+
+    // Lobby
+    private readonly InputActionMap m_Lobby;
+    private List<ILobbyActions> m_LobbyActionsCallbackInterfaces = new List<ILobbyActions>();
+    private readonly InputAction m_Lobby_MoveLobby;
+    private readonly InputAction m_Lobby_Validate;
+    public struct LobbyActions
+    {
+        private @InputAsset m_Wrapper;
+        public LobbyActions(@InputAsset wrapper) { m_Wrapper = wrapper; }
+        public InputAction @MoveLobby => m_Wrapper.m_Lobby_MoveLobby;
+        public InputAction @Validate => m_Wrapper.m_Lobby_Validate;
+        public InputActionMap Get() { return m_Wrapper.m_Lobby; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(LobbyActions set) { return set.Get(); }
+        public void AddCallbacks(ILobbyActions instance)
+        {
+            if (instance == null || m_Wrapper.m_LobbyActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_LobbyActionsCallbackInterfaces.Add(instance);
+            @MoveLobby.started += instance.OnMoveLobby;
+            @MoveLobby.performed += instance.OnMoveLobby;
+            @MoveLobby.canceled += instance.OnMoveLobby;
+            @Validate.started += instance.OnValidate;
+            @Validate.performed += instance.OnValidate;
+            @Validate.canceled += instance.OnValidate;
+        }
+
+        private void UnregisterCallbacks(ILobbyActions instance)
+        {
+            @MoveLobby.started -= instance.OnMoveLobby;
+            @MoveLobby.performed -= instance.OnMoveLobby;
+            @MoveLobby.canceled -= instance.OnMoveLobby;
+            @Validate.started -= instance.OnValidate;
+            @Validate.performed -= instance.OnValidate;
+            @Validate.canceled -= instance.OnValidate;
+        }
+
+        public void RemoveCallbacks(ILobbyActions instance)
+        {
+            if (m_Wrapper.m_LobbyActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(ILobbyActions instance)
+        {
+            foreach (var item in m_Wrapper.m_LobbyActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_LobbyActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public LobbyActions @Lobby => new LobbyActions(this);
     private int m_GamepadSchemeIndex = -1;
     public InputControlScheme GamepadScheme
     {
@@ -845,5 +951,10 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
         void OnRight(InputAction.CallbackContext context);
         void OnBuy(InputAction.CallbackContext context);
         void OnLeave(InputAction.CallbackContext context);
+    }
+    public interface ILobbyActions
+    {
+        void OnMoveLobby(InputAction.CallbackContext context);
+        void OnValidate(InputAction.CallbackContext context);
     }
 }
