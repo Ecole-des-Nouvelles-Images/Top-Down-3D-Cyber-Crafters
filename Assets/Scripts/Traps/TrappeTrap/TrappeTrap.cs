@@ -77,7 +77,7 @@ public class TrappeTrap : Trap
         if (other.CompareTag("Enemy") && isActivated)
         {
             Enemy enemy = other.GetComponent<Enemy>();
-            enemy.healthPoints = 0;
+            enemy.Fall();
             // enemy.Fall();
         }
     }

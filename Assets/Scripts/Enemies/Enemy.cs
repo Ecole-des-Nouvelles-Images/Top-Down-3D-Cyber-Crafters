@@ -34,6 +34,8 @@ namespace Enemies
         [SerializeField] public EnemyType enemyType;
         public Animator _animator;
 
+        public AudioSource audioSource;
+        public AudioClip fallClip;
 
         private void Awake()
         {
@@ -161,6 +163,7 @@ namespace Enemies
         public void Fall()
         {
             _animator.SetBool("Fall", true);
+            audioSource.PlayOneShot(fallClip);
         }
 
         public void Stun(float stunDuration)
