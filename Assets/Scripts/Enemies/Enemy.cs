@@ -36,6 +36,9 @@ namespace Enemies
 
         public AudioSource audioSource;
         public AudioClip fallClip;
+        public AudioClip hitClip;
+        public AudioClip stunClip;
+        public AudioClip dieClip;
 
         private void Awake()
         {
@@ -132,6 +135,7 @@ namespace Enemies
             {
                 other.GetComponent<SteamPipe>().healthPoints -= attackPoints;
                 navMeshAgent.isStopped = true;
+                _animator.SetBool("Walk", false);
                 _animator.SetBool("Attack", true);
             }
         }
@@ -152,6 +156,7 @@ namespace Enemies
 
         public void TakeDamage(int damage)
         {
+            audioSource.PlayOneShot(hitClip);
             healthPoints -= damage;
             _animator.SetTrigger("Hit");
             if (healthPoints <= 0)
@@ -170,6 +175,7 @@ namespace Enemies
         {
             if (navMeshAgent.isStopped) return;
             navMeshAgent.isStopped = true;
+            audioSource.PlayOneShot(stunClip);
             //animate Stun
             _animator.SetBool("Stun", true);
             StartCoroutine(ResetStun(stunDuration));
@@ -180,6 +186,7 @@ namespace Enemies
             if (navMeshAgent.isStopped) return;
             if (enemyType == EnemyType.Tank) return;
             navMeshAgent.isStopped = true;
+            _animator.SetBool("Walk", false);
             //Animate SlowDown
             _animator.SetBool("Slow", true);
         }
@@ -205,9 +212,14 @@ namespace Enemies
 
         public void Die()
         {
+            audioSource.PlayOneShot(dieClip);
             //Animation de mort
             _animator.SetTrigger("Die");
             _animator.SetBool("Walk", false);
+            _animator.SetBool("Attack", false);
+            _animator.SetBool("Stun", false);
+            _animator.SetBool("Slow", false);
+            _animator.SetBool("Fall", false);
             //Désactiver le NavMeshAgent
             navMeshAgent.isStopped = true;
         }
