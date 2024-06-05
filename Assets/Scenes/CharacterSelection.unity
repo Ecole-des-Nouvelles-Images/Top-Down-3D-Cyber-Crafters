@@ -399,6 +399,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PrintTrace: 0
+  player1ModelId: 0
+  player2ModelId: 0
+  player3ModelId: 0
+  player4ModelId: 0
 --- !u!4 &1442771466
 Transform:
   m_ObjectHideFlags: 0
@@ -998,6 +1002,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lobby Screen Player 1 Panel
       objectReference: {fileID: 0}
+    - target: {fileID: 2049730252521656837, guid: e63c41a9b9732c7448a4ee15d2abc9c8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6993476120995685958, guid: e63c41a9b9732c7448a4ee15d2abc9c8,
         type: 3}
       propertyPath: p1
@@ -1006,7 +1015,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6327703776603122868, guid: e63c41a9b9732c7448a4ee15d2abc9c8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: e63c41a9b9732c7448a4ee15d2abc9c8, type: 3}
 --- !u!1001 &5280591079207769045
 PrefabInstance:
@@ -1149,7 +1162,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6327703776603122868, guid: e63c41a9b9732c7448a4ee15d2abc9c8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: e63c41a9b9732c7448a4ee15d2abc9c8, type: 3}
 --- !u!1 &5763179509148286879
 GameObject:
