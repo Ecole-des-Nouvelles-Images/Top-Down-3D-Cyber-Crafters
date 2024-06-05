@@ -35,6 +35,8 @@ namespace Player
         [Header("Variables de Gestion")] 
         public int playerId; // ID nécéssaire à la gestion des Spawns, de la Partie, des Couleurs
 
+        public int playerModelId;
+
         private void Awake() {
             // Assignations de Variables
             _navMeshAgent = GetComponent<NavMeshAgent>();
@@ -45,28 +47,8 @@ namespace Player
             // INSTANTIATION VISUELLE
             // /!\ TEMPORAIRE /!\ Choix d'un Player Model Random et (Pas Temporaire) Instantiation du Player Model
             // Choix Random
-            int randomPm = Random.Range(0, playerModels.Count);
-            if (randomPm == 0) {
-                _materialIdFixer = 0;
-            }
-            else if (randomPm == 1) {
-                _materialIdFixer = 1;
-            }
-            else if (randomPm == 2) {
-                _materialIdFixer = 1;
-            }
-            else if (randomPm == 3)
-            {
-                _materialIdFixer = 1;
-            }
-            
             // Instantiation
-            Vector3 pmPosition = playerModel.transform.position;
-            Instantiate(playerModels[randomPm], new Vector3(pmPosition.x, pmPosition.y, pmPosition.z),
-                playerModel.transform.rotation, playerModel.transform);
-            // Assignation des Variables
-            _animator = playerModel.GetComponentInChildren<Animator>();
-            playerMesh = playerModel.GetComponentInChildren<SkinnedMeshRenderer>().gameObject;
+            
             
             // Assignation Variables
             _navMeshAgent.stoppingDistance = stoppingDistance;
@@ -75,6 +57,25 @@ namespace Player
         }
 
         private void Start() {
+            if (playerModelId == 0) {
+                _materialIdFixer = 0;
+            }
+            else if (playerModelId == 1) {
+                _materialIdFixer = 1;
+            }
+            else if (playerModelId == 2) {
+                _materialIdFixer = 1;
+            }
+            else if (playerModelId == 3) {
+                _materialIdFixer = 1;
+            }
+            Vector3 pmPosition = playerModel.transform.position;
+            Instantiate(playerModels[playerModelId], new Vector3(pmPosition.x, pmPosition.y, pmPosition.z),
+                playerModel.transform.rotation, playerModel.transform);
+            // Assignation des Variables
+            _animator = playerModel.GetComponentInChildren<Animator>();
+            playerMesh = playerModel.GetComponentInChildren<SkinnedMeshRenderer>().gameObject;
+            // Instantiation
             FindObjectOfType<PlayerManager>().players.Add(gameObject); // Ajout au manager après l'instanciation
             playerId = transform.parent.GetComponent<PlayerSpawner>().spawnId; // Récupération de l'ID du joueur
             // Assigation de la Couleur selon l'ID

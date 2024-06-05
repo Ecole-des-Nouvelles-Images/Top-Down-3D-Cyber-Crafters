@@ -25769,6 +25769,7 @@ MonoBehaviour:
   modelSpawn: {fileID: 817032137}
   playerInput: {fileID: 817032138}
   playerModel: {fileID: 0}
+  characterSelectionScene: CharacterSelection
 --- !u!4 &817032137
 Transform:
   m_ObjectHideFlags: 0

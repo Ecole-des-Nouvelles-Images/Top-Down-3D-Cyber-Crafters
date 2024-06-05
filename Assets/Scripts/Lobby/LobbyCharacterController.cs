@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 namespace Lobby
@@ -14,7 +15,7 @@ namespace Lobby
         public Transform modelSpawn;
         public PlayerInput playerInput;
         public GameObject playerModel;
-        
+        public string characterSelectionScene;
         private bool _buttonAPressed;
 
         private void Awake()
@@ -74,6 +75,7 @@ namespace Lobby
                     if (_buttonAPressed)
                     {
                         Debug.Log("Play");
+                        SceneManager.LoadScene(characterSelectionScene);
                     }
                 }
 
