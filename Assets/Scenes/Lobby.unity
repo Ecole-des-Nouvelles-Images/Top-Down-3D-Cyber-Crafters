@@ -25811,7 +25811,7 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Lobby
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -45908,6 +45908,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrow: {fileID: 2094843951}
+  PlayButton: 0
+  OptionButton: 1
+  QuitButton: 0
 --- !u!54 &1164370682
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -46078,6 +46081,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrow: {fileID: 190770230}
+  PlayButton: 1
+  OptionButton: 0
+  QuitButton: 0
 --- !u!65 &1222141203
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -72208,6 +72214,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrow: {fileID: 49888776}
+  PlayButton: 0
+  OptionButton: 0
+  QuitButton: 1
 --- !u!1001 &2034022709
 PrefabInstance:
   m_ObjectHideFlags: 0
