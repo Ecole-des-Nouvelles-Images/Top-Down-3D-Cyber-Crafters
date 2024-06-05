@@ -3529,7 +3529,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiGameObject: {fileID: 91354081393339736}
   leaveTrapUI: {fileID: 0}
-  trapHLShader: {fileID: 0}
 --- !u!54 &7158173444056136106
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -40817,7 +40816,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiGameObject: {fileID: 4938917759537424236}
   leaveTrapUI: {fileID: 0}
-  trapHLShader: {fileID: 0}
 --- !u!54 &2781238126532260766
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -51029,7 +51027,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiGameObject: {fileID: 0}
   leaveTrapUI: {fileID: 0}
-  trapHLShader: {fileID: 0}
 --- !u!54 &8365614275381412157
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -59286,6 +59283,7 @@ GameObject:
   m_Component:
   - component: {fileID: 862007723640367134}
   - component: {fileID: 209739721163327314}
+  - component: {fileID: 6162399127415700098}
   m_Layer: 0
   m_Name: TrainStation
   m_TagString: Untagged
@@ -59334,6 +59332,108 @@ MonoBehaviour:
   selectedWagon: {fileID: 0}
   gameManager: {fileID: 0}
   playerManager: {fileID: 0}
+  audioSource: {fileID: 6162399127415700098}
+  changeWagonLeftClip: {fileID: 8300000, guid: 049508517e85b9b4388ef7455f597724, type: 3}
+  changeWagonRightClip: {fileID: 8300000, guid: a09b00c13fa4d6c47be877d2d77b490d,
+    type: 3}
+  buyWagonClip: {fileID: 8300000, guid: e47261fe2ab6c874d8c8915ea152089b, type: 3}
+  leaveStationClip: {fileID: 8300000, guid: 78063fada19f1a94da27159e6d0e0672, type: 3}
+--- !u!82 &6162399127415700098
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6827362386403720273}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &6832743138534141588
 GameObject:
   m_ObjectHideFlags: 0
@@ -70567,7 +70667,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiGameObject: {fileID: 176854488388010509}
   leaveTrapUI: {fileID: 0}
-  trapHLShader: {fileID: 0}
 --- !u!54 &5388865769201304590
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -76876,7 +76975,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiGameObject: {fileID: 9037194385710950683}
   leaveTrapUI: {fileID: 0}
-  trapHLShader: {fileID: 0}
 --- !u!54 &2267824879608167913
 Rigidbody:
   m_ObjectHideFlags: 0

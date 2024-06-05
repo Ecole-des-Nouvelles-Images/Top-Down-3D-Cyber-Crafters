@@ -22,6 +22,12 @@ namespace Gare
         public GameManager gameManager;
         public PlayerManager playerManager;
         private PlayerInput _playerInput;
+        
+        public AudioSource audioSource;
+        public AudioClip changeWagonLeftClip;
+        public AudioClip changeWagonRightClip;
+        public AudioClip buyWagonClip;
+        public AudioClip leaveStationClip;
         private void OnEnable()
         {
             selectedWagon = shopWagons[WagonIndex].GetComponent<FakeWagon>();
@@ -58,6 +64,7 @@ namespace Gare
             {
                 if (_playerInput.actions["Right"].WasPressedThisFrame())
                 {
+                    audioSource.PlayOneShot(changeWagonRightClip);
                     shopWagons[WagonIndex].SetActive(false);
                     WagonIndex -= 1;
                     if (WagonIndex > 5) { WagonIndex = 0; }
@@ -70,6 +77,7 @@ namespace Gare
 
                 if (_playerInput.actions["Left"].WasPressedThisFrame())
                 {
+                    audioSource.PlayOneShot(changeWagonLeftClip);
                     shopWagons[WagonIndex].SetActive(false);
                     WagonIndex += 1;
                     if (WagonIndex > 5) { WagonIndex = 0; }
@@ -82,11 +90,13 @@ namespace Gare
 
                 if (_playerInput.actions["Buy"].WasPressedThisFrame())
                 {
+                    audioSource.PlayOneShot(buyWagonClip);
                     selectedWagon.OnBuy();
                 }
                 
                 if(_playerInput.actions["Leave"].WasPressedThisFrame())
                 {
+                    audioSource.PlayOneShot(leaveStationClip);
                     foreach (GameObject player in playerManager.players)
                     {
                         player.GetComponent<NavMeshAgent>().enabled = false;
