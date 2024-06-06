@@ -975,7 +975,7 @@ PrefabInstance:
     - target: {fileID: 7450489098270277044, guid: c6eff83d5cd2ce54ab1fad51aaa8d347,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7450489098270277044, guid: c6eff83d5cd2ce54ab1fad51aaa8d347,
         type: 3}
@@ -1000,7 +1000,7 @@ PrefabInstance:
     - target: {fileID: 7450489098270277044, guid: c6eff83d5cd2ce54ab1fad51aaa8d347,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7450489098270277044, guid: c6eff83d5cd2ce54ab1fad51aaa8d347,
         type: 3}
@@ -1107,6 +1107,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ControlStation
+      objectReference: {fileID: 0}
+    - target: {fileID: 5030680101725767104, guid: 36085d6c6ec173a4089f48e64cf91ffb,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5760863429641952504, guid: 36085d6c6ec173a4089f48e64cf91ffb,
         type: 3}
