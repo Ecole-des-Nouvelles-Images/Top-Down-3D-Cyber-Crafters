@@ -175,7 +175,7 @@ namespace Enemies
         {
             if (navMeshAgent.isStopped) return;
             navMeshAgent.isStopped = true;
-            audioSource.PlayOneShot(stunClip);
+//            audioSource.PlayOneShot(stunClip);
             //animate Stun
             _animator.SetBool("Stun", true);
             StartCoroutine(ResetStun(stunDuration));

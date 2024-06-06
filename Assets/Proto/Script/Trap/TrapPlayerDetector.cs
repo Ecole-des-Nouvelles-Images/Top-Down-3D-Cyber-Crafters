@@ -5,7 +5,9 @@ using UnityEngine;
     public class TrapPlayerDetector : MonoBehaviour
     {
         public GameObject uiGameObject;
-        public GameObject leaveTrapUI;
+        public GameObject trapHL;
+
+        public Trap trap;
 
         //public TrapHLShader trapHLShader;
         private void Awake() {
@@ -17,12 +19,14 @@ using UnityEngine;
             {
                 uiGameObject.SetActive(true);
                 //if (trapHLShader != null) trapHLShader.ActivateTrap();
+                if(!trap.isActivated) trapHL.SetActive(true);
             }
         }
         private void OnTriggerExit(Collider other) {
             if (other.CompareTag("Player"))
             {
                 uiGameObject.SetActive(false);
+                trapHL.SetActive(false);
             }
         }
         

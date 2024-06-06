@@ -3,12 +3,17 @@ using Player;
 using Train.Wagon;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 
 //Line renderer sur l'enclume pour montrer ou tombe l'enclume
 
-public class MovingEnclumeTrap : MonoBehaviour
+public class MovingEnclumeTrap : Trap
 {
+    public GameObject UI;
+    public Sprite isActivatedUI;
+    public Sprite isNotActivatedUI;
+    
     public Enclume enclumePrefab;
     public Enclume enclume;
     public Transform enclumeSpawnPoint;
@@ -92,7 +97,9 @@ public class MovingEnclumeTrap : MonoBehaviour
                 _playerInput.actions.FindActionMap("MovingEnclume");
             _playerInput.SwitchCurrentActionMap("MovingEnclume");
             _isActivated = true;
-            
+            // Change UI sprite to show the player that he is controlling the enclume
+            UI.GetComponent<Image>().sprite = isActivatedUI;
+            // Abonnement à l'événement de destruction de tous les steam pipes pour forcer le quit
             SteamPipeManager steamPipeManager = FindObjectOfType<SteamPipeManager>();
             steamPipeManager.OnAllSteamPipesDestroyed += Exit;
 
@@ -108,6 +115,7 @@ public class MovingEnclumeTrap : MonoBehaviour
 
     private void Exit()
     {
+        UI.GetComponent<Image>().sprite = isNotActivatedUI;
         _playerInput.currentActionMap = _playerInput.actions.FindActionMap("Gameplay");
         _isActivated = false;
         // Désabonnement de l'événement
