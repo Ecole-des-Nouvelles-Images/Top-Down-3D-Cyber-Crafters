@@ -222,6 +222,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05929907919ab26449285b7b8ec273e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UI: {fileID: 6423863833975752396}
+  isActivatedUI: {fileID: -663281757, guid: 50eace126b325cd4da3e3f39a8442f79, type: 3}
+  isNotActivatedUI: {fileID: 21300000, guid: 68e9172e0a3f91d458f0b22834b1b654, type: 3}
   animator: {fileID: 8690851894568196045}
   turnSpeed: 150
   bulletPrefab: {fileID: 5214348290436258271, guid: e5bcfa02d246ce14bb3b5c986378d85c,
@@ -831,15 +834,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -494271799, guid: 991408026d0d7ec4b93800c99bfe963b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 68e9172e0a3f91d458f0b22834b1b654, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_UseSpriteMesh: 0
+  m_UseSpriteMesh: 1
   m_PixelsPerUnitMultiplier: 1
 --- !u!1 &6647622456456990549
 GameObject:
@@ -1082,7 +1085,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiGameObject: {fileID: 4786878716771566466}
   leaveTrapUI: {fileID: 0}
-  trapHLShader: {fileID: 2838775752161239807}
 --- !u!54 &540752507158052479
 Rigidbody:
   m_ObjectHideFlags: 0

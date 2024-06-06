@@ -5,9 +5,14 @@ using Train.Wagon;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class TourelleTrap : MonoBehaviour
 {
+    public GameObject UI;
+    public Sprite isActivatedUI;
+    public Sprite isNotActivatedUI;
+    
     public Animator animator;
     public float turnSpeed = 10f;
     private PlayerInput _playerInput;
@@ -139,6 +144,8 @@ public class TourelleTrap : MonoBehaviour
                 playerController.GetComponent<PlayerInput>().actions.FindActionMap("Turret");
             _playerInput.SwitchCurrentActionMap("Turret");
             _isActivated = true;
+            UI.GetComponent<Image>().sprite = isActivatedUI;
+
             SteamPipeManager steamPipeManager = FindObjectOfType<SteamPipeManager>();
             steamPipeManager.OnAllSteamPipesDestroyed += Exit;
 
@@ -161,6 +168,8 @@ public class TourelleTrap : MonoBehaviour
     private void Exit()
     {
         _isActivated = false;
+        UI.GetComponent<Image>().sprite = isNotActivatedUI;
+
         animator.SetBool("isAiming", false);
         audioSource.clip = null;
         _playerInput.currentActionMap = _playerInput.actions.FindActionMap("Gameplay");

@@ -901,6 +901,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3948728102421958258}
     m_Modifications:
+    - target: {fileID: 445590760363950610, guid: 36085d6c6ec173a4089f48e64cf91ffb,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1678165745, guid: 50eace126b325cd4da3e3f39a8442f79,
+        type: 3}
     - target: {fileID: 1042096388430766554, guid: 36085d6c6ec173a4089f48e64cf91ffb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -961,6 +967,12 @@ PrefabInstance:
       propertyPath: uiGameObject
       value: 
       objectReference: {fileID: 2305508848456229335, guid: 125c8cf639bca054a96f8e825752c93c,
+        type: 3}
+    - target: {fileID: 7929313243948169495, guid: 36085d6c6ec173a4089f48e64cf91ffb,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1678165745, guid: 50eace126b325cd4da3e3f39a8442f79,
         type: 3}
     - target: {fileID: 8905214892336467626, guid: 36085d6c6ec173a4089f48e64cf91ffb,
         type: 3}
@@ -1078,6 +1090,12 @@ PrefabInstance:
       propertyPath: uiGameObject
       value: 
       objectReference: {fileID: 2305508848456229335, guid: 125c8cf639bca054a96f8e825752c93c,
+        type: 3}
+    - target: {fileID: 7929313243948169495, guid: 36085d6c6ec173a4089f48e64cf91ffb,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1678165745, guid: 50eace126b325cd4da3e3f39a8442f79,
         type: 3}
     - target: {fileID: 8905214892336467626, guid: 36085d6c6ec173a4089f48e64cf91ffb,
         type: 3}
