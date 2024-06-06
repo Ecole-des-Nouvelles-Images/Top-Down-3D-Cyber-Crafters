@@ -58,13 +58,13 @@ namespace Player
 
         private void Start() {
             if (playerModelId == 0) {
-                _materialIdFixer = 0;
+                _materialIdFixer = 1;
             }
             else if (playerModelId == 1) {
                 _materialIdFixer = 1;
             }
             else if (playerModelId == 2) {
-                _materialIdFixer = 1;
+                _materialIdFixer = 0;
             }
             else if (playerModelId == 3) {
                 _materialIdFixer = 1;
@@ -104,7 +104,7 @@ namespace Player
             } 
             if (moveInput.magnitude >= 0.1f) { Move(moveInput); }
 
-            _buttonAPressed = playerInput.actions["A"].IsPressed();
+            _buttonAPressed = playerInput.actions["A"].WasPerformedThisFrame();
         }
 
         // METHODE DE MOUVEMENT
