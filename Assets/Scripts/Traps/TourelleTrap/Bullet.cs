@@ -13,7 +13,7 @@ namespace Proto.Script.Trap
         private void Update()
         {
             _timer += Time.deltaTime;
-            if (_timer >= 1.5f)
+            if (_timer >= 2.5f)
             {
                 Destroy(gameObject);
             }
@@ -29,7 +29,7 @@ namespace Proto.Script.Trap
                 other.GetComponent<Enemies.Enemy>().TakeDamage(damage);
                 Destroy(gameObject);
             }
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
 
         private void OnTriggerEnter(Collider other)
