@@ -186,10 +186,10 @@ MonoBehaviour:
   playerModel: {fileID: 2591899001093285814}
   playerMesh: {fileID: 0}
   playerModels:
-  - {fileID: 7077676027053604520, guid: fc2dca6cc7d21f14e9525111b75cf389, type: 3}
   - {fileID: 1843833893768358088, guid: 4432ea040149b6d4682277e39850b6a1, type: 3}
-  - {fileID: 7905849788626222596, guid: 701cc7d6afaab484b9dad9322cd0559e, type: 3}
   - {fileID: 861761563979128265, guid: c965bfae8134b75449da8d9509d6cbbc, type: 3}
+  - {fileID: 7077676027053604520, guid: fc2dca6cc7d21f14e9525111b75cf389, type: 3}
+  - {fileID: 7905849788626222596, guid: 701cc7d6afaab484b9dad9322cd0559e, type: 3}
   playerOneColor: {r: 0.3773585, g: 0, b: 0, a: 0}
   playerTwoColor: {r: 0.303554, g: 0.23789605, b: 0.509434, a: 0}
   playerThreeColor: {r: 0.745283, g: 0.5944292, b: 0.05273228, a: 0}
@@ -200,3 +200,4 @@ MonoBehaviour:
   angularSpeed: 1
   playerInput: {fileID: 0}
   playerId: 0
+  playerModelId: 0
