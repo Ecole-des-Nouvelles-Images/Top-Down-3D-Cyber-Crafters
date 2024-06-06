@@ -37,6 +37,7 @@ namespace characterSpawner
                     {
                         Destroy(transform.gameObject);
                         player.GetComponent<PlayerController>().enabled = false;
+                        Destroy(player.gameObject);
                     }
                 }
 
