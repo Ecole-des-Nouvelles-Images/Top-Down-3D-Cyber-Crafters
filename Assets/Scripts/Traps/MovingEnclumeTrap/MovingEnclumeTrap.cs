@@ -8,7 +8,7 @@ using UnityEngine.UIElements;
 
 //Line renderer sur l'enclume pour montrer ou tombe l'enclume
 
-public class MovingEnclumeTrap : MonoBehaviour
+public class MovingEnclumeTrap : Trap
 {
     public GameObject UI;
     public Sprite isActivatedUI;

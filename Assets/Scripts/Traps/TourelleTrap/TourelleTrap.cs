@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
-public class TourelleTrap : MonoBehaviour
+public class TourelleTrap : Trap
 {
     public GameObject UI;
     public Sprite isActivatedUI;
