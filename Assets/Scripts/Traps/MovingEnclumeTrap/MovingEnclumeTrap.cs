@@ -10,9 +10,9 @@ using UnityEngine.UIElements;
 
 public class MovingEnclumeTrap : Trap
 {
-    public GameObject UI;
-    public Sprite isActivatedUI;
-    public Sprite isNotActivatedUI;
+    // public GameObject UI;
+    // public Sprite isActivatedUI;
+    // public Sprite isNotActivatedUI;
     
     public Enclume enclumePrefab;
     public Enclume enclume;
@@ -98,7 +98,7 @@ public class MovingEnclumeTrap : Trap
             _playerInput.SwitchCurrentActionMap("MovingEnclume");
             _isActivated = true;
             // Change UI sprite to show the player that he is controlling the enclume
-            UI.GetComponent<Image>().sprite = isActivatedUI;
+            // UI.GetComponent<Image>().sprite = isActivatedUI;
             // Abonnement à l'événement de destruction de tous les steam pipes pour forcer le quit
             SteamPipeManager steamPipeManager = FindObjectOfType<SteamPipeManager>();
             steamPipeManager.OnAllSteamPipesDestroyed += Exit;
@@ -115,7 +115,7 @@ public class MovingEnclumeTrap : Trap
 
     private void Exit()
     {
-        UI.GetComponent<Image>().sprite = isNotActivatedUI;
+        // UI.GetComponent<Image>().sprite = isNotActivatedUI;
         _playerInput.currentActionMap = _playerInput.actions.FindActionMap("Gameplay");
         _isActivated = false;
         // Désabonnement de l'événement

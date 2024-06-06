@@ -9,9 +9,9 @@ using UnityEngine.UIElements;
 
 public class TourelleTrap : Trap
 {
-    public GameObject UI;
-    public Sprite isActivatedUI;
-    public Sprite isNotActivatedUI;
+    // public GameObject UI;
+    // public Sprite isActivatedUI;
+    // public Sprite isNotActivatedUI;
     
     public Animator animator;
     public float turnSpeed = 10f;
@@ -144,7 +144,7 @@ public class TourelleTrap : Trap
                 playerController.GetComponent<PlayerInput>().actions.FindActionMap("Turret");
             _playerInput.SwitchCurrentActionMap("Turret");
             _isActivated = true;
-            UI.GetComponent<Image>().sprite = isActivatedUI;
+            // UI.GetComponent<Image>().sprite = isActivatedUI;
 
             SteamPipeManager steamPipeManager = FindObjectOfType<SteamPipeManager>();
             steamPipeManager.OnAllSteamPipesDestroyed += Exit;
@@ -168,7 +168,7 @@ public class TourelleTrap : Trap
     private void Exit()
     {
         _isActivated = false;
-        UI.GetComponent<Image>().sprite = isNotActivatedUI;
+        // UI.GetComponent<Image>().sprite = isNotActivatedUI;
 
         animator.SetBool("isAiming", false);
         audioSource.clip = null;
