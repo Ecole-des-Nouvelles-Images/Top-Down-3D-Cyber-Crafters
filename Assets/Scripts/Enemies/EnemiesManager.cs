@@ -152,7 +152,7 @@ namespace Enemies
             foreach (Enemy enemy in enemies)
             {
                 Rigidbody rb = enemy.GetComponent<Rigidbody>();
-                rb.velocity = Vector3.zero;
+//                rb.velocity = Vector3.zero;
                 enemy.GetComponent<NavMeshAgent>().enabled = false;
                 enemy.transform.position = new Vector3(transform.position.x, 1, transform.position.z + 1);
                 enemy.GetComponent<NavMeshAgent>().enabled = true;
