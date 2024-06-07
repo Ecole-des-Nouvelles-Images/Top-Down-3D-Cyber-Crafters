@@ -131,7 +131,7 @@ public class MenuHelperFunctions : MonoBehaviour
             }
         }
 
-        if(allPlayersReady == true && readyCount > 1)
+        if(allPlayersReady == true && readyCount > 0)
         {
             StartCoroutine("LobbyCountdown");
         }
