@@ -44,35 +44,35 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 1
-        value: {x: 1390.4817, y: 0, z: 0}
-        inSlope: {x: 504.4233, y: 0, z: 0}
-        outSlope: {x: 504.4233, y: 0, z: 0}
+        value: {x: 500, y: 0, z: 0}
+        inSlope: {x: 556.70105, y: 0, z: 0}
+        outSlope: {x: 556.70105, y: 0, z: 0}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0.24378169, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 1.6166667
-        value: {x: 2290.032, y: 0, z: 0}
-        inSlope: {x: 1338.112, y: 0, z: 0}
-        outSlope: {x: 1338.112, y: 0, z: 0}
+        value: {x: 900, y: 0, z: 0}
+        inSlope: {x: 1000, y: 0, z: 0}
+        outSlope: {x: 1000, y: 0, z: 0}
         tangentMode: 0
         weightedMode: 0
-        inWeight: {x: 0.026518077, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0.101612635, y: 0.33333334, z: 0.33333334}
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 2.5
-        value: {x: 5000, y: 0, z: 0}
-        inSlope: {x: 292.13638, y: 0, z: 0}
-        outSlope: {x: 292.13638, y: 0, z: 0}
+        value: {x: 2000, y: 0, z: 0}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
         weightedMode: 0
-        inWeight: {x: 0.35627422, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0.66699094, y: 0.33333334, z: 0.33333334}
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Ventilator_ (2)/Ventilator_Trap_Helix
+    path: Ventilator_/GameObject/Ventilator_Wings_Final
   m_PositionCurves: []
   m_ScaleCurves: []
   m_FloatCurves: []
@@ -85,7 +85,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 4141224753
+      path: 1391191614
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -202,36 +202,36 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: 1390.4817
-        inSlope: 504.4233
-        outSlope: 504.4233
-        tangentMode: 0
+        value: 500
+        inSlope: 556.70105
+        outSlope: 556.70105
+        tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.24378169
+        outWeight: 0.33333334
       - serializedVersion: 3
         time: 1.6166667
-        value: 2290.032
-        inSlope: 1338.112
-        outSlope: 1338.112
-        tangentMode: 0
+        value: 900
+        inSlope: 1000
+        outSlope: 1000
+        tangentMode: 136
         weightedMode: 0
-        inWeight: 0.026518077
-        outWeight: 0.101612635
+        inWeight: 0.33333334
+        outWeight: 0.33333334
       - serializedVersion: 3
         time: 2.5
-        value: 5000
-        inSlope: 292.13638
-        outSlope: 292.13638
-        tangentMode: 0
+        value: 2000
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
         weightedMode: 0
-        inWeight: 0.35627422
-        outWeight: 0.66699094
+        inWeight: 0.33333334
+        outWeight: 0.33333334
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Ventilator_ (2)/Ventilator_Trap_Helix
+    path: Ventilator_/GameObject/Ventilator_Wings_Final
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -241,6 +241,15 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 2.5
         value: 0
         inSlope: 0
         outSlope: 0
@@ -252,7 +261,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Ventilator_ (2)/Ventilator_Trap_Helix
+    path: Ventilator_/GameObject/Ventilator_Wings_Final
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -269,11 +278,20 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 2.5
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Ventilator_ (2)/Ventilator_Trap_Helix
+    path: Ventilator_/GameObject/Ventilator_Wings_Final
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -321,8 +339,8 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Ventilator_ (2)/Ventilator_Trap_Helix
+    attribute: m_LocalEulerAngles.z
+    path: Ventilator_/GameObject/Ventilator_Wings_Final
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -334,7 +352,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Ventilator_ (2)/Ventilator_Trap_Helix
+    path: Ventilator_/GameObject/Ventilator_Wings_Final
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -345,8 +363,8 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: Ventilator_ (2)/Ventilator_Trap_Helix
+    attribute: m_LocalEulerAngles.x
+    path: Ventilator_/GameObject/Ventilator_Wings_Final
     classID: 4
     script: {fileID: 0}
     flags: 0
