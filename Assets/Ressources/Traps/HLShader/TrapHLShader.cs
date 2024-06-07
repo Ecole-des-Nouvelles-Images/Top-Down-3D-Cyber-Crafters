@@ -1,30 +1,33 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TrapHLShader : MonoBehaviour
 
 {
-    public Material highlightMaterial;
-    private Material originalMaterial;
-    private Renderer trapRenderer;
+    // public Material highlightMaterial;
+    // private Material originalMaterial;
+    private Renderer _trapRenderer;
+    private Color _originalColor;
+    //private Color _playerColor;
 
     void Start()
     {
-        trapRenderer = GetComponent<Renderer>();
-        originalMaterial = trapRenderer.material;
+        _trapRenderer = GetComponent<Renderer>();
+        // originalMaterial = trapRenderer.material;
     }
 
-    public void ActivateTrap()
+    public void ActivateTrap(Color playerColor)
     {
-        StartCoroutine(HighlightTrap());
+        StartCoroutine(HighlightTrap(playerColor));
         // Ajoutez ici le code pour activer le piège
     }
 
-    private IEnumerator HighlightTrap()
+    private IEnumerator HighlightTrap(Color playerColor)
     {
-        trapRenderer.material = highlightMaterial;
+        var material = _trapRenderer.material;
+        _originalColor = material.color;
+        material.color = playerColor;
         yield return new WaitForSeconds(1);
-        trapRenderer.material = originalMaterial;
+        material.color = _originalColor;
     }
 }
