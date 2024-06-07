@@ -3528,7 +3528,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiGameObject: {fileID: 91354081393339736}
-  leaveTrapUI: {fileID: 0}
+  trapHL: {fileID: 0}
+  activedUI: {fileID: 0}
+  trap: {fileID: 0}
 --- !u!54 &7158173444056136106
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -40815,7 +40817,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiGameObject: {fileID: 4938917759537424236}
-  leaveTrapUI: {fileID: 0}
+  trapHL: {fileID: 0}
+  activedUI: {fileID: 0}
+  trap: {fileID: 0}
 --- !u!54 &2781238126532260766
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -51026,7 +51030,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiGameObject: {fileID: 0}
-  leaveTrapUI: {fileID: 0}
+  trapHL: {fileID: 0}
+  activedUI: {fileID: 0}
+  trap: {fileID: 0}
 --- !u!54 &8365614275381412157
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -53294,7 +53300,7 @@ MonoBehaviour:
   price: 20
   buying: 0
   buyable: 0
-  wagonPrefab: {fileID: 857444973897641864, guid: 1abf78b374f05294f9cc8da82c385474,
+  wagonPrefab: {fileID: 3711103843144064820, guid: 420bfef655c9b8046972cf8461abf751,
     type: 3}
   wagonRenderers:
   - {fileID: 8438718797610234802}
@@ -70666,7 +70672,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiGameObject: {fileID: 176854488388010509}
-  leaveTrapUI: {fileID: 0}
+  trapHL: {fileID: 0}
+  activedUI: {fileID: 0}
+  trap: {fileID: 0}
 --- !u!54 &5388865769201304590
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -76974,7 +76982,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiGameObject: {fileID: 9037194385710950683}
-  leaveTrapUI: {fileID: 0}
+  trapHL: {fileID: 0}
+  activedUI: {fileID: 0}
+  trap: {fileID: 0}
 --- !u!54 &2267824879608167913
 Rigidbody:
   m_ObjectHideFlags: 0

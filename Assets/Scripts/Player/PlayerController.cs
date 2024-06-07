@@ -102,7 +102,7 @@ namespace Player
             } 
             if (moveInput.magnitude >= 0.1f) { Move(moveInput); }
 
-            _buttonAPressed = playerInput.actions["A"].WasPerformedThisFrame();
+            _buttonAPressed = playerInput.actions["A"].IsPressed();
         }
 
         // METHODE DE MOUVEMENT
