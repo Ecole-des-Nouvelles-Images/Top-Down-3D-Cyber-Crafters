@@ -17,6 +17,7 @@ namespace Player
         public Color playerTwoColor;
         public Color playerThreeColor;
         public Color playerFourColor;
+        public Color playerColor;
         
         [Header("Variables de Déplacement")] 
         [SerializeField] private Camera mainCamera; // Caméra nécéssaire aux calculs de déplacements
@@ -80,15 +81,19 @@ namespace Player
             switch (playerId) {
                 case 1:
                     playerMesh.GetComponent<SkinnedMeshRenderer>().materials[_materialIdFixer].color = playerOneColor;
+                    playerColor = playerOneColor;
                     break;
                 case 2:
                     playerMesh.GetComponent<SkinnedMeshRenderer>().materials[_materialIdFixer].color = playerTwoColor;
+                    playerColor = playerTwoColor;
                     break;
                 case 3:
                     playerMesh.GetComponent<SkinnedMeshRenderer>().materials[_materialIdFixer].color = playerThreeColor;
+                    playerColor = playerThreeColor;
                     break;
                 case 4:
                     playerMesh.GetComponent<SkinnedMeshRenderer>().materials[_materialIdFixer].color = playerFourColor;
+                    playerColor = playerFourColor;
                     break;
             }
         }
