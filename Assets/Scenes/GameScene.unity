@@ -2360,7 +2360,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 31.9
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3776,6 +3776,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1278247171}
     m_Modifications:
+    - target: {fileID: 725859200944638728, guid: bc1e4a7bb3e899544a016e4e6747f12b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8f0b02c8283937b4ca01e7461f2a6949, type: 2}
     - target: {fileID: 3944819625888828016, guid: bc1e4a7bb3e899544a016e4e6747f12b,
         type: 3}
       propertyPath: m_IsActive
@@ -3786,11 +3791,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6118015253408209559, guid: bc1e4a7bb3e899544a016e4e6747f12b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e6a9b5a71a781e5469871c8552b5d44a, type: 2}
+    - target: {fileID: 6173054371201174101, guid: bc1e4a7bb3e899544a016e4e6747f12b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8f0b02c8283937b4ca01e7461f2a6949, type: 2}
     - target: {fileID: 7367117728349345405, guid: bc1e4a7bb3e899544a016e4e6747f12b,
         type: 3}
       propertyPath: m_Name
       value: Wagon_Stockage
       objectReference: {fileID: 0}
+    - target: {fileID: 7377532251937263304, guid: bc1e4a7bb3e899544a016e4e6747f12b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e6a9b5a71a781e5469871c8552b5d44a, type: 2}
     - target: {fileID: 8708592270960848683, guid: bc1e4a7bb3e899544a016e4e6747f12b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3844,7 +3864,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9034992774043856669, guid: bc1e4a7bb3e899544a016e4e6747f12b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2096231299}
   m_SourcePrefab: {fileID: 100100000, guid: bc1e4a7bb3e899544a016e4e6747f12b, type: 3}
 --- !u!4 &1283513830 stripped
 Transform:
@@ -4130,7 +4154,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 43.85
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4867,7 +4891,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 39.8
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5447,6 +5471,25 @@ Transform:
   - {fileID: 351437969}
   m_Father: {fileID: 543450651798275298}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2096231297 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9034992774043856669, guid: bc1e4a7bb3e899544a016e4e6747f12b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1283513829}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2096231299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096231297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 091b1cbda6d25344f828406e47f8728b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alpha: 0.367
 --- !u!1001 &2121431768
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5682,7 +5725,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 31.9
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

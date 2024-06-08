@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class AdjustAlpha : MonoBehaviour
@@ -12,12 +13,22 @@ public class AdjustAlpha : MonoBehaviour
 
     private void SetAlpha(float alphaValue)
     {
-        // Récupère tous les MeshRenderer des enfants du GameObject
-        MeshRenderer[] renderers = GetComponentsInChildren<MeshRenderer>();
+        // Get the MeshRenderer of the current GameObject
+        MeshRenderer selfRenderer = GetComponent<MeshRenderer>();
 
-        // Parcourt chaque MeshRenderer pour ajuster l'alpha de son matériau
-        foreach (MeshRenderer renderer in renderers)
+        // Get all the MeshRenderers from the children of the GameObject
+        MeshRenderer[] childRenderers = GetComponentsInChildren<MeshRenderer>();
+
+        // Combine selfRenderer and childRenderers into one array
+        MeshRenderer[] allRenderers = new MeshRenderer[childRenderers.Length + 1];
+        allRenderers[0] = selfRenderer;
+        Array.Copy(childRenderers, 0, allRenderers, 1, childRenderers.Length);
+
+        // Go through each MeshRenderer to adjust the alpha of its material
+        foreach (MeshRenderer renderer in allRenderers)
         {
+            if (renderer == null) continue; // Skip if renderer is null
+
             Material material = renderer.material;
 
             if (material.HasProperty("_Color"))
@@ -26,7 +37,7 @@ public class AdjustAlpha : MonoBehaviour
                 color.a = alphaValue;
                 material.color = color;
 
-                // Assurez-vous que le mode de rendu est correct pour la transparence
+                // Make sure the rendering mode is correct for transparency
                 material.SetFloat("_Mode", 2);
                 material.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
                 material.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);

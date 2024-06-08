@@ -32,6 +32,7 @@ namespace Train.Wagon
         private void OnDestroy() {
             parentSpm.localSteamPipes.Remove(this); // Suppréssion de la Liste des SteamPipes afin de pouvoir vérifier si tout les SteamPipes sont "Morts"
             foreach (Enemy enemy in assignedEnemies) { // Rediriger l'ennemi vers un autre SteamPipe
+                if (enemy == null) continue; // Si enemy est null, ignore le reste du code dans cette itération de la boucle
                 enemy.targetedSteamPipe = null;
                 enemy.GetComponentInChildren<Animator>().SetBool("Attack", false);
                 if (parentSpm.localSteamPipes.Count > 0) {

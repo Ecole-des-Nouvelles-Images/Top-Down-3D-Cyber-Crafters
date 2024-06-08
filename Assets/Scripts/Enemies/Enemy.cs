@@ -169,6 +169,7 @@ namespace Enemies
         {
             _animator.SetBool("Fall", true);
             audioSource.PlayOneShot(fallClip);
+            Destroy(gameObject,2f);
         }
 
         public void Stun(float stunDuration)

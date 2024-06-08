@@ -31,7 +31,7 @@ public class Tonneaux : MonoBehaviour
         {
             if (timer >= timeBeforeDestroy)
             {
-                Instantiate(brokenBarrel, transform.position, Quaternion.Euler(0, 0, 90));
+                Instantiate(brokenBarrel, transform.position, transform.rotation);
                 Destroy(gameObject);
             }
 
@@ -41,14 +41,15 @@ public class Tonneaux : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
+        Debug.Log($"Barril Collision detected with {other.transform.name}");
         if (other.transform.CompareTag("Enemy"))
         {
             Enemy enemy = other.gameObject.GetComponent<Enemy>();
             enemy.TakeDamage(damage);
             enemy.Stun(stunDuration);
-            Instantiate(brokenBarrel, transform.position, Quaternion.Euler(0, 0, 90));
-            Destroy(gameObject);
         }
+        Instantiate(brokenBarrel, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
 
     public void DropBarrel()
@@ -59,7 +60,4 @@ public class Tonneaux : MonoBehaviour
         col.providesContacts = true;
         transform.SetParent(null);
     }
-
-
-    // Détruire tonneaux avec animation
 }

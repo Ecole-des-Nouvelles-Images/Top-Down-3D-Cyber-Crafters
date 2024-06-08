@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8983025373140542257}
   - component: {fileID: 5566186469451609670}
   - component: {fileID: 1266228241968408164}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 7724497545651970008}
   - component: {fileID: 3895606804924048739}
   - component: {fileID: 8308728662984410438}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SteamPipe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,8 +152,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   assignedEnemies: []
   parentSpm: {fileID: 0}
-  maxHealthPoints: 25000
-  healthPoints: 25000
+  maxHealthPoints: 10000
+  healthPoints: 10000
   lifeBar: {fileID: 3301595714437437608}
   enemyDetector: {fileID: 3895606804924048739}
 --- !u!65 &3895606804924048739
@@ -202,7 +202,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!1 &8138291622698880425
 GameObject:
@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 7693548605623225577}
   - component: {fileID: 3444887451359615905}
   - component: {fileID: 899947457651244415}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -304,7 +304,7 @@ BoxCollider:
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_ProvidesContacts: 0
+  m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.02, z: 0.02}
@@ -320,7 +320,7 @@ GameObject:
   - component: {fileID: 5511706031429658223}
   - component: {fileID: 4085504211953103319}
   - component: {fileID: 3301595714437437608}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}

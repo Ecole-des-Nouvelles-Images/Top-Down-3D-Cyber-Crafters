@@ -6,8 +6,7 @@ using UnityEngine.Serialization;
 public class Enclume : MonoBehaviour
 {
     public int damage = 5;
-    private float timer = 0;
-    public float enclumeDuration = 5f;
+    public float enclumeDuration = 2f;
     [FormerlySerializedAs("slowDownDuration")] public float stunDuration = 2f;
 
     public AudioClip fallClip;
@@ -22,18 +21,6 @@ public class Enclume : MonoBehaviour
 
     public Collider col;
     
-
-    private void FixedUpdate()
-    {
-        //if (isDropped)
-        //{
-        //    if (timer < enclumeDuration) timer += Time.deltaTime;
-        //    else
-        //    {
-        //        Destroy(gameObject);
-        //    }
-        //}
-    }
 
     private void OnCollisionEnter(Collision other)
     {
@@ -59,5 +46,6 @@ public class Enclume : MonoBehaviour
         col.providesContacts = true;
         transform.SetParent(null);
         //rb.useGravity = true;
+        Destroy(gameObject, enclumeDuration);
     }
 }
