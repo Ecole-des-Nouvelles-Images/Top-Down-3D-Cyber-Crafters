@@ -1,9 +1,11 @@
 
 using Enemies;
+using Manager;
 using Player;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace Train.Wagon
 {
@@ -58,12 +60,18 @@ namespace Train.Wagon
         }
 
         private void Update() {
+
+            localSteamPipeManager = GetComponentInChildren<SteamPipeManager>();
             if (wagonEnableable.activeSelf) {
-                if (!steamPipesTaken) {
+                if (!steamPipesTaken && wagonEnableable.activeSelf && wagonExitDoor.gameObject.activeSelf) {
                     localSteamPipeManager = GetComponentInChildren<SteamPipeManager>();
                     steamPipesTaken = true;
                 }
-                if (localSteamPipeManager.localSteamPipes.Count <= 0 && wagonEnableable.activeSelf) { wagonExitDoor.gameObject.SetActive(true); }
+
+                if (localSteamPipeManager.localSteamPipes.Count <= 0 && wagonEnableable.activeSelf)
+                {
+                    wagonExitDoor.gameObject.SetActive(true);
+                }
                 if (playersInsideExit == PlayerInputManager.instance.playerCount) { _allPlayersInDoor = true; }
                 else { _allPlayersInDoor = false; }
                 if (_allPlayersInDoor && wagonExitDoor.gameObject.activeSelf) {
@@ -73,6 +81,17 @@ namespace Train.Wagon
                     }
                 }
                 if (wagonChanged) { enabled = false; }
+
+                if (steamPipesTaken && wagonEnableable.activeSelf && wagonExitDoor.gameObject.activeSelf)
+                {
+                    TrainManager trainManager = train.GetComponent<TrainManager>();
+                    int index = trainManager.wagons.FindIndex(w => w == this);
+                    if (index == trainManager.wagons.Count - 1)
+                    {
+                        Destroy(FindObjectOfType<PlayerModelIndexer>().gameObject);
+                        SceneManager.LoadScene("Lobby");
+                    }
+                }
             }
 
             if (changeWagon) {
@@ -96,6 +115,7 @@ namespace Train.Wagon
                                 Debug.Log("Wagon Changed");
                             }
                             wagonEnableable.SetActive(false);
+                            localSteamPipeManager = GetComponentInChildren<SteamPipeManager>();
                             wagonRoof.SetActive(true);
                             wagonChanged = true;
                             enabled = false;

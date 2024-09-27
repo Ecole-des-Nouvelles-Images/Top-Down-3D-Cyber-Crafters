@@ -213,7 +213,12 @@ namespace Enemies
 
         public void Die()
         {
-            audioSource.PlayOneShot(dieClip);
+            //audioSource.PlayOneShot(dieClip);
+            foreach (Collider colliders in GetComponents<Collider>())
+            {
+                colliders.enabled = false;
+            }
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
             //Animation de mort
             _animator.SetTrigger("Die");
             _animator.SetBool("Walk", false);

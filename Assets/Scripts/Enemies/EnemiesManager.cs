@@ -174,7 +174,7 @@ namespace Enemies
                 enemy.GetComponent<NavMeshAgent>().enabled = true;
                 enemy.inTrain = true;
                 SortEnemies();
-                yield return new WaitForSeconds(1);
+                yield return new WaitForSeconds(1.35f);
             }
             foreach (Enemy enemy in enemies)
             {
@@ -186,7 +186,7 @@ namespace Enemies
                 enemy.GetComponent<NavMeshAgent>().enabled = true;
                 enemy.inTrain = true;
                 SortEnemies();
-                yield return new WaitForSeconds(1);
+                yield return new WaitForSeconds(1.35f);
             }
             foreach (Enemy enemy in enemies)
             {
@@ -198,7 +198,7 @@ namespace Enemies
                 enemy.GetComponent<NavMeshAgent>().enabled = true;
                 enemy.inTrain = true;
                 SortEnemies();
-                yield return new WaitForSeconds(1);
+                yield return new WaitForSeconds(1.35f);
             }
         }
 

@@ -56,6 +56,7 @@ namespace Manager
 
                 enemiesManager.waveInterval = Mathf.Infinity;
                 randomCameraShake.enabled = false;
+                SpawnTrainStation();
                 //Spawner la gare
             }
             else
@@ -80,8 +81,13 @@ namespace Manager
                 {
                     treeSpawner.enabled = false;
                 }
-                trainManager.transform.Translate(transitionPosition * 0.25f * Time.deltaTime);
-                environementAnimator.transform.Translate(transitionPosition * 0.25f * Time.deltaTime);
+
+                if (trainManager.transform.position.z !<= transform.position.z)
+                {
+                    trainManager.transform.Translate(transitionPosition * 0.25f * Time.deltaTime);
+                    environementAnimator.transform.Translate(transitionPosition * 0.25f * Time.deltaTime);
+                }
+                
                 if (trainManager.transform.position.z <= transform.position.z)
                 {
                     transitionToStation = false;
