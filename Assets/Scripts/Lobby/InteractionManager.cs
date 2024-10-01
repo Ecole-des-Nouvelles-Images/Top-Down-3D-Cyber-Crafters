@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -10,6 +11,8 @@ namespace Lobby
         public Button yesButton; // Référence au bouton "Oui"
         public Button noButton; // Référence au bouton "Non"
         public string characterSelectionScene;
+
+        public EventSystem EventSystem;
 
         private void Start()
         {
@@ -55,10 +58,24 @@ namespace Lobby
 
         void ShowConfirmationPanel()
         {
+            // Mettre le jeu en pause
+            Time.timeScale = 0;
+
+            // // Désactiver les contrôles du joueur
+            // isPaused = true;
+
+            // Afficher le panneau de confirmation
             confirmationPanel.SetActive(true);
+            
+            EventSystem.SetSelectedGameObject(noButton.gameObject);
         }
 
-        void OnYesButtonClicked()
+        void ResumeGame()
+        {
+            Time.timeScale = 1;
+            confirmationPanel.SetActive(false);
+        }
+       public void OnYesButtonClicked()
         {
             Debug.Log("Quitting the game");
             if (Application.isEditor)
@@ -71,9 +88,9 @@ namespace Lobby
             }
         }
 
-        void OnNoButtonClicked()
+        public void OnNoButtonClicked()
         {
-            confirmationPanel.SetActive(false);
+            ResumeGame();
         }
     }
 }
