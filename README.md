@@ -33,9 +33,13 @@ Steam Train is a collaborative **tower-defense / roguelike** set in a steampunk 
 
 ## Enemies
 
+3 enemies with different health, power and speed characteristics
+
+![](media/conceptarts/enemies.PNG)
+
 ## Wagons
 
-
+multiple wagons with different visuals and traps
 
 ![enter image description here](https://media.discordapp.net/attachments/1224653365888286784/1247193478635716680/image.png?ex=66ff5131&is=66fdffb1&hm=a71c38eff209c77313f5a002520bced8630e3c8d03b5c4048be80bf97f6ce8da&=&format=webp&quality=lossless&width=1335&height=676)
 
