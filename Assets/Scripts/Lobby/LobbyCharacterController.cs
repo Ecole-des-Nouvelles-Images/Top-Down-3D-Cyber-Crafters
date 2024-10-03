@@ -33,11 +33,11 @@ namespace Lobby
         private void Update()
         {
             Vector2 moveInput = playerInput.actions["MoveLobby"].ReadValue<Vector2>();
-            Vector3 move = new Vector3(0, 0, Mathf.Sign(moveInput.x));
-            if (move.z != 0)
+            Vector3 move = new Vector3(0, 0, moveInput.x);
+            if (moveInput.x !=0)
             {
                 speed = 7;
-                transform.Translate(move * (speed * Time.deltaTime));
+                transform.Translate(move * speed * Time.deltaTime);
             }
             else
             {

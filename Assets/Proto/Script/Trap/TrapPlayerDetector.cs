@@ -1,8 +1,8 @@
-using System;
 using Player;
 using UnityEngine;
 
-
+namespace Proto.Script.Trap
+{
     public class TrapPlayerDetector : MonoBehaviour
     {
         public GameObject uiGameObject;
@@ -10,7 +10,7 @@ using UnityEngine;
 
         //public GameObject activedUI;
 
-        public Trap trap;
+        public global::Trap trap;
 
         public TrapHLShader trapHLShader;
         private void Awake() {
@@ -23,7 +23,7 @@ using UnityEngine;
             {
                 uiGameObject.SetActive(true);
                 if (trapHLShader != null) trapHLShader.ActivateTrap(other.GetComponent<PlayerController>().playerColor);
-               // if(!trap.isActivated) trapHL.SetActive(true);
+                // if(!trap.isActivated) trapHL.SetActive(true);
                 else
                 {
                     //if(activedUI != null) activedUI.SetActive(true);
@@ -40,4 +40,5 @@ using UnityEngine;
         }
         
     }
+}
 
