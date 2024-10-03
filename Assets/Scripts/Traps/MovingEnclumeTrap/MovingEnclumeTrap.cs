@@ -1,0 +1,126 @@
+using System.Collections;
+using Player;
+using Train.Wagon;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
+
+
+//Line renderer sur l'enclume pour montrer ou tombe l'enclume
+
+public class MovingEnclumeTrap : Trap
+{
+    // public GameObject UI;
+    // public Sprite isActivatedUI;
+    // public Sprite isNotActivatedUI;
+    
+    public Enclume enclumePrefab;
+    public Enclume enclume;
+    public Transform enclumeSpawnPoint;
+    public Animator animator;
+    public float moveSpeed = 5f; // Vitesse de déplacement de l'enclume
+    //public float moveRange = 10f; // Distance maximale que l'enclume peut parcourir
+    public BoxCollider moveArea;  // Zone de déplacement de l'enclume
+    
+    private Vector3 moveDirection;
+    private Vector3 initialPosition;
+
+    private float coolDown;
+    private bool isDropped;
+
+    private PlayerInput _playerInput;
+    private bool _isActivated = false;
+
+    public GameObject enclumeHolder;
+    
+    [Header("SFX")] 
+    //public AudioClip activateClip;
+    
+    public AudioClip moveClip;
+    public AudioSource _audioSource;
+    
+
+    private void Start()
+    {
+        initialPosition = enclumeSpawnPoint.position;
+    }
+
+    private void Update()
+    {
+        if (_isActivated)
+        {
+            //Déplacement de l'enclume
+            Vector2 input = _playerInput.currentActionMap.FindAction("MoveEnclume").ReadValue<Vector2>();
+            moveDirection = new Vector3(0, 0, input.x);
+            Vector3 newPosition = enclumeHolder.transform.position + moveDirection * (moveSpeed * Time.deltaTime);
+            if (moveArea.bounds.Contains(newPosition))
+            {
+                enclumeHolder.transform.position = newPosition;
+                if (!_audioSource.isPlaying)
+                {
+                    _audioSource.clip = moveClip;
+                    _audioSource.Play();
+                }
+            }
+            
+            animator.SetFloat("rotation", input.x);
+
+            // Stop audio if player is not moving the enclume
+            if (input == Vector2.zero )
+            {
+                animator.SetBool("isAiming", false);
+                if (_audioSource.clip == moveClip) _audioSource.Stop();
+            }
+            else animator.SetBool("isAiming", true);
+            if (_playerInput.actions["Drop"].WasPressedThisFrame() && !isDropped)
+            {
+                //_audioSource.PlayOneShot(activateClip); ( moved on enclume directly )
+                isDropped = true;
+                enclume.DropEnclume();
+                Destroy(enclume.gameObject, 2);
+                StartCoroutine(InstantiateEnclumeAfterDelay(5f)); // change delay with cooldowntime
+            }
+
+            if (_playerInput.actions["Exit"].WasPressedThisFrame())
+            {
+                Exit();
+            }
+        }
+    }
+
+    public void OnControlStation(PlayerController playerController)
+    {
+        if (!_isActivated)
+        {
+            _playerInput = playerController.GetComponent<PlayerInput>();
+            _playerInput.currentActionMap =
+                _playerInput.actions.FindActionMap("MovingEnclume");
+            _playerInput.SwitchCurrentActionMap("MovingEnclume");
+            _isActivated = true;
+            // Change UI sprite to show the player that he is controlling the enclume
+            // UI.GetComponent<Image>().sprite = isActivatedUI;
+            // Abonnement à l'événement de destruction de tous les steam pipes pour forcer le quit
+            SteamPipeManager steamPipeManager = FindObjectOfType<SteamPipeManager>();
+            steamPipeManager.OnAllSteamPipesDestroyed += Exit;
+
+        }
+    }
+    
+    private IEnumerator InstantiateEnclumeAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        enclume = Instantiate(enclumePrefab, enclumeHolder.transform, false);
+        isDropped = false;
+    }
+
+    private void Exit()
+    {
+        // UI.GetComponent<Image>().sprite = isNotActivatedUI;
+        _playerInput.currentActionMap = _playerInput.actions.FindActionMap("Gameplay");
+        _isActivated = false;
+        // Désabonnement de l'événement
+        SteamPipeManager steamPipeManager = FindObjectOfType<SteamPipeManager>();
+        steamPipeManager.OnAllSteamPipesDestroyed -= Exit;
+
+    }
+}

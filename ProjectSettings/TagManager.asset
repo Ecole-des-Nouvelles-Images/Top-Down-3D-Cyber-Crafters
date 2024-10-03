@@ -9,19 +9,25 @@ TagManager:
   - Visual
   - Trap
   - ControlStation
+  - Bullet
+  - Enemy
+  - Detection
+  - DangerZone
+  - ControlStationEnclume
+  - Steampipe
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - ShaderPS
   - Water
   - UI
+  - Enemy
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Detection
+  - Bullet
+  - NonCollidingProps
+  - UIOnTop
   - 
   - 
   - 
@@ -45,4 +51,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: ShaderPS
+    uniqueID: 1428185743
     locked: 0
