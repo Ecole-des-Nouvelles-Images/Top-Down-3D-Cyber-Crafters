@@ -14,14 +14,14 @@ Steam Train is a collaborative **tower-defense / roguelike** set in a steampunk 
 ## Dev
 
   
-**Vincent M.** : Product Owner / Game Designer & Game Developer / Integration.  
-  **Alexandre R.** : Game Designer / Game Developper / Integration  
+**Vincent M.** : Product Owner / Game Designer & Game Developer / Integration / Music Composer.  
+**Alexandre R.** : Game Designer / Game Developper / Integration / SFX.  
   
 
 ## Artists :
 
-**Marine A.** : Game Artist  
-**Mathis G.** : Game Artist
+**Marine A.** : 3D, 2D, concept arts
+**Mathis G.** : 3D, concept arts, SFX
 
 # Game's presentation
 
@@ -31,7 +31,9 @@ Steam Train is a collaborative **tower-defense / roguelike** set in a steampunk 
 
 ![](media/conceptarts/characters.PNG)
 
+## Enemies
 
+## Wagons
 
 
 
